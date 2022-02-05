@@ -1,3 +1,6 @@
+class Keyboard:
+    def __init__(self):
+
 
 class PlugLead:
     def __init__(self, mapping):
@@ -10,8 +13,8 @@ class PlugLead:
 
 
 class Plugboard:
-    # Your code here
-    raise NotImplementedError()
+    def __init__(self):
+        self.__plugleads = = [{key} for key in range(1, 11)]
 
 
 # You will need to write more classes, which can be done here or in separate files, you choose.
