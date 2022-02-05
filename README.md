@@ -28,8 +28,7 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#the-task">The task</a></li>  
-    <li>
+    <li><a href="#the-task">The task</a>
       <ul>
         <li><a href="#intro-to-the-task">Introduction to the task</a></li>
         <li><a href="#the-enigma-machine">The Enigma machine</a></li>
@@ -72,10 +71,8 @@ The tasks for this assignment will be explained in more detail in the accompanyi
 
 Here is a picture of the Enigma machine:
 
-<div align="center">
-    <img src="resources/images/an_enigma_machine.jpeg" alt="An Enigma machine">
-    </br>
-</div>
+<img src="resources/images/an_enigma_machine.jpeg" alt="An Enigma machine" width="40%" height="40%">
+<br>
 
 To encode a message, you press a key on the keyboard, which lights up one of the bulbs to indicate the encoded letter. You repeat this process for each character in your message. The machine has the usual 26 characters from A to Z.
 
@@ -100,10 +97,8 @@ You can see a video of the machine in action here:
 
 Here is a diagram adapted from Wikimedia which shows a simplified circuit assuming only four characters: 
 
-<div align="center">
-    <img src="resources/images/the_wiring_of_an_enigma_machine.png" alt="Logo">
-    </br>
-</div>
+<img src="resources/images/the_wiring_of_an_enigma_machine.png" alt="The wiring of an Enigma machine" width="40%" height="40%">
+<br>
 
 [Source]
 
