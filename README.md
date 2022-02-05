@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="images/msc_ai_pop_banner.png" alt="Logo">
+    <img src="resources/images/msc_ai_pop_banner.png" alt="Logo">
 
 <h2 align="center">MSc Artificial Intelligence</h2>
 <h3 align="center">Principals of Programming</h3>
