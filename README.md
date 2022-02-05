@@ -31,9 +31,11 @@
     <li>
       <a href="#intro-to-the-task">Introduction to the task</a>
       <ul>
-        <li><a href="#built-with">Built with</a></li>
+        <li><a href="#the-enigma-machine">The Enigma machine</a></li>
+        <li><a href="#code-breaking">Code breaking</a></li>
       </ul>
     </li>
+    <li><a href="#built-with">Built with</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -86,8 +88,10 @@ You can see a video of the machine in action here:
 
 <iframe width="400" height="225" src="https://www.youtube.com/embed/G2_Q9FoD-oQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+[![Alt text](https://img.youtube.com/vi/G2_Q9FoD-oQ/0.jpg)](https://www.youtube.com/watch?v=G2_Q9FoD-oQ)
 
 
+<!-- ENIGMA WIRING -->
 ## Enigma wiring
 
 Here is a diagram adapted from Wikimedia which shows a simplified circuit assuming only four characters: 
@@ -122,6 +126,7 @@ If you follow the diagram, you can see that, if we had pressed the D switch inst
 
 
 
+<!-- CODE BREAKING -->
 ## Code breaking
 
 One thing you might notice from the machine's design is that a letter can never encode into itself. The German military thought this was a strength – intuitively, you might worry if a letter was not changed in your message because, then, part of the message might be easier to guess. But this turned out to be the machine's biggest weakness because it meant code breakers who had cracked part of the code could rule out various combinations which would cause letters to encode into themselves.
