@@ -21,6 +21,7 @@
 
 <h2 align="center">MSc Artificial Intelligence</h2>
 <h3 align="center">Principals of Programming</h3>
+<h4 align='center'>Graded Activity: Enigma Machine</h4>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -28,9 +29,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#intro-to-the-task">Introduction to the task</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Built with</a></li>
       </ul>
     </li>
     <li><a href="#license">License</a></li>
@@ -41,8 +42,8 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## Introduction to Your Task
+<!-- INTRO-TO-THE-TASK -->
+## Introduction to the task
 
 Cryptography is the practice of encoding secret messages such that they are only readable by the intended recipient and not anyone who intercepts it. This has been studied since ancient times but was vastly accelerated in the first half of the twentieth century for military use during World War I and World War II. This is for obvious reasons – armies need to communicate plans and intelligence throughout their hierarchies. Any means of sending a message in plain text is liable to be intercepted by an enemy. But if you can encode your message so that even the messenger doesn't understand it then this could help tip the balance of a conflict.
 
@@ -56,8 +57,6 @@ You can learn more about the history of the machine online or even visit Bletchl
 
 The tasks for this assignment will be explained in more detail in the accompanying Jupyter notebook. First, let's explain how the Enigma machine itself works, which you will need to know to be able to complete the assignment.
 
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -67,7 +66,9 @@ The tasks for this assignment will be explained in more detail in the accompanyi
 
 Here is a picture of the Enigma machine:
 
-an enigma machine
+<div align="center">
+    <img src="resources/images/an_enigma_machine.jpeg" alt="An Enigma machine">
+</div>
 
 To encode a message, you press a key on the keyboard, which lights up one of the bulbs to indicate the encoded letter. You repeat this process for each character in your message. The machine has the usual 26 characters from A to Z.
 
@@ -91,7 +92,9 @@ You can see a video of the machine in action here:
 
 Here is a diagram adapted from Wikimedia which shows a simplified circuit assuming only four characters: 
 
-the wiring of an enigma machine
+<div align="center">
+    <img src="resources/images/the_wiring_of_an_enigma_machine.png" alt="Logo">
+</div>
 
 [Source]
 
@@ -119,7 +122,6 @@ If you follow the diagram, you can see that, if we had pressed the D switch inst
 
 
 
-
 ## Code breaking
 
 One thing you might notice from the machine's design is that a letter can never encode into itself. The German military thought this was a strength – intuitively, you might worry if a letter was not changed in your message because, then, part of the message might be easier to guess. But this turned out to be the machine's biggest weakness because it meant code breakers who had cracked part of the code could rule out various combinations which would cause letters to encode into themselves.
@@ -127,7 +129,6 @@ One thing you might notice from the machine's design is that a letter can never 
 For Part 2 of this assignment, you will not have to employ the sophisticated codebreaking techniques that were used in Bletchley Park. More detail is provided in the Jupyter notebook for your submission. If you are interested in learning more about these codebreaking methods, there is another video available here:
 
 <iframe width="400" height="225" src="https://www.youtube.com/embed/V4V2bpZlqx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 
 
