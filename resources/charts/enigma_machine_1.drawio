@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-05T15:35:27.291Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36" etag="Lyhc0j0noWn2CWlTTPJ9" version="16.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-05T15:36:18.230Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36" etag="zIrZg_3H4ays5P0d6-Lj" version="16.5.3" type="github">
   <diagram id="IZokSG7Yw7mGTDMLNOXQ" name="Page-1">
     <mxGraphModel dx="345" dy="203" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -7,19 +7,19 @@
         <mxCell id="p_HESIMncqtlb5lp4NN8-1" value="Enigma machine" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="p_HESIMncqtlb5lp4NN8-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="p_HESIMncqtlb5lp4NN8-2" value="Keyboard" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry y="100" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="p_HESIMncqtlb5lp4NN8-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="p_HESIMncqtlb5lp4NN8-3" value="Plugboard" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="160" y="100" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="p_HESIMncqtlb5lp4NN8-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="p_HESIMncqtlb5lp4NN8-4" value="Rotors" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="100" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="p_HESIMncqtlb5lp4NN8-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="p_HESIMncqtlb5lp4NN8-5" value="Reflector" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="480" y="100" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="p_HESIMncqtlb5lp4NN8-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="p_HESIMncqtlb5lp4NN8-6" value="Lampboard" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="640" y="100" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="p_HESIMncqtlb5lp4NN8-8" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
