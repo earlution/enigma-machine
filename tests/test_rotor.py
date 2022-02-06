@@ -55,9 +55,29 @@ class TestRotors(unittest.TestCase):
         test_rotor = Rotor('V')
         self.assertEqual('V', test_rotor.rotor['A'])
 
+    def test_rotor_v_b(self):
+        test_rotor = Rotor('V')
+        self.assertEqual('Z', test_rotor.rotor['B'])
+
+    def test_rotor_v_c(self):
+        test_rotor = Rotor('V')
+        self.assertEqual('B', test_rotor.rotor['C'])
+
+    def test_rotor_v_d(self):
+        test_rotor = Rotor('V')
+        self.assertEqual('R', test_rotor.rotor['D'])
+
+    def test_rotor_v_f(self):
+        test_rotor = Rotor('V')
+        self.assertEqual('I', test_rotor.rotor['F'])
+
     def test_rotor_v_n(self):
         test_rotor = Rotor('V')
         self.assertEqual('H', test_rotor.rotor['N'])
+
+    def test_rotor_v_y(self):
+        test_rotor = Rotor('V')
+        self.assertEqual('C', test_rotor.rotor['Y'])
 
     def test_rotor_v_z(self):
         test_rotor = Rotor('V')
