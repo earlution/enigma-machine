@@ -13,6 +13,10 @@ class Rotor:
     Name of the intended Enigma rotor, must be in ['I', 'II', 'III', 'IV', 'V'].
     """
     def __init__(self, name):
+        if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
+            raise NameError
+        self.name = name
+        self.rotor = dict()
         uppercase_letters_string = string.ascii_uppercase
         uppercase_letters_list = list(uppercase_letters_string)
         rotor_i_letters = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
