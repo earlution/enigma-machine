@@ -47,14 +47,13 @@ class Rotor:
                   'IV': rotor_iv_dict,
                   'V': rotor_v_dict}
 
-
-        if name.upper() == 'I':
+        if self.name.upper() == 'I':
             self.rotor = rotors['I']
-        elif name.upper() == 'II':
+        elif self.name.upper() == 'II':
             self.rotor = rotors['II']
-        elif name.upper() == 'III':
+        elif self.name.upper() == 'III':
             self.rotor = rotors['III']
-        elif name.upper() == 'IV':
+        elif self.name.upper() == 'IV':
             self.rotor = rotors['IV']
-        elif name.upper() == 'V':
+        elif self.name.upper() == 'V':
             self.rotor = rotors['IV']
