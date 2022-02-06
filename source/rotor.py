@@ -17,28 +17,28 @@ class Rotor:
             raise NameError
         self.name = name
         self.rotor = dict()
-        uppercase_letters_string = string.ascii_uppercase
-        uppercase_letters_list = list(uppercase_letters_string)
-        rotor_i_letters = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
-                           'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
-        rotor_ii_letters = ['A', 'J', 'D', 'K', 'S', 'I', 'R', 'U', 'X', 'B', 'L', 'H', 'W',
-                            'T', 'M', 'C', 'Q', 'G', 'Z', 'N', 'P', 'Y', 'F', 'V', 'O', 'E']
-        rotor_iii_letters = ['B', 'D', 'F', 'H', 'J', 'L', 'C', 'P', 'R', 'T', 'X', 'V', 'Z',
-                             'N', 'Y', 'E', 'I', 'W', 'G', 'A', 'K', 'M', 'U', 'S', 'Q', 'O']
-        rotor_iv_letters = ['E', 'S', 'O', 'V', 'P', 'Z', 'J', 'A', 'Y', 'Q', 'U', 'I', 'R',
-                            'H', 'X', 'L', 'N', 'F', 'T', 'G', 'K', 'D', 'C', 'M', 'W', 'B']
-        rotor_v_letters = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
-                           'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
+        uppercase_letters_str = string.ascii_uppercase
+        uppercase_letters_list = list(uppercase_letters_str)
+        rotor_i_chars = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
+                         'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
+        rotor_ii_chars = ['A', 'J', 'D', 'K', 'S', 'I', 'R', 'U', 'X', 'B', 'L', 'H', 'W',
+                          'T', 'M', 'C', 'Q', 'G', 'Z', 'N', 'P', 'Y', 'F', 'V', 'O', 'E']
+        rotor_iii_chars = ['B', 'D', 'F', 'H', 'J', 'L', 'C', 'P', 'R', 'T', 'X', 'V', 'Z',
+                           'N', 'Y', 'E', 'I', 'W', 'G', 'A', 'K', 'M', 'U', 'S', 'Q', 'O']
+        rotor_iv_chars = ['E', 'S', 'O', 'V', 'P', 'Z', 'J', 'A', 'Y', 'Q', 'U', 'I', 'R',
+                          'H', 'X', 'L', 'N', 'F', 'T', 'G', 'K', 'D', 'C', 'M', 'W', 'B']
+        rotor_v_chars = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
+                         'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
 
-        rotor_iterator = zip(uppercase_letters_list, rotor_i_letters)
+        rotor_iterator = zip(uppercase_letters_list, rotor_i_chars)
         rotor_i_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, rotor_ii_letters)
+        rotor_iterator = zip(uppercase_letters_list, rotor_ii_chars)
         rotor_ii_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, rotor_iii_letters)
+        rotor_iterator = zip(uppercase_letters_list, rotor_iii_chars)
         rotor_iii_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, rotor_iv_letters)
+        rotor_iterator = zip(uppercase_letters_list, rotor_iv_chars)
         rotor_iv_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, rotor_v_letters)
+        rotor_iterator = zip(uppercase_letters_list, rotor_v_chars)
         rotor_v_dict = dict(rotor_iterator)
 
         rotors = {'I': rotor_i_dict,
