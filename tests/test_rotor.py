@@ -2,7 +2,7 @@ import unittest
 from rotor import *
 
 
-class TestRotors(unittest.TestCase):
+class TestRotorsInHashtable(unittest.TestCase):
     def test_rotor_i_a(self):
         test_rotor = Rotor('I')
         self.assertEqual('E', test_rotor.rotor['A'])
