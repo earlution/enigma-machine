@@ -82,7 +82,14 @@ class TestRotors(unittest.TestCase):
     def test_rotor_v_z(self):
         test_rotor = Rotor('V')
         self.assertEqual('K', test_rotor.rotor['Z'])
-        self.assertEqual()
+
+    def test_rotor_1_name_error(self):
+        try:
+            test_rotor = Rotor('1')
+        except:
+            NameError
+
+
 
 
 if __name__ == '__main__':
