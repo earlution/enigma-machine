@@ -57,3 +57,6 @@ class Rotor:
             self.rotor = rotors['IV']
         elif self.name.upper() == 'V':
             self.rotor = rotors['IV']
+
+    def encode(self, letter):
+        return self.rotor[letter.upper()]
