@@ -59,4 +59,13 @@ class Rotor:
             self.rotor = rotors['IV']
 
     def encode(self, letter):
+        """Encodes an inputted letter.
+
+        Uses the specific Enigma rotor map to encode a letter.
+
+        :param letter:
+        The letter to encode.
+        :return:
+        The encoded letter
+        """
         return self.rotor[letter.upper()]
