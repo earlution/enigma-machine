@@ -9,6 +9,8 @@ class Rotor:
      (https://www.codesandciphers.org.uk/index.htm). Available from:
      https://www.codesandciphers.org.uk/enigma/rotorspec.htm [06 February 2022].
 
+    :param name:
+    Name of the intended Enigma rotor, must be in ['I', 'II', 'III', 'IV', 'V'].
     """
     def __init__(self, name):
         uppercase_letters_string = string.ascii_uppercase
