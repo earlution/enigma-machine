@@ -24,13 +24,27 @@ class Rotor:
         rotor_v_letters = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
                            'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
 
+        rotor_i_iterator = zip(uppercase_letters_list, rotor_i_letters)
+        rotor_i_dict = dict(rotor_i_iterator)
+        rotor_ii_iterator = zip(uppercase_letters_list, rotor_ii_letters)
+        rotor_ii_dict = dict(rotor_ii_iterator)
+        rotor_iii_iterator = zip(uppercase_letters_list, rotor_iii_letters)
+        rotor_iii_dict = dict(rotor_iii_iterator)
+        rotor_iv_iterator = zip(uppercase_letters_list, rotor_iv_letters)
+        rotor_iv_dict = zip(rotor_iv_iterator)
+        rotor_v_iterator = zip(uppercase_letters_list, rotor_v_letters)
+        rotor_v_dict = dict(rotor_v_iterator)
+
+        rotors = {'I': rotor_i_dict, 'II': rotor_ii_dict, 'III': rotor_iii_dict, 'IV': rotor_iv_dict, 'V': rotor_v_dict}
+
+
         if name.upper() == 'I':
-            self.rotor = rotor_i
+            self.rotor = rotors['I']
         elif name.upper() == 'II':
-            self.rotor = rotor_ii
+            self.rotor = rotors['II']
         elif name.upper() == 'III':
-            self.rotor = rotor_iii
+            self.rotor = rotors['III']
         elif name.upper() == 'IV':
-            self.rotor = rotor_iv
+            self.rotor = rotors['IV']
         elif name.upper() == 'V':
-            self.rotor = rotor_v
+            self.rotor = rotors['IV']
