@@ -7,6 +7,10 @@ class TestRotorsInHashtable(unittest.TestCase):
         test_rotor = Rotor('I')
         self.assertEqual('E', test_rotor.rotor['A'])
 
+    def test_rotor_i_a_little(self):
+        test_rotor = Rotor('I')
+        self.assertEqual('E', test_rotor.rotor['a'])
+
     def test_rotor_i_n(self):
         test_rotor = Rotor('I')
         self.assertEqual('W', test_rotor.rotor['N'])
