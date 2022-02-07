@@ -17,4 +17,11 @@ class Plugboard:
         else:
             # @TODO imp. better error handling here
             print('No available plugleads')
-            raise PermissionError  # don't have permission to add another lead?
+
+
+class Pluglead:
+    def __init__(self, source, target):
+        self.mapping1 = dict()
+        self.mapping1 = {source: target}
+        self.mapping2 = dict()
+        self.mapping2 = {target: source}
