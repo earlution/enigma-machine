@@ -24,13 +24,10 @@ class Enigma:
         print(f'Rotor 2 is {self.rotors[3]}')
 
 
-
-# You will need to write more classes, which can be done here or in separate files, you choose.
-
-
 if __name__ == "__main__":
     # You can use this section to write tests and demonstrations of your enigma code.
     enigma = Enigma()
+    enigma.plugboard.patch('a', 'f')
     letter = enigma.keyboard.press()
     letter_pb = enigma.plugboard.mappings[letter]
     letter_r1 = enigma.rotors[1].encode(letter_pb)
