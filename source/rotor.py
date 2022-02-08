@@ -46,7 +46,7 @@ class Rotor:
     __rotor_v_chars = ('V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
                        'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K')
 
-    def __init__(self, name, rotor_i_chars=None):
+    def __init__(self, name):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
             raise NameError
         self.name = name
