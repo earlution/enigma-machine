@@ -1,4 +1,15 @@
-import string
+from string import ascii_uppercase
+
+
+class Rotor_System:
+    def __init__(self):
+        self.__rotor_1_name = input('Which rotor do you want in position 1 (I, II, III, IV, or V): ')
+        self.__rotor_2_name = input('Which rotor do you want in position 2 (I, II, III, IV, or V): ')
+        self.__rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
+        self.rotor_1 = Rotor(self.__rotor_1_name)
+        self.rotor_2 = Rotor(self.__rotor_2_name)
+        self.rotor_3 = Rotor(self.__rotor_3_name)
+
 
 class Rotor:
     """Implementation of the rotors used in the Enigma Machine.
@@ -62,6 +73,17 @@ class Rotor:
 
     def get_name(self):
         return self.name
+
+    def get_position(self):
+        return self.__position
+
+    def set_position(self, letter)
+        uppercase_letters_list = list(ascii_uppercase)
+        if letter.upper() not in uppercase_letters_list:
+            # @TODO error handling required here
+            raise NameError
+        else:
+            self.__position = letter.upper()
 
     def encode(self, letter):
         """Encodes an inputted letter.
