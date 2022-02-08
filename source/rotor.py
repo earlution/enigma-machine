@@ -51,9 +51,8 @@ class Rotor:
             raise NameError
         self.name = name
         self.rotor = dict()
-        uppercase_letters_list = list(ascii_uppercase)
         self.__position = 'A'
-
+        uppercase_letters_list = list(ascii_uppercase)
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_i_chars)
         rotor_i_dict = dict(rotor_iterator)
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_ii_chars)
