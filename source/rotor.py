@@ -87,9 +87,8 @@ class Rotor:
     def get_position(self):
         return self.__position
 
-    def set_position(self, letter)
-        uppercase_letters_list = list(ascii_uppercase)
-        if letter.upper() not in uppercase_letters_list:
+    def set_position(self, letter):
+        if letter.upper() not in list(ascii_uppercase):
             # @TODO error handling required here
             raise NameError
         else:
