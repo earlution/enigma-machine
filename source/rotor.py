@@ -2,13 +2,24 @@ from string import ascii_uppercase
 
 
 class Rotor_System:
-    def __init__(self):
-        self.__rotor_1_name = input('Which rotor do you want in position 1 (I, II, III, IV, or V): ')
-        self.__rotor_2_name = input('Which rotor do you want in position 2 (I, II, III, IV, or V): ')
-        self.__rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
-        self.rotor_1 = Rotor(self.__rotor_1_name)
-        self.rotor_2 = Rotor(self.__rotor_2_name)
-        self.rotor_3 = Rotor(self.__rotor_3_name)
+    # @TODO imp. with *varargs
+    def __init__(self, rotor_1_name=None, rotor_2_name=None, rotor_3_name=None):
+        if type(rotor_1_name) == str and type(rotor_2_name) == str and type(rotor_3_name) == str:
+            self.rotor_1 = Rotor(rotor_1_name)
+            self.rotor_1_name = rotor_1_name
+            self.rotor_2 = Rotor(rotor_2_name)
+            self.rotor_2_name = rotor_2_name
+            self.rotor_3 = Rotor(rotor_3_name)
+            self.rotor_3_name = rotor_3_name
+            # @ bad design, what if we want a 4 or 5 rotor Enigma?
+        else:
+            # @TODO this is temporary
+            self.rotor_1_name = input('Which rotor do you want in position 1 (I, II, III, IV, or V): ')
+            self.rotor_1 = Rotor(self.rotor_1_name)
+            self.rotor_2_name = input('Which rotor do you want in position 2 (I, II, III, IV, or V): ')
+            self.rotor_2 = Rotor(self.rotor_2_name)
+            self.rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
+            self.rotor_2 = Rotor(self.rotor_2_name)
 
 
 class Rotor:
