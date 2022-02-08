@@ -1,5 +1,5 @@
 from keyboard import Keyboard
-from plugboard import Plugboard
+from plugboard import *
 from rotor import Rotor
 
 
@@ -24,9 +24,16 @@ class Enigma:
         print(f'Rotor 2 is {self.rotors[3]}')
 
 
+
 # You will need to write more classes, which can be done here or in separate files, you choose.
 
 
 if __name__ == "__main__":
     # You can use this section to write tests and demonstrations of your enigma code.
-    pass
+    enigma = Enigma()
+    letter = enigma.keyboard.press()
+    letter_pb = enigma.plugboard.mappings[letter]
+    letter_r1 = enigma.rotors[1].encode(letter_pb)
+    letter_r2 = enigma.rotors[2].encode(letter_r1)
+    letter_r3 = enigma.rotors[3].encode(letter_r2)
+    print(f'Enigma encoded letter: {letter_r3}')

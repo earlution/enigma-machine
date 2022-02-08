@@ -1,4 +1,7 @@
 class Keyboard:
     def __init__(self):
-        # self.letter = input('Please type a letter: ').upper()
-        self.letter = 'A'
+        pass
+
+    def press(self):
+        return input('Type a letter: ').upper()
+
