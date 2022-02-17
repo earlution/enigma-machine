@@ -52,12 +52,12 @@ class Rotor:
     __rotor_v_turnover = 'A'
 
 
-    def __init__(self, name):
+    def __init__(self, name, position='A'):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
             raise NameError
         self.name = name
         self.rotor = dict()
-        self.__position = 'A'
+        self.__position = position
         '''
         uppercase_letters_list = list(ascii_uppercase)
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_i_chars)
