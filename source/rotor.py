@@ -45,6 +45,12 @@ class Rotor:
                         'H', 'X', 'L', 'N', 'F', 'T', 'G', 'K', 'D', 'C', 'M', 'W', 'B']
     __rotor_v_chars = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
                        'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
+    __rotor_i_turnover = 'R'
+    __rotor_ii_turnover = 'F'
+    __rotor_iii_turnover = 'W'
+    __rotor_iv_turnover = 'K'
+    __rotor_v_turnover = 'A'
+
 
     def __init__(self, name):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
