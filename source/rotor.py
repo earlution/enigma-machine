@@ -58,6 +58,7 @@ class Rotor:
         self.name = name
         self.rotor = dict()
         self.__position = 'A'
+        '''
         uppercase_letters_list = list(ascii_uppercase)
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_i_chars)
         rotor_i_dict = dict(rotor_iterator)
@@ -69,6 +70,7 @@ class Rotor:
         rotor_iv_dict = dict(rotor_iterator)
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_v_chars)
         rotor_v_dict = dict(rotor_iterator)
+        '''
 
         rotors = {'I': rotor_i_dict,
                   'II': rotor_ii_dict,
