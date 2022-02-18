@@ -94,6 +94,9 @@ class Rotor:
         else:
             self.__position = letter.upper()
 
+    def __advance_position(self):
+        self.position = chr(ord(self.position) + 1)
+
     def encode(self, letter):
         """Encodes an inputted letter.
 
