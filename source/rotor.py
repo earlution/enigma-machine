@@ -76,6 +76,8 @@ class Rotor:
     def __init__(self, name, position=1):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
             raise NameError
+        if position < 1 or position > 26:
+            raise ValueError
         self.name = name
         self.position = position
         self.rotor = list()
