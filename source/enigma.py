@@ -9,11 +9,22 @@ class Enigma:
         self.plugboard = Plugboard()
         self.rotor_system = Rotor_System()
 
-
     def query_rotors(self):
         print(f'Rotor 1 is {self.rotors[1]}')
         print(f'Rotor 2 is {self.rotors[2]}')
         print(f'Rotor 2 is {self.rotors[3]}')
+
+    def press_key(self, letter):
+        try:
+            letter.isalpha()
+            letter_pb = self.plugboard.encode(letter)
+            letter_rotors = self.rotor_system.encode(letter_pb)
+            # functional placeholder in place of reflector system
+            letter_enc = letter_rotors
+            return letter_enc
+        except:
+            pass
+
 
 
 if __name__ == "__main__":
