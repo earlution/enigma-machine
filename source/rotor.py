@@ -105,7 +105,10 @@ class Rotor:
         return self.position
 
     def set_position(self, position):
-        self.position = position
+        if position < 1 or position > 26:
+            raise ValueError
+        else:
+            self.position = position
 
     def __advance_position(self):
         self.position += 1
