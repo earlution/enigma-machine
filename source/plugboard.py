@@ -21,11 +21,20 @@ class Plugboard:
             self.mappings.update(pluglead.mapping2)
             self.__num_of_plugleads += 1
 
-
-
     # @TODO imp. un_patch: delete from self.plugleads; reset self.mappings
     def un_patch(self, letter):
         raise NotImplementedError
+
+    def encode(self, letter):
+        """Encodes param letter
+
+        Ecoding of the letter depends on the current state of the plugboard. I.e. what - if any - patches have beem
+        made.
+
+        :param letter: the letter to be encoded
+        :return: the encoded letter
+        """
+        return self.mappings[letter]
 
 class Pluglead:
     def __init__(self, source, target):
