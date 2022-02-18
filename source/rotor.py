@@ -35,29 +35,28 @@ class Rotor:
     Name of the intended Enigma rotor, must be in ['I', 'II', 'III', 'IV', 'V'].
     """
 
-    __rotor_i_chars = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
-                       'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
-    __rotor_ii_chars = ['A', 'J', 'D', 'K', 'S', 'I', 'R', 'U', 'X', 'B', 'L', 'H', 'W',
-                        'T', 'M', 'C', 'Q', 'G', 'Z', 'N', 'P', 'Y', 'F', 'V', 'O', 'E']
-    __rotor_iii_chars = ['B', 'D', 'F', 'H', 'J', 'L', 'C', 'P', 'R', 'T', 'X', 'V', 'Z',
-                         'N', 'Y', 'E', 'I', 'W', 'G', 'A', 'K', 'M', 'U', 'S', 'Q', 'O']
-    __rotor_iv_chars = ['E', 'S', 'O', 'V', 'P', 'Z', 'J', 'A', 'Y', 'Q', 'U', 'I', 'R',
-                        'H', 'X', 'L', 'N', 'F', 'T', 'G', 'K', 'D', 'C', 'M', 'W', 'B']
-    __rotor_v_chars = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
-                       'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
+    __rotor_i = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
+                 'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
+    __rotor_ii = ['A', 'J', 'D', 'K', 'S', 'I', 'R', 'U', 'X', 'B', 'L', 'H', 'W',
+                  'T', 'M', 'C', 'Q', 'G', 'Z', 'N', 'P', 'Y', 'F', 'V', 'O', 'E']
+    __rotor_iii = ['B', 'D', 'F', 'H', 'J', 'L', 'C', 'P', 'R', 'T', 'X', 'V', 'Z',
+                   'N', 'Y', 'E', 'I', 'W', 'G', 'A', 'K', 'M', 'U', 'S', 'Q', 'O']
+    __rotor_iv = ['E', 'S', 'O', 'V', 'P', 'Z', 'J', 'A', 'Y', 'Q', 'U', 'I', 'R',
+                  'H', 'X', 'L', 'N', 'F', 'T', 'G', 'K', 'D', 'C', 'M', 'W', 'B']
+    __rotor_v = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
+                 'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
     __rotor_i_turnover = 'R'
     __rotor_ii_turnover = 'F'
     __rotor_iii_turnover = 'W'
     __rotor_iv_turnover = 'K'
     __rotor_v_turnover = 'A'
 
-
     def __init__(self, name, position='A'):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
             raise NameError
         self.name = name
-        self.rotor = dict()
-        self.__position = position
+        self.position = position
+        self.rotor = list()
         '''
         uppercase_letters_list = list(ascii_uppercase)
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_i_chars)
@@ -71,23 +70,16 @@ class Rotor:
         rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_v_chars)
         rotor_v_dict = dict(rotor_iterator)
         '''
-
-        rotors = {'I': rotor_i_dict,
-                  'II': rotor_ii_dict,
-                  'III': rotor_iii_dict,
-                  'IV': rotor_iv_dict,
-                  'V': rotor_v_dict}
-
         if self.name.upper() == 'I':
-            self.rotor = rotors['I']
+            self.rotor = Rotor.__rotor_i.copy()
         elif self.name.upper() == 'II':
-            self.rotor = rotors['II']
+            self.rotor = Rotor.__rotor_ii.copy()
         elif self.name.upper() == 'III':
-            self.rotor = rotors['III']
+            self.rotor = Rotor.__rotor_iii.copy()
         elif self.name.upper() == 'IV':
-            self.rotor = rotors['IV']
+            self.rotor = Rotor.__rotor_iv.copy()
         elif self.name.upper() == 'V':
-            self.rotor = rotors['IV']
+            self.rotor = Rotor.__rotor_v.copy()
 
     def get_name(self):
         return self.name
@@ -112,5 +104,5 @@ class Rotor:
         :return:
         The encoded letter
         """
-        return self.rotor[letter.upper()]
 
+        return self.rotor[letter.upper()]
