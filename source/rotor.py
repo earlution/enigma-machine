@@ -34,11 +34,17 @@ class Rotor_System:
         """
 
         letter = letter.upper()
-        ord_l = ord(letter)
-        letter_in = ord(letter) - ord('A')
-        letter_out = self.rotor[letter_in]
+        self.rotor_1.rotate()
+        if self.rotor_1.position == self.rotor_1.turnover:
+            self.rotor_2.rotate()
+            if self.rotor_2.position == self.rotor_2.turnover:
+                self.rotor_3.rotate()
+        letter = self.rotor_1.encode(letter)
+        letter = self.rotor_2.encode(letter)
+        letter = self.rotor_3.encode(letter)
 
-        return letter_out
+
+        return letter
 
     def turnover(self):
         raise NotImplementedError
