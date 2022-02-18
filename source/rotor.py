@@ -112,3 +112,7 @@ class Rotor:
         # @TODO if turnover, transpose next rotor 1 position to the right
 
         return self.rotor[letter.upper()]
+
+    def turnover(self):
+        raise NotImplementedError
+
