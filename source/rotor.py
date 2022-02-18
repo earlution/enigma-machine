@@ -79,19 +79,7 @@ class Rotor:
         self.name = name
         self.position = position
         self.rotor = list()
-        '''
-        uppercase_letters_list = list(ascii_uppercase)
-        rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_i_chars)
-        rotor_i_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_ii_chars)
-        rotor_ii_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_iii_chars)
-        rotor_iii_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_iv_chars)
-        rotor_iv_dict = dict(rotor_iterator)
-        rotor_iterator = zip(uppercase_letters_list, type(self).__rotor_v_chars)
-        rotor_v_dict = dict(rotor_iterator)
-        '''
+
         if self.name.upper() == 'I':
             self.rotor = Rotor.__rotor_i.copy()
             self.__turnover = Rotor.__rotor_i_turnover
