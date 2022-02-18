@@ -102,20 +102,6 @@ class Rotor:
 
         Uses the specific Enigma rotor map to encode a letter.
 
-        :param letter:
-        The letter to encode.
-        :return:
-        The encoded letter
-        """
-
-        # @TODO get ord() of letter
-        # @TODO relate ord() to a MOD26 value; n, such that to rotor[n] makes sense
-        # @TODO encode letter
-        # @TODO transpose this rotor 1 position to the right
-        # @TODO if turnover, transpose next rotor 1 position to the right
-
-        return self.rotor[letter.upper()]
-
-    def turnover(self):
-        raise NotImplementedError
-
+    def rotate(self):
+        self.__advance_position()
+        self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
