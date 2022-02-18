@@ -10,6 +10,7 @@ class TestPlugboardBaseEncoding(unittest.TestCase):
         result = test_plugboard.mappings['A']
         self.assertEqual('B', result)
 
+
 class TestPlugboardPlugleads(unittest.TestCase):
     def test_add_11th_pluglead(self):
         test_plugboard = Plugboard()
