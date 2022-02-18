@@ -21,6 +21,28 @@ class Rotor_System:
             self.rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
             self.rotor_2 = Rotor(self.rotor_2_name)
 
+    def encode(self, letter):
+        """Encodes an inputted letter.
+
+        - Uses the specific Enigma rotor map to encode a letter.
+        - Checks if turnover position has been reached, if so triggers rotation of next rotor.
+
+        :param letter:
+        The letter to encode.
+        :return:
+        The encoded letter
+        """
+
+        letter = letter.upper()
+        ord_l = ord(letter)
+        letter_in = ord(letter) - ord('A')
+        letter_out = self.rotor[letter_in]
+
+        return letter_out
+
+    def turnover(self):
+        raise NotImplementedError
+
 
 class Rotor:
     """Implementation of the rotors used in the Enigma Machine.
@@ -98,9 +120,8 @@ class Rotor:
         self.position = chr(ord(self.position) + 1)
 
     def encode(self, letter):
-        """Encodes an inputted letter.
-
-        Uses the specific Enigma rotor map to encode a letter.
+        relative_letter_value = ord(letter) - ord('A')
+        return self.rotor[relative_letter_value]
 
     def rotate(self):
         self.__advance_position()
