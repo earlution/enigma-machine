@@ -115,10 +115,8 @@ class Rotor:
         self.position = self.position % 26
 
     def encode(self, letter):
-        relative_letter_value = ord(letter) - ord('A')
-        return self.rotor[relative_letter_value]
-
-    def encode(self, letter):
+        if ord(letter) < 65 or ord(letter) > 90:
+            raise ValueError
         relative_letter_value = ord(letter) - ord('A')
         return self.rotor[relative_letter_value]
 
