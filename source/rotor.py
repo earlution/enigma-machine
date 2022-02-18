@@ -3,7 +3,7 @@ from string import ascii_uppercase
 
 class Rotor_System:
     # @TODO imp. with *varargs
-    def __init__(self, rotor_1_name=None, rotor_2_name=None, rotor_3_name=None):
+    def __init__(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
         if type(rotor_1_name) == str and type(rotor_2_name) == str and type(rotor_3_name) == str:
             self.rotor_1 = Rotor(rotor_1_name)
             self.rotor_1_name = rotor_1_name
