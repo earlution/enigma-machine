@@ -105,4 +105,10 @@ class Rotor:
         The encoded letter
         """
 
+        # @TODO get ord() of letter
+        # @TODO relate ord() to a MOD26 value; n, such that to rotor[n] makes sense
+        # @TODO encode letter
+        # @TODO transpose this rotor 1 position to the right
+        # @TODO if turnover, transpose next rotor 1 position to the right
+
         return self.rotor[letter.upper()]
