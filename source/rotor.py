@@ -73,7 +73,7 @@ class Rotor:
     __rotor_iv_turnover = 'K'
     __rotor_v_turnover = 'A'
 
-    def __init__(self, name, position='A'):
+    def __init__(self, name, position=1):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
             raise NameError
         self.name = name
@@ -100,17 +100,18 @@ class Rotor:
         return self.name
 
     def get_position(self):
-        return self.__position
+        return self.position
 
-    def set_position(self, letter):
-        if letter.upper() not in list(ascii_uppercase):
-            # @TODO error handling required here
-            raise NameError
-        else:
-            self.__position = letter.upper()
+    def set_position(self, position):
+        self.position = position
 
     def __advance_position(self):
-        self.position = chr(ord(self.position) + 1)
+        self.position += 1
+        self.position = self.position % 26
+
+    def encode(self, letter):
+        relative_letter_value = ord(letter) - ord('A')
+        return self.rotor[relative_letter_value]
 
     def encode(self, letter):
         relative_letter_value = ord(letter) - ord('A')
