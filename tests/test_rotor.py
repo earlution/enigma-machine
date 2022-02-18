@@ -187,6 +187,13 @@ class TestRotorEncode(unittest.TestCase):
         self.assertEqual('K', result)
 
 
+class TestRotorRotate(unittest.TestCase):
+    def test_rotor_i_a_from_pos_a(self):
+        test_rotor = Rotor('I', 'A')
+        test_rotor.rotate()
+        result = test_rotor.encode('A')
+        self.assertEqual('J', result)
+
 
 if __name__ == '__main__':
     unittest.main()
