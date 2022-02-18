@@ -82,19 +82,19 @@ class Rotor:
 
         if self.name.upper() == 'I':
             self.rotor = Rotor.__rotor_i.copy()
-            self.__turnover = Rotor.__rotor_i_turnover
+            self.turnover = Rotor.__rotor_i_turnover
         elif self.name.upper() == 'II':
             self.rotor = Rotor.__rotor_ii.copy()
-            self.__turnover = Rotor.__rotor_ii_turnover
+            self.turnover = Rotor.__rotor_ii_turnover
         elif self.name.upper() == 'III':
             self.rotor = Rotor.__rotor_iii.copy()
-            self.__turnover = Rotor.__rotor_iii_turnover
+            self.turnover = Rotor.__rotor_iii_turnover
         elif self.name.upper() == 'IV':
             self.rotor = Rotor.__rotor_iv.copy()
-            self.__turnover = Rotor.__rotor_iv_turnover
+            self.turnover = Rotor.__rotor_iv_turnover
         elif self.name.upper() == 'V':
             self.rotor = Rotor.__rotor_v.copy()
-            self.__turnover = Rotor.__rotor_v_turnover
+            self.turnover = Rotor.__rotor_v_turnover
 
     def get_name(self):
         return self.name
