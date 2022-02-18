@@ -1,6 +1,26 @@
 import unittest
+from enigma import Enigma
 from rotor import *
 
+
+class TestEnigma(unittest.TestCase):
+    def test_vanilla_press_big_a_stages(self):
+        letter = 'A'
+        enigma = Enigma()
+        pb_result = enigma.plugboard.encode(letter)
+        r1_result = enigma.rotor_system.rotor_1.encode(pb_result)
+        r2_result = enigma.rotor_system.rotor_2.encode(r1_result)
+        r3_result = enigma.rotor_system.rotor_3.encode(r2_result)
+        self.assertEqual('A', pb_result)
+        self.assertEqual('E', r1_result)
+        self.assertEqual('S', r2_result)
+        self.assertEqual('G', r3_result)
+
+    def test_vanilla_press_big_a(self):
+        letter = 'A'
+        enigma = Enigma()
+        result = enigma.press_key(letter)
+        self.assertEqual('A', result)
 
 class TestRotorsInHashtable(unittest.TestCase):
     def test_rotor_i_a(self):
