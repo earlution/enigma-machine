@@ -189,10 +189,11 @@ class TestRotorEncode(unittest.TestCase):
 
 class TestRotorRotate(unittest.TestCase):
     def test_rotor_i_a_from_pos_a(self):
-        test_rotor = Rotor('I', 'A')
+        test_rotor = Rotor('I', 1)
         test_rotor.rotate()
         result = test_rotor.encode('A')
         self.assertEqual('J', result)
+        self.assertEqual(2, test_rotor.position)
 
 
 if __name__ == '__main__':
