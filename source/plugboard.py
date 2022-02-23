@@ -15,7 +15,7 @@ class Plugboard:
             print('No available plugleads')
             # raise PermissionError  # don't have permission to add another lead
         else:
-            pluglead = Pluglead(source.upper(), target.upper())
+            pluglead = PlugLead(source.upper(), target.upper())
             self.plugleads.append(pluglead)
             self.mappings.update(pluglead.mapping1)
             self.mappings.update(pluglead.mapping2)
@@ -36,12 +36,23 @@ class Plugboard:
         """
         return self.mappings[letter]
 
-class Pluglead:
-    def __init__(self, source, target):
+class PlugLead:
+    def __init__(self, patch):
+        patch = patch.upper()
+        self.mappings = dict()
+        self.mappings = {patch[0]: patch[1], patch[1]: patch[0]}
+        # @TODO evel. if there is a overlap of functionality here...
         self.mapping1 = dict()
-        self.mapping1 = {source: target}
+        self.mapping1 = {patch[0]: patch[1]}
         self.mapping2 = dict()
-        self.mapping2 = {target: source}
+        self.mapping2 = {patch[1]: patch[0]}
+
+    def encode(self, letter):
+        if letter.upper() in self.mappings:
+            return self.mappings[letter]
+        else:
+            return letter.upper()
+
 
 
 if __name__ == "__main__":
