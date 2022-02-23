@@ -1,7 +1,7 @@
 from string import ascii_uppercase
 
 
-class Rotor_System:
+class Rotors:
     # @TODO imp. with *varargs
     def __init__(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
         if type(rotor_1_name) == str and type(rotor_2_name) == str and type(rotor_3_name) == str:

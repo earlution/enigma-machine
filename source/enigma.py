@@ -7,7 +7,7 @@ class Enigma:
     def __init__(self):
         self.keyboard = Keyboard()
         self.plugboard = Plugboard()
-        self.rotor_system = Rotor_System()
+        self.rotor_system = Rotors()
 
     def query_rotors(self):
         print(f'Rotor 1 is {self.rotors[1]}')
