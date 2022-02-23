@@ -9,16 +9,15 @@ class Plugboard:
         self.__max_num_of_plugleads = 10
         self.__num_of_plugleads = 0
 
-    def patch(self, source, target):
+    def add(self, pluglead):
         if len(self.plugleads) == self.__max_num_of_plugleads:
+            pass
             # @TODO imp. better error handling here
-            print('No available plugleads')
+            # print('No available plugleads')
             # raise PermissionError  # don't have permission to add another lead
         else:
-            pluglead = PlugLead(source.upper(), target.upper())
             self.plugleads.append(pluglead)
-            self.mappings.update(pluglead.mapping1)
-            self.mappings.update(pluglead.mapping2)
+            self.mappings.update(pluglead.mappings)
             self.__num_of_plugleads += 1
 
     # @TODO imp. un_patch: delete from self.plugleads; reset self.mappings
