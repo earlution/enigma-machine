@@ -8,9 +8,9 @@ class TestEnigma(unittest.TestCase):
         letter = 'A'
         enigma = Enigma()
         pb_result = enigma.plugboard.encode(letter)
-        r1_result = enigma.rotor_system.rotor_1.encode(pb_result)
-        r2_result = enigma.rotor_system.rotor_2.encode(r1_result)
-        r3_result = enigma.rotor_system.rotor_3.encode(r2_result)
+        r1_result = enigma.rotors.rotor_1.encode(pb_result)
+        r2_result = enigma.rotors.rotor_2.encode(r1_result)
+        r3_result = enigma.rotors.rotor_3.encode(r2_result)
         self.assertEqual('A', pb_result)
         self.assertEqual('E', r1_result)
         self.assertEqual('S', r2_result)

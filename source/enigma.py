@@ -7,7 +7,7 @@ class Enigma:
     def __init__(self):
         self.keyboard = Keyboard()
         self.plugboard = Plugboard()
-        self.rotor_system = Rotors()
+        self.rotors = Rotors()
 
     def query_rotors(self):
         print(f'Rotor 1 is {self.rotors[1]}')
@@ -18,7 +18,7 @@ class Enigma:
         try:
             letter.isalpha()
             letter_pb = self.plugboard.encode(letter)
-            letter_rotors = self.rotor_system.encode(letter_pb)
+            letter_rotors = self.rotors.encode(letter_pb)
             # functional placeholder in place of reflector system
             letter_enc = letter_rotors
             return letter_enc
