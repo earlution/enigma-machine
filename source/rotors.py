@@ -60,8 +60,10 @@ class Rotor:
     Name of the intended Enigma rotor, must be in ['I', 'II', 'III', 'IV', 'V'].
     """
 
-    __rotor_i = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
-                 'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
+    __rotor_i_std = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
+                     'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
+    __rotor_i_rev = ['U', 'W', 'Y', 'G', 'A', 'D', 'F', 'P', 'V', 'Z', 'B', 'E', 'C',
+                     'K', 'M', 'T', 'H', 'X', 'S', 'L', 'R', 'I', 'N', 'Q', 'O', 'J']
     __rotor_ii = ['A', 'J', 'D', 'K', 'S', 'I', 'R', 'U', 'X', 'B', 'L', 'H', 'W',
                   'T', 'M', 'C', 'Q', 'G', 'Z', 'N', 'P', 'Y', 'F', 'V', 'O', 'E']
     __rotor_iii = ['B', 'D', 'F', 'H', 'J', 'L', 'C', 'P', 'R', 'T', 'X', 'V', 'Z',
@@ -86,7 +88,7 @@ class Rotor:
         self.rotor = list()
 
         if self.name.upper() == 'I':
-            self.rotor = Rotor.__rotor_i.copy()
+            self.rotor = Rotor.__rotor_i_std.copy()
             self.turnover = Rotor.__rotor_i_turnover
         elif self.name.upper() == 'II':
             self.rotor = Rotor.__rotor_ii.copy()
@@ -172,5 +174,5 @@ class RotorI(Rotor):
 
     """
 
-    __rotor_i = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
+    __rotor_i_std = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
                  'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
