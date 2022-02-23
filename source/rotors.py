@@ -111,6 +111,18 @@ class Rotor:
             self.rotor = Rotor.__rotor_v.copy()
             self.turnover = Rotor.__rotor_v_turnover
 
+    def get_rev_encodings(self, std_encodings):
+        import string
+        import operator
+        uc = list(string.ascii_uppercase)
+        dict_to_swap = dict(zip(uc, std_encodings))
+        rev_key_value = {value: key for (key, value) in dict_to_swap.items()}
+        sorted_dict = dict(sorted(rev_key_value.items(), key=operator.itemgetter(0)))
+        # get list of values
+        dict_values = sorted_dict.values()
+        rev_encodings = list(dict_values)
+        return rev_encodings
+
     def __set_rotation(self, position):
         """Sets the rotation for this rotor.
 
