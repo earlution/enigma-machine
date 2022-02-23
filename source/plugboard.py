@@ -53,7 +53,6 @@ class PlugLead:
             return letter.upper()
 
 
-
 if __name__ == "__main__":
     from plugboard import *
     pb = Plugboard()
