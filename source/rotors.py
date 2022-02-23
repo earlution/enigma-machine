@@ -34,14 +34,14 @@ class Rotors:
         """
 
         letter = letter.upper()
-        self.rotor_1.rotate()
-        if self.rotor_1.position == self.rotor_1.turnover:
+        self.rotor_3.rotate()
+        if self.rotor_3.position == self.rotor_3.turnover:
             self.rotor_2.rotate()
             if self.rotor_2.position == self.rotor_2.turnover:
-                self.rotor_3.rotate()
-        letter = self.rotor_1.encode(letter)
-        letter = self.rotor_2.encode(letter)
+                self.rotor_1.rotate()
         letter = self.rotor_3.encode(letter)
+        letter = self.rotor_2.encode(letter)
+        letter = self.rotor_1.encode(letter)
 
 
         return letter
@@ -104,31 +104,70 @@ class Rotor:
             self.rotor = Rotor.__rotor_v.copy()
             self.turnover = Rotor.__rotor_v_turnover
 
+    def __set_rotation(self, position):
+        """Sets the rotation for this rotor.
+
+        :param position: The intended position for this rotor relative to 'A' MOD 26.
+        """
+
+
+
+    def __rotate(self):
+        """Rotates the rotor by one place.
+
+        """
+
+        self.__advance_position()
+        self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
+
+    def __advance_position(self):
+        """Increments the position value of this rotor by 1, until position is 26.  After which the value cycles back
+        round to 1.
+
+        """
+
+        self.position += 1
+        self.position = self.position % 26
+
     def get_name(self):
+        """Gets the name of this rotor.
+
+        :return: The name of this rotor.
+        :rtype: str
+        """
+
         return self.name
 
     def get_position(self):
+        """Gets the current position value of this rotor.
+
+        :return: The position of this rotor.
+        :rtype: str
+        """
+
         return self.position
 
     def set_position(self, position):
+        """Sets the position value for this rotor.
+
+        :param position: The intended position.
+        :raises ValueError: If param position is less than 1 or is greater than 26.
+        """
+
         if position < 1 or position > 26:
             raise ValueError
         else:
             self.position = position
 
-    def __advance_position(self):
-        self.position += 1
-        self.position = self.position % 26
 
     def encode(self, letter):
         if ord(letter) < 65 or ord(letter) > 90:
             raise ValueError
+        self.__rotate()
         relative_letter_value = ord(letter) - ord('A')
         return self.rotor[relative_letter_value]
 
-    def rotate(self):
-        self.__advance_position()
-        self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
+
 
 
 class RotorI(Rotor):
