@@ -27,10 +27,8 @@ class Rotors:
         - Uses the specific Enigma rotor map to encode a letter.
         - Checks if turnover position has been reached, if so triggers rotation of next rotor.
 
-        :param letter:
-        The letter to encode.
-        :return:
-        The encoded letter
+        :param letter: The letter to encode.
+        :return: The encoded letter
         """
 
         letter = letter.upper()
@@ -42,7 +40,6 @@ class Rotors:
         letter = self.rotor_3.encode(letter)
         letter = self.rotor_2.encode(letter)
         letter = self.rotor_1.encode(letter)
-
 
         return letter
 
