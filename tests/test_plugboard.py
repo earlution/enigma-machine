@@ -1,29 +1,45 @@
 import unittest
-from source.plugboard import PlugLead
+from source.plugboard import *
 
 
 class TestPlugboardBaseEncoding(unittest.TestCase):
     def test_patch_big_a_b(self):
         test_plugboard = Plugboard()
-        test_plugboard.patch('A', 'B')
+        test_plugboard.add('A', 'B')
         result = test_plugboard.mappings['A']
         self.assertEqual('B', result)
 
 
-class TestPlugboardPlugleads(unittest.TestCase):
+class TestPlugboardPlugLeads(unittest.TestCase):
+    def test_add_encode_provided_test_1(self):
+        plugboard = Plugboard()
+        plugboard.add(PlugLead("SZ"))
+        plugboard.add(PlugLead("GT"))
+        plugboard.add(PlugLead("DV"))
+        plugboard.add(PlugLead("KU"))
+        self.assertEqual('U', plugboard.encode("K"))
+
+    def test_add_encode_provided_test_2(self):
+        plugboard = Plugboard()
+        plugboard.add(PlugLead("SZ"))
+        plugboard.add(PlugLead("GT"))
+        plugboard.add(PlugLead("DV"))
+        plugboard.add(PlugLead("KU"))
+        self.assertEqual('A', plugboard.encode("A"))
+
     def test_add_11th_pluglead(self):
         test_plugboard = Plugboard()
-        test_plugboard.patch('A', 'B')
-        test_plugboard.patch('C', 'K')
-        test_plugboard.patch('E', 'F')
-        test_plugboard.patch('G', 'H')
-        test_plugboard.patch('I', 'J')
-        test_plugboard.patch('D', 'L')
-        test_plugboard.patch('M', 'N')
-        test_plugboard.patch('O', 'P')
-        test_plugboard.patch('Q', 'R')
-        test_plugboard.patch('S', 'U')
-        test_plugboard.patch('X', 'Z')
+        test_plugboard.add(PlugLead('AB'))
+        test_plugboard.add(PlugLead('CK'))
+        test_plugboard.add(PlugLead('EF'))
+        test_plugboard.add(PlugLead('GH'))
+        test_plugboard.add(PlugLead('IJ'))
+        test_plugboard.add(PlugLead('DL'))
+        test_plugboard.add(PlugLead('MN'))
+        test_plugboard.add(PlugLead('OP'))
+        test_plugboard.add(PlugLead('QR'))
+        test_plugboard.add(PlugLead('SU'))
+        test_plugboard.add(PlugLead('XZ'))
         # @TODO do this test properly
 
 
