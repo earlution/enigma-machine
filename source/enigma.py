@@ -1,6 +1,6 @@
 from keyboard import Keyboard
 from plugboard import *
-from rotor import *
+from rotors import *
 
 
 class Enigma:

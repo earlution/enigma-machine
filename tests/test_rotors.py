@@ -1,6 +1,6 @@
 import unittest
 from enigma import Enigma
-from rotor import *
+from rotors import *
 
 
 class TestEnigma(unittest.TestCase):
