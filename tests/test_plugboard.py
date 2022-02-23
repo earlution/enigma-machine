@@ -1,6 +1,5 @@
 import unittest
-
-from plugboard import Plugboard
+from source.plugboard import PlugLead
 
 
 class TestPlugboardBaseEncoding(unittest.TestCase):
@@ -27,6 +26,27 @@ class TestPlugboardPlugleads(unittest.TestCase):
         test_plugboard.patch('X', 'Z')
         # @TODO do this test properly
 
+
+class TestPlugLead(unittest.TestCase):
+    def test_encode_big_ag_1(self):
+        pluglead = PlugLead('AG')
+        result = pluglead.encode('A')
+        self.assertEqual('G', result)
+
+    def test_encode_big_ag_2(self):
+        pluglead = PlugLead('AG')
+        result = pluglead.encode('D')
+        self.assertEqual('D', result)
+
+    def test_encode_big_da_1(self):
+        pluglead = PlugLead('DA')
+        result = pluglead.encode('A')
+        self.assertEqual('D', result)
+
+    def test_encode_big_da_2(self):
+        pluglead = PlugLead('DA')
+        result = pluglead.encode('D')
+        self.assertEqual('A', result)
 
 if __name__ == '__main__':
     unittest.main()
