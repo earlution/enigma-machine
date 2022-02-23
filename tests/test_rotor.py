@@ -22,6 +22,7 @@ class TestEnigma(unittest.TestCase):
         result = enigma.press_key(letter)
         self.assertEqual('A', result)
 
+
 class TestRotorsInHashtable(unittest.TestCase):
     def test_rotor_i_a(self):
         test_rotor = Rotor('I')
@@ -112,6 +113,7 @@ class TestRotorsInHashtable(unittest.TestCase):
             test_rotor = Rotor('1')
         except:
             NameError
+
 
 class TestRotorEncode(unittest.TestCase):
     def test_rotor_i_encode_a_big(self):
