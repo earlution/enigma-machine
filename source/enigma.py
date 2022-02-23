@@ -29,7 +29,7 @@ class Enigma:
 if __name__ == "__main__":
     # You can use this section to write tests and demonstrations of your enigma code.
     enigma = Enigma()
-    enigma.plugboard.patch('a', 'f')
+    enigma.plugboard.add('a', 'f')
     encoded_letter = enigma.keyboard.press('a')
     print(f'Enigma encoded letter: {encoded_letter}')
 
