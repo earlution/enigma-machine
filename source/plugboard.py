@@ -54,16 +54,4 @@ class PlugLead:
 
 
 if __name__ == "__main__":
-    from plugboard import *
-    pb = Plugboard()
-    pb.add('a', 'b')
-    pb.add('C', 'K')
-    pb.add('E', 'F')
-    pb.add('G', 'H')
-    pb.add('I', 'J')
-    pb.add('D', 'L')
-    pb.add('M', 'N')
-    pb.add('O', 'P')
-    pb.add('Q', 'R')
-    pb.add('S', 'U')
-    pb.add('X', 'Z')
+    pass
