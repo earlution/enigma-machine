@@ -95,8 +95,18 @@ class AbstractReflector(ABC):
         raise NotImplementedError
 
 
-class ConcreteReflector(AbstractReflector):
+class AbstractReflectorStandard(AbstractReflector):
     """
+
+    Each distinct product of a product family should have a base interface. All variants of the product must implement
+    this interface.
+
+    This is an experiment to see if interfaces can be subclassed, or all the abstract methods would have to be repeated
+    """
+    # @TODO ensure this design idea works! see docstring
+
+
+
 
     """
 
