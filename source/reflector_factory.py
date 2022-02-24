@@ -1,9 +1,53 @@
 from abc import ABC, abstractmethod
 
+
 '''
 The docstring notes regarding the abstract factory pattern are from: 
 https://refactoring.guru/design-patterns/abstract-factory/python/example
 '''
+
+class AbstractReflector(ABC):
+    """Superclass for the abstract reflector interfaces.
+
+    Without this parent class, the abstract methods would have to be implemented in both below interfaces:
+     AbstractReflectorStandard
+     AbstractReflectorThin
+    """
+
+    __encodings = list()
+
+    @abstractmethod
+    def name(self) -> str:
+        raise NotImplementedError
+
+    @abstractmethod
+    def encodings(self) -> list:
+        raise NotImplementedError
+
+    @abstractmethod
+    def encode(self) -> str:
+        raise NotImplementedError
+
+
+class AbstractReflectorStandard(AbstractReflector):
+    """
+
+    Each distinct product of a product family should have a base interface. All variants of the product must implement
+    this interface.
+
+    This is an experiment to see if interfaces can be subclassed, or all the abstract methods would have to be repeated
+    """
+    # @TODO ensure this design idea works! see docstring
+
+
+class AbstractReflectorThin(AbstractReflector):
+    """
+
+    Here's the base interface of another product. All products can interact with each other, but proper interaction
+    is possible only between products of the same concrete variant.
+    """
+    # @TODO ensure this design idea works! see docstring
+
 
 class AbstractReflectorFactory(ABC):
     """
