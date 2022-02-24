@@ -125,3 +125,17 @@ class ReflectorCThin(Reflector):
 
     def __init__(self):
         self._encodings = ReflectorA.__encodings
+
+
+class ReflectorETW(Reflector):
+    """An Enigma reflector.
+
+    Date introduced:
+    Model name and number: Enigma I
+    """
+
+    __encodings = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+    def __init__(self):
+        self._encodings = ReflectorA.__encodings
