@@ -104,8 +104,10 @@ class ReflectorC(Reflector):
 
 
 class ReflectorBThin(Reflector):
-    """
+    """An Enigma reflector.
 
+    Date introduced: 1940
+    Model name and number: M4 R1 (M3 + Thin)
     """
 
     __encodings = ['E', 'N', 'K', 'Q', 'A', 'U', 'Y', 'W', 'J', 'I', 'C', 'O', 'P',
@@ -116,8 +118,10 @@ class ReflectorBThin(Reflector):
 
 
 class ReflectorCThin(Reflector):
-    """
+    """An Enigma reflector.
 
+    Date introduced: 1940
+    Model name and number: M4 R1 (M3 + Thin)
     """
 
     __encodings = ['R', 'D', 'O', 'B', 'J', 'N', 'T', 'K', 'V', 'E', 'H', 'M', 'L',
