@@ -272,8 +272,9 @@ def test_reflector_factory(factory: AbstractReflectorFactory) -> None:
     types: AbstractFactory and AbstractProduct. This lets you pass any factory
     or product subclass to the client code without breaking it.
     """
-    reflector = factory.create_product_a()
-    product_b = factory.create_product_b()
+    reflector_a = factory.create_reflector_standard()
+    reflector_a.
+    reflector_std_b = factory.create_reflector_standard()
 
     print(f"{product_b.useful_function_b()}")
     print(f"{product_b.another_useful_function_b(product_a)}", end="")
