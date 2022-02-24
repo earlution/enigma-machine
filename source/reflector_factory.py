@@ -66,7 +66,7 @@ class ConcreteReflectorThinFactory(AbstractReflectorFactory):
 
         return ConcreteReflectorThinA()
 
-    def create_reflector_b(self) -> AbstractReflectorThin:
+    def create_reflector_thin_b(self) -> AbstractReflectorThin:
         """
 
         """
