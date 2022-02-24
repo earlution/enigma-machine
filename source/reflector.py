@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+
+
 # @TODO is this the correct name?
 from abc import abstractmethod
 
@@ -39,7 +42,7 @@ class Reflectors_Factory:
         print(f'{reflector.encoding}')
 
 
-class Reflector:
+class Reflector(ABC):
     """
 
     """
