@@ -69,7 +69,7 @@ class AbstractReflector(ABC):
         raise NotImplementedError
 
 
-
+class ConcreteReflector(AbstractReflector):
     """
 
     """
@@ -87,17 +87,12 @@ class AbstractReflector(ABC):
     def encodings(self):
         return self._encodings
 
-    '''
-    @abstractmethod
-    def encode(self, letter):
-        pass
-    '''
     def encode(self, letter):
         """Encodes a letter using the specific reflector schema in the subclass.
 
-                :param letter: The letter to be encoded.
-                :return: The encoded letter.
-                """
+        :param letter: The letter to be encoded.
+        :return: The encoded letter.
+        """
 
         if ord(letter) < 65 or ord(letter) > 90:
             raise ValueError
