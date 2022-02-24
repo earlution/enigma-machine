@@ -79,3 +79,13 @@ class ReflectorA(Reflector):
         self._encodings = ReflectorA.__encodings
 
 
+class ReflectorB(Reflector):
+    """
+
+    """
+
+    __encodings = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O',
+                   'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
+
+    def __init__(self):
+        self._encodings = ReflectorA.__encodings
