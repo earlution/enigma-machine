@@ -18,6 +18,10 @@ class AbstractReflectorFactory(ABC):
     def create_reflector_standard(self) -> AbstractReflectorStandard:
         pass
 
+    @abstractmethod
+    def create_reflector_thin(self) -> AbstractReflectorThin:
+        pass
+
 
 class ConcreteReflectorFactory(AbstractReflectorFactory):
     """
