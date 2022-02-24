@@ -49,7 +49,27 @@ class ConcreteReflectorFactory(AbstractReflectorFactory):
         pass
 
 
-class Reflector(ABC):
+class AbstractReflector(ABC):
+    """
+
+    Each distinct product of a product family should have a base interface. All variants of the product must implement
+    this interface.
+    """
+
+    @abstractmethod
+    def name(self) -> str:
+        raise NotImplementedError
+
+    @abstractmethod
+    def encodings(self) -> list:
+        raise NotImplementedError
+
+    @abstractmethod
+    def encode(self) -> str:
+        raise NotImplementedError
+
+
+
     """
 
     """
