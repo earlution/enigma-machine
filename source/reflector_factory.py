@@ -53,7 +53,28 @@ class ConcreteReflectorStandardFactory(AbstractReflectorFactory):
         return ConcreteReflectorStandardC()
 
 
-class AbstractReflector(ABC):
+class ConcreteReflectorThinFactory(AbstractReflectorFactory):
+    """
+
+    Each Concrete Factory has a corresponding product variant.
+    """
+
+    def create_reflector_thin_a(self) -> AbstractReflectorThin:
+        """
+
+        """
+
+        return ConcreteReflectorThinA()
+
+    def create_reflector_b(self) -> AbstractReflectorThin:
+        """
+
+        """
+
+        return ConcreteReflectorThinB()
+
+
+
     """
 
     Each distinct product of a product family should have a base interface. All variants of the product must implement
