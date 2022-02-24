@@ -14,6 +14,24 @@ class ReflectorsFactory:
 
         self.reflector_factory = reflectors_factory
 
+    def reflector_factory(self, name='A'):
+        """Factory method to create a reflector of desired type.
+
+        :param name: The name of the intended reflector
+        :return: The specified reflector
+        """
+
+        reflectors = {'A': ReflectorA,
+                      'B': ReflectorB,
+                      'C': ReflectorC,
+                      'B Thin': ReflectorBThin,
+                      'C Thin': ReflectorCThin}
+
+        if name not in reflectors:
+            return reflectors['A']()
+        else:
+            return reflectors[name]()
+
     def show_reflector(self):
         """ creates and shoes reflectors using the abstract factory
 
