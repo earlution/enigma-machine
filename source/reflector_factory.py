@@ -115,6 +115,11 @@ class AbstractReflectorThin(AbstractReflector):
     # @TODO ensure this design idea works! see docstring
 
 
+# @TODO see if I can have a Reflector subclass, so that @properties do not need to be repeated
+class ConcreteReflectorStandard(AbstractReflectorStandard):
+    """
+
+    """
 
     def __init__(self, name):
         self._name = name
