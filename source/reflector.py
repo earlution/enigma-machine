@@ -71,7 +71,7 @@ class ReflectorA(Reflector):
                    'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
 
     def __init__(self, name):
-        super.__init__(name)
+        #super.__init__(name)
         self._encodings = ReflectorA.__encodings
 
 
