@@ -179,6 +179,7 @@ class ConcreteReflectorThin(AbstractReflectorThin):
         index_value = ord(letter) - ord('A')
 
         return self._encodings[index_value]
+'''
 
 
 class ConcreteReflectorStandardA(AbstractReflectorStandard):
