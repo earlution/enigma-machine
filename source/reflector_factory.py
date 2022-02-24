@@ -1,5 +1,18 @@
 from abc import ABC, abstractmethod
 
+class AbstractReflectorFactory(ABC):
+    """
+
+    The Abstract Factory interface declares a set of methods that return different abstract products. These products
+    are called a family and are related by a high-level theme or concept. Products of one family are usually able to
+    collaborate among themselves. A family of products may have several variants, but the products of one variant are
+    incompatible with products of another.
+    source: https://refactoring.guru/design-patterns/abstract-factory/python/example
+    """
+
+    @abstractmethod
+    def create_reflector(self) -> AbstractReflector:
+
 
 class Reflector(ABC):
     """
