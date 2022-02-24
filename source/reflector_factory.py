@@ -103,14 +103,14 @@ class ConcreteReflectorThinFactory(AbstractReflectorFactory):
     Each Concrete Factory has a corresponding product variant.
     """
 
-    def create_reflector_thin_a(self) -> AbstractReflectorThin:
-        """
-
-        """
-
-        return ConcreteReflectorThinA()
-
     def create_reflector_thin_b(self) -> AbstractReflectorThin:
+        """
+
+        """
+
+        return ConcreteReflectorThinB()
+
+    def create_reflector_thin_c(self) -> AbstractReflectorThin:
         """
 
         """
