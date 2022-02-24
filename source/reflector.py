@@ -34,3 +34,18 @@ class Reflectors_Factory:
         print(f'We have a reflector{reflector}')
         print('it has the following encoding pattern: ')
         print(f'{reflector.encoding}')
+
+
+class Reflector:
+    """
+
+    """
+
+    __encoding = list()
+
+    def encode(self, letter):
+        """
+
+        """
+
+        raise NotImplementedError
