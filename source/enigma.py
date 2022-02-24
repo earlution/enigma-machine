@@ -8,6 +8,7 @@ class Enigma:
         self.keyboard = Keyboard()
         self.plugboard = Plugboard()
         self.rotors = Rotors()
+        self.reflector = Reflector()
 
     def query_rotors(self):
         print(f'Rotor 1 is {self.rotors[1]}')
