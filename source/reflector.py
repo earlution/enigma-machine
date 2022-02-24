@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 
 
 # @TODO is this the correct name?
+from typing import List, Any
+
+
 class Reflectors:
     """
 
@@ -49,7 +52,7 @@ class Reflector(ABC):
 
     """
 
-    __encodings = list()
+    __encodings: list[Any] = list()
 
     def __init__(self, name):
         self._name = name
@@ -91,13 +94,8 @@ class ReflectorA(Reflector):
 
     def __init__(self, name):
         super.__init__(name)
-
-
-    '''
-    def __init__(self):
-        super.__init__()
         self._encodings = ReflectorA.__encodings
-    '''
+
 
 
 class ReflectorB(Reflector):
