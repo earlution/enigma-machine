@@ -111,12 +111,7 @@ class ReflectorA(ConcreteReflector):
 
     def __init__(self, name):
         super().__init__(name)
-
-    '''
-    def __init__(self):
-        super.__init__()
         self._encodings = ReflectorA.__encodings
-    '''
 
 
 class ReflectorB(ConcreteReflector):
