@@ -21,7 +21,6 @@ class Rotors:
             self.rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
             self.rotor_2 = Rotor(self.rotor_2_name)
 
-
     def encode(self, letter):
         """Encodes an inputted letter.
 
