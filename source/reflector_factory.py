@@ -1,5 +1,10 @@
 from abc import ABC, abstractmethod
 
+'''
+The docstring notes regarding the abstract factory pattern are from: 
+https://refactoring.guru/design-patterns/abstract-factory/python/example
+'''
+
 class AbstractReflectorFactory(ABC):
     """
 
