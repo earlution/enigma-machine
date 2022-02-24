@@ -1,4 +1,7 @@
 # @TODO is this the correct name?
+from abc import abstractmethod
+
+
 class Reflectors_Factory:
     """
 
@@ -49,6 +52,11 @@ class Reflector:
         """
 
         raise NotImplementedError
+
+
+    @abstractmethod
+    def get_encoding(self):
+        pass
 
 
 class Reflector_A(Reflector):
