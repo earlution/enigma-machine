@@ -31,21 +31,21 @@ class ConcreteReflectorStandardFactory(AbstractReflectorFactory):
     product, while inside the method a concrete product is instantiated.
     """
 
-    def create_reflector_a(self) -> AbstractReflectorStandard:
+    def create_reflector_standard_a(self) -> AbstractReflectorStandard:
         """
 
         """
 
         return ConcreteReflectorStandardA()
 
-    def create_reflector_b(self) -> AbstractReflectorStandard:
+    def create_reflector_standard_b(self) -> AbstractReflectorStandard:
         """
 
         """
 
         return ConcreteReflectorStandardB()
 
-    def create_reflector_c(self) -> AbstractReflectorStandard:
+    def create_reflector_standard_c(self) -> AbstractReflectorStandard:
         """
 
         """
