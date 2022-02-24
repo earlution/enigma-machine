@@ -1,10 +1,7 @@
 from abc import ABC, abstractmethod
-
-
-# @TODO is this the correct name?
 from typing import List, Any
 
-
+# @TODO is this the correct name?
 class Reflectors:
     """
 
@@ -17,23 +14,6 @@ class Reflectors:
 
         self.reflector_factory = reflectors_factory
 
-    def reflector_factory(self, name='A'):
-        """Factory method to create a reflector of desired type.
-
-        :param name: The name of the intended reflector
-        :return: The specified reflector
-        """
-
-        reflectors = {'A': ReflectorA,
-                      'B': ReflectorB,
-                      'C': ReflectorC,
-                      'B Thin': ReflectorBThin,
-                      'C Thin': ReflectorCThin}
-
-        if name not in reflectors:
-            return reflectors['A']()
-        else:
-            return reflectors[name]()
 
     def show_reflector(self):
         """ creates and shoes reflectors using the abstract factory
@@ -54,7 +34,7 @@ class Reflector(ABC):
 
     __encodings: list[Any] = list()
 
-    def __init__(self, name):
+    def __init__(self, name='A'):
         self._name = name
 
     @property
@@ -95,7 +75,6 @@ class ReflectorA(Reflector):
     def __init__(self, name):
         super.__init__(name)
         self._encodings = ReflectorA.__encodings
-
 
 
 class ReflectorB(Reflector):
@@ -162,6 +141,25 @@ class ReflectorETW(Reflector):
 
     def __init__(self):
         self._encodings = ReflectorETW.__encodings
+
+
+def reflector_factory(name='A'):
+    """Factory method to create a reflector of desired type.
+
+    :param name: The name of the intended reflector
+    :return: The specified reflector
+    """
+
+    reflectors = {'A': ReflectorA,
+                  'B': ReflectorB,
+                  'C': ReflectorC,
+                  'B Thin': ReflectorBThin,
+                  'C Thin': ReflectorCThin}
+
+    if name not in reflectors:
+        return reflectors['A']()
+    else:
+        return reflectors[name]()
 
 
 if __name__ == "__main__":
