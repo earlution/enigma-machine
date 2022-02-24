@@ -88,7 +88,7 @@ class ReflectorB(Reflector):
                    'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
 
     def __init__(self):
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ReflectorB.__encodings
 
 
 class ReflectorC(Reflector):
@@ -100,7 +100,7 @@ class ReflectorC(Reflector):
                    'W', 'G', 'C', 'T', 'K', 'U', 'Q', 'S', 'B', 'N', 'M', 'H', 'L']
 
     def __init__(self):
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ReflectorC.__encodings
 
 
 class ReflectorBThin(Reflector):
@@ -114,7 +114,7 @@ class ReflectorBThin(Reflector):
                    'B', 'L', 'M', 'D', 'X', 'Z', 'V', 'F', 'T', 'H', 'R', 'G', 'S']
 
     def __init__(self):
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ReflectorBThin.__encodings
 
 
 class ReflectorCThin(Reflector):
@@ -128,7 +128,7 @@ class ReflectorCThin(Reflector):
                    'F', 'C', 'W', 'Z', 'A', 'X', 'G', 'Y', 'I', 'P', 'S', 'U', 'Q']
 
     def __init__(self):
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ReflectorCThin.__encodings
 
 
 class ReflectorETW(Reflector):
@@ -142,4 +142,4 @@ class ReflectorETW(Reflector):
                    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
     def __init__(self):
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ReflectorETW.__encodings
