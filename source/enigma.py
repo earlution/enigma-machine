@@ -23,9 +23,7 @@ class Enigma:
             letter_reflector = self.reflector.encode(letter_rotors)
             letter_rev_rotors = self.rotors.reverse_encode(letter_reflector)
 
-            return letter_enc
-        except:
-            pass
+            return letter_rev_rotors
 
 
 if __name__ == "__main__":
