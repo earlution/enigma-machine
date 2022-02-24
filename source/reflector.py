@@ -44,6 +44,13 @@ class Reflector(ABC):
 
     __encodings = list()
 
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
     @property
     def encodings(self):
         return self._encodings
@@ -75,8 +82,15 @@ class ReflectorA(Reflector):
     __encodings = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
                    'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
 
+    def __init__(self, name):
+        super.__init__(name)
+
+
+    '''
     def __init__(self):
+        super.__init__()
         self._encodings = ReflectorA.__encodings
+    '''
 
 
 class ReflectorB(Reflector):
