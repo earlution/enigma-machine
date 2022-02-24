@@ -2,10 +2,7 @@ from abc import ABC, abstractmethod
 
 
 # @TODO is this the correct name?
-from abc import abstractmethod
-
-
-class Reflectors_Factory:
+class ReflectorsFactory:
     """
 
     """
@@ -67,7 +64,10 @@ class Reflector(ABC):
             raise ValueError
         index_value = ord(letter) - ord('A')
 
-class Reflector_A(Reflector):
+        return self._encodings[index_value]
+
+
+class ReflectorA(Reflector):
     """
 
     """
