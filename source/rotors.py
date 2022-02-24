@@ -210,7 +210,8 @@ class Rotor:
         relative_letter_value = ord(letter) - ord('A')
         return self.rotor[relative_letter_value]
 
-
+    def rotate(self):
+        pass
 
 
 class RotorI(Rotor):
@@ -223,7 +224,7 @@ class RotorI(Rotor):
 
 
 if __name__ == "__main__":
-    rotor = Rotor('II')
+    rotor = Rotor('VIII')
     std_encodings = rotor.rotor
     rev_encodings = rotor.get_rev_encodings(std_encodings)
     print(rev_encodings)
