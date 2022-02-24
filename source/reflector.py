@@ -157,3 +157,7 @@ class ReflectorETW(Reflector):
 
     def __init__(self):
         self._encodings = ReflectorETW.__encodings
+
+
+if __name__ == "__main__":
+    pass
