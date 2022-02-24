@@ -181,8 +181,7 @@ class ConcreteReflectorThin(AbstractReflectorThin):
         return self._encodings[index_value]
 
 
-
-class ReflectorA(ConcreteReflector):
+class ConcreteReflectorStandardA(AbstractReflectorStandard):
     """
 
     """
@@ -190,12 +189,12 @@ class ReflectorA(ConcreteReflector):
     __encodings = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
                    'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
 
-    def __init__(self, name):
+    def __init__(self, name: object) -> object:
         super().__init__(name)
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ConcreteReflectorStandardA.__encodings
 
 
-class ReflectorB(ConcreteReflector):
+class ConcreteReflectorStandardB(AbstractReflectorStandard):
     """
 
     """
@@ -205,10 +204,10 @@ class ReflectorB(ConcreteReflector):
 
     def __init__(self, name):
         super().__init__(name)
-        self._encodings = ReflectorB.__encodings
+        self._encodings = ConcreteReflectorStandardB.__encodings
 
 
-class ReflectorC(ConcreteReflector):
+class ConcreteReflectorStandardC(AbstractReflectorStandard):
     """
 
     """
@@ -218,10 +217,10 @@ class ReflectorC(ConcreteReflector):
 
     def __init__(self, name):
         super().__init__(name)
-        self._encodings = ReflectorC.__encodings
+        self._encodings = ConcreteReflectorStandardB.__encodings
 
 
-class ReflectorBThin(ConcreteReflector):
+class ConcreteReflectorThinB(AbstractReflectorThin):
     """An Enigma reflector.
 
     Date introduced: 1940
@@ -233,10 +232,10 @@ class ReflectorBThin(ConcreteReflector):
 
     def __init__(self, name):
         super().__init__(name)
-        self._encodings = ReflectorBThin.__encodings
+        self._encodings = ConcreteReflectorThinB.__encodings
 
 
-class ReflectorCThin(ConcreteReflector):
+class ConcreteReflectorThinC(AbstractReflectorThin):
     """An Enigma reflector.
 
     Date introduced: 1940
@@ -248,10 +247,10 @@ class ReflectorCThin(ConcreteReflector):
 
     def __init__(self, name):
         super().__init__(name)
-        self._encodings = ReflectorCThin.__encodings
+        self._encodings = ConcreteReflectorThinC.__encodings
 
 
-class ReflectorETW(ConcreteReflector):
+class ConcreteReflectorETW(AbstractReflectorStandard):
     """An Enigma reflector.
 
     Date introduced:
@@ -263,7 +262,7 @@ class ReflectorETW(ConcreteReflector):
 
     def __init__(self, name):
         super().__init__(name)
-        self._encodings = ReflectorETW.__encodings
+        self._encodings = ConcreteReflectorETW.__encodings
 
 
 def test_reflector_factory(factory: AbstractReflectorFactory) -> None:
