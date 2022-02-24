@@ -1,5 +1,6 @@
-from keyboard import Keyboard
+from keyboard import *
 from plugboard import *
+from reflector import *
 from rotors import *
 
 
