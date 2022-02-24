@@ -1,4 +1,7 @@
 class Rotors:
+    """
+
+    """
     # @TODO imp. with *varargs
     def __init__(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
         if type(rotor_1_name) == str and type(rotor_2_name) == str and type(rotor_3_name) == str:
@@ -17,6 +20,7 @@ class Rotors:
             self.rotor_2 = Rotor(self.rotor_2_name)
             self.rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
             self.rotor_2 = Rotor(self.rotor_2_name)
+
 
     def encode(self, letter):
         """Encodes an inputted letter.
@@ -39,6 +43,7 @@ class Rotors:
         letter = self.rotor_1.encode(letter)
 
         return letter
+
 
     def turnover(self):
         raise NotImplementedError
@@ -101,6 +106,7 @@ class Rotor:
     __rotor_vii_turnover = ['A', 'N']
     __rotor_viii_turnover = ['A', 'N']
 
+
     def __init__(self, name, position=1):
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
             raise NameError
@@ -135,6 +141,7 @@ class Rotor:
             self.rotor = Rotor.__rotor_viii_std.copy()
             self.turnover = Rotor.__rotor_viii_turnover
 
+
     def get_rev_encodings(self, std_encodings):
         import string
         import operator
@@ -147,12 +154,14 @@ class Rotor:
         rev_encodings = list(dict_values)
         return rev_encodings
 
+
     def __set_rotation(self, position):
         """Sets the rotation for this rotor.
 
         :param position: The intended position for this rotor relative to 'A' MOD 26.
         """
 
+        raise NotImplementedError
 
 
     def __rotate(self):
@@ -163,6 +172,7 @@ class Rotor:
         self.__advance_position()
         self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
 
+
     def __advance_position(self):
         """Increments the position value of this rotor by 1, until position is 26.  After which the value cycles back
         round to 1.
@@ -171,6 +181,7 @@ class Rotor:
 
         self.position += 1
         self.position = self.position % 26
+
 
     def get_name(self):
         """Gets the name of this rotor.
@@ -181,6 +192,7 @@ class Rotor:
 
         return self.name
 
+
     def get_position(self):
         """Gets the current position value of this rotor.
 
@@ -189,6 +201,7 @@ class Rotor:
         """
 
         return self.position
+
 
     def set_position(self, position):
         """Sets the position value for this rotor.
@@ -208,6 +221,7 @@ class Rotor:
             raise ValueError
         self.__rotate()
         relative_letter_value = ord(letter) - ord('A')
+
         return self.rotor[relative_letter_value]
 
     def rotate(self):
