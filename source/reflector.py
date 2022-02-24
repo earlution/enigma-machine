@@ -49,3 +49,12 @@ class Reflector:
         """
 
         raise NotImplementedError
+
+
+class Reflector_A(Reflector):
+    """
+
+    """
+
+    __encoding = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
+                  'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
