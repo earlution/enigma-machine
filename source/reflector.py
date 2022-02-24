@@ -37,11 +37,9 @@ class Reflector(ABC):
     def __init__(self, name='A'):
         self._name = name
 
-    @property
     def name(self):
         return self._name
 
-    @property
     def encodings(self):
         return self._encodings
 
