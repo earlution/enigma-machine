@@ -106,11 +106,15 @@ class AbstractReflectorStandard(AbstractReflector):
     # @TODO ensure this design idea works! see docstring
 
 
-
-
+class AbstractReflectorThin(AbstractReflector):
     """
 
-    __encodings = list()
+    Here's the base interface of another product. All products can interact with each other, but proper interaction
+    is possible only between products of the same concrete variant.
+    """
+    # @TODO ensure this design idea works! see docstring
+
+
 
     def __init__(self, name):
         self._name = name
