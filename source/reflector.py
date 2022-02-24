@@ -46,6 +46,7 @@ class Reflector:
 
     __encoding = list()
 
+
     def encode(self, letter):
         """
 
@@ -66,3 +67,7 @@ class Reflector_A(Reflector):
 
     __encoding = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
                   'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
+
+    
+    def get_encoding(self):
+        return Reflector_A.__encoding
