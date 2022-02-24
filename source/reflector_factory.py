@@ -146,6 +146,39 @@ class ConcreteReflectorStandard(AbstractReflectorStandard):
         return self._encodings[index_value]
 
 
+class ConcreteReflectorThin(AbstractReflectorThin):
+    """
+
+    """
+
+    __encodings = list()
+
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def encodings(self):
+        return self._encodings
+
+    def encode(self, letter):
+        """Encodes a letter using the specific reflector schema in the subclass.
+
+        :param letter: The letter to be encoded.
+        :return: The encoded letter.
+        """
+
+        if ord(letter) < 65 or ord(letter) > 90:
+            raise ValueError
+        index_value = ord(letter) - ord('A')
+
+        return self._encodings[index_value]
+
+
+
 class ReflectorA(ConcreteReflector):
     """
 
