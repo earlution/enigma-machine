@@ -210,6 +210,18 @@ class ReflectorETW(ConcreteReflector):
         self._encodings = ReflectorETW.__encodings
 
 
+def test_reflector_factory(factory: AbstractReflectorFactory) -> None:
+    """
+    The client code works with factories and products only through abstract
+    types: AbstractFactory and AbstractProduct. This lets you pass any factory
+    or product subclass to the client code without breaking it.
+    """
+    reflector = factory.create_product_a()
+    product_b = factory.create_product_b()
+
+    print(f"{product_b.useful_function_b()}")
+    print(f"{product_b.another_useful_function_b(product_a)}", end="")
+
 if __name__ == "__main__":
     reflector = ReflectorsFactory(ReflectorA)
     reflector.name()
