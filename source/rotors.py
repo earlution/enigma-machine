@@ -44,6 +44,9 @@ class Rotors:
 
         return letter
 
+    def reverse_encode(self, letter):
+        letter = letter.upper()
+        letter = self.rotor_1.encode(letter)
 
     def turnover(self):
         raise NotImplementedError
