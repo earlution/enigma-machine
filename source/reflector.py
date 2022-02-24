@@ -2,21 +2,10 @@ from abc import ABC, abstractmethod
 
 
 # @TODO is this the correct name?
-class ReflectorsFactory:
+class Reflectors:
     """
 
     """
-
-    __reflector_a = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
-                     'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
-    __reflector_b = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O',
-                     'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
-    __reflector_c = ['F', 'V', 'P', 'J', 'I', 'A', 'O', 'Y', 'E', 'D', 'R', 'Z', 'X',
-                     'W', 'G', 'C', 'T', 'K', 'U', 'Q', 'S', 'B', 'N', 'M', 'H', 'L']
-    __reflector_b_thin = ['E', 'N', 'K', 'Q', 'A', 'U', 'Y', 'W', 'J', 'I', 'C', 'O', 'P',
-                          'B', 'L', 'M', 'D', 'X', 'Z', 'V', 'F', 'T', 'H', 'R', 'G', 'S']
-    __reflector_c_thin = ['R', 'D', 'O', 'B', 'J', 'N', 'T', 'K', 'V', 'E', 'H', 'M', 'L',
-                          'F', 'C', 'W', 'Z', 'A', 'X', 'G', 'Y', 'I', 'P', 'S', 'U', 'Q']
 
     def __init__(self, reflectors_factory=None):
         """reflector_factory is the abstract factory
@@ -24,6 +13,25 @@ class ReflectorsFactory:
         """
 
         self.reflector_factory = reflectors_factory
+
+    def reflector_factory(self, name='A'):
+        """Factory method to create a reflector of desired type.
+
+        :param name: The name of the intended reflector
+        :return: The specified reflector
+        """
+
+        reflectors = {'A': ReflectorA,
+                      'B': ReflectorB,
+                      'C':ReflectorC,
+                      'B Thin': ReflectorBThin,
+                      'C Thin': ReflectorCThin}
+
+        if name not in reflectors:
+            return reflectors['A']()
+        else:
+            return reflectors[name]()
+
 
     def show_reflector(self):
         """ creates and shoes reflectors using the abstract factory
@@ -83,8 +91,7 @@ class ReflectorA(Reflector):
                    'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
 
     def __init__(self, name):
-        super.__init__(name)
-
+        super().__init__(name)
 
     '''
     def __init__(self):
@@ -160,4 +167,5 @@ class ReflectorETW(Reflector):
 
 
 if __name__ == "__main__":
-    pass
+    reflector = ReflectorsFactory(ReflectorA)
+    reflector.name()
