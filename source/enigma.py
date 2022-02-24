@@ -15,12 +15,13 @@ class Enigma:
         print(f'Rotor 2 is {self.rotors[3]}')
 
     def press_key(self, letter):
-        try:
-            letter.isalpha()
+        if letter.isalpha and (ord(letter.upper()) >= 65 and ord(letter.upper()) <= 90)
+            letter = letter.upper()
             letter_pb = self.plugboard.encode(letter)
             letter_rotors = self.rotors.encode(letter_pb)
-            # functional placeholder in place of reflector system
-            letter_enc = letter_rotors
+            letter_reflector = self.reflector.encode(letter_rotors)
+            letter_rev_rotors = self.rotors.reverse_encode(letter_reflector)
+
             return letter_enc
         except:
             pass
