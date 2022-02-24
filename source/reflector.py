@@ -21,14 +21,12 @@ class Reflectors_Factory:
     __reflector_c_thin = ['R', 'D', 'O', 'B', 'J', 'N', 'T', 'K', 'V', 'E', 'H', 'M', 'L',
                           'F', 'C', 'W', 'Z', 'A', 'X', 'G', 'Y', 'I', 'P', 'S', 'U', 'Q']
 
-
-    def __init__(self, reflector_factory = None):
+    def __init__(self, reflector_factory=None):
         """reflector_factory is the abstract factory
 
         """
 
         self.reflector_factory = reflectors_factory
-
 
     def show_reflector(self):
         """ creates and shoes reflectors using the abstract factory
@@ -38,8 +36,8 @@ class Reflectors_Factory:
         reflector = self.reflector_factory()
 
         print(f'We have a reflector{reflector}')
-        print('it has the following encoding pattern: ')
-        print(f'{reflector.encoding}')
+        print('it has the following encodings pattern: ')
+        print(f'{reflector.encodings}')
 
 
 class Reflector(ABC):
@@ -47,7 +45,7 @@ class Reflector(ABC):
 
     """
 
-    __encoding = list()
+    __encodings = list()
 
 
     def encode(self, letter):
