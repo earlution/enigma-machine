@@ -224,6 +224,7 @@ class Rotor:
 
         return self.rotor[relative_letter_value]
 
+
     def rotate(self):
         pass
 
