@@ -23,7 +23,7 @@ class AbstractReflectorFactory(ABC):
         pass
 
 
-class ConcreteReflectorFactory(AbstractReflectorFactory):
+class ConcreteReflectorStandardFactory(AbstractReflectorFactory):
     """
 
     Concrete Factories produce a family of products that belong to a single variant. The factory guarantees that
@@ -31,26 +31,26 @@ class ConcreteReflectorFactory(AbstractReflectorFactory):
     product, while inside the method a concrete product is instantiated.
     """
 
-    def create_reflector_a(self):
+    def create_reflector_a(self) -> AbstractReflectorStandard:
         """
 
         """
 
-        pass
+        return ConcreteReflectorStandardA()
 
-    def create_reflector_b(self):
+    def create_reflector_b(self) -> AbstractReflectorStandard:
         """
 
         """
 
-        pass
+        return ConcreteReflectorStandardB()
 
-    def create_reflector_c(self):
+    def create_reflector_c(self) -> AbstractReflectorStandard:
         """
 
         """
 
-        pass
+        return ConcreteReflectorStandardC()
 
 
 class AbstractReflector(ABC):
