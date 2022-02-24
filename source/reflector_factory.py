@@ -74,12 +74,13 @@ class ConcreteReflectorThinFactory(AbstractReflectorFactory):
         return ConcreteReflectorThinB()
 
 
+class AbstractReflector(ABC):
+    """Superclass for the abstract reflector interfaces.
 
+    Without this parent class, the abstract methods would have to be implemented in both interfaces.
     """
 
-    Each distinct product of a product family should have a base interface. All variants of the product must implement
-    this interface.
-    """
+    __encodings = list()
 
     @abstractmethod
     def name(self) -> str:
