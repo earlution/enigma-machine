@@ -1,6 +1,3 @@
-from string import ascii_uppercase
-
-
 class Rotors:
     # @TODO imp. with *varargs
     def __init__(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
@@ -60,6 +57,7 @@ class Rotor:
     Name of the intended Enigma rotor, must be in ['I', 'II', 'III', 'IV', 'V'].
     """
 
+    # @TODO write tests for reversed rotor encodings
     __rotor_i_std = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
                      'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
     __rotor_i_rev = ['U', 'W', 'Y', 'G', 'A', 'D', 'F', 'P', 'V', 'Z', 'B', 'E', 'C',
@@ -80,14 +78,31 @@ class Rotor:
                  'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
     __rotor_v_rev = ['Q', 'C', 'Y', 'L', 'X', 'W', 'E', 'N', 'F', 'T', 'Z', 'O', 'S',
                      'M', 'V', 'J', 'U', 'D', 'K', 'G', 'I', 'A', 'R', 'P', 'H', 'B']
+    __rotor_vi_std = ['J', 'P', 'G', 'V', 'O', 'U', 'M', 'F', 'Y', 'Q', 'B', 'E', 'N',
+                      'H', 'Z', 'R', 'D', 'K', 'A', 'S', 'X', 'L', 'I', 'C', 'T', 'W']
+    __rotor_vi_rev = ['S', 'K', 'X', 'Q', 'L', 'H', 'C', 'N', 'W', 'A', 'R', 'V', 'G',
+                      'M', 'E', 'B', 'J', 'P', 'T', 'Y', 'F', 'D', 'Z', 'U', 'I', 'O']
+    __rotor_vi_rev = ['N', 'Z', 'J', 'H', 'G', 'R', 'C', 'X', 'M', 'Y', 'S', 'W', 'B',
+                      'O', 'U', 'F', 'A', 'I', 'V', 'L', 'P', 'E', 'K', 'Q', 'D', 'T']
+    __rotor_vii_std = ['N', 'Z', 'J', 'H', 'G', 'R', 'C', 'X', 'M', 'Y', 'S', 'W', 'B',
+                       'O', 'U', 'F', 'A', 'I', 'V', 'L', 'P', 'E', 'K', 'Q', 'D', 'T']
+    __rotor_vii_rev = ['Q', 'M', 'G', 'Y', 'V', 'P', 'E', 'D', 'R', 'C', 'W', 'T', 'I',
+                       'A', 'N', 'U', 'X', 'F', 'K', 'Z', 'O', 'S', 'L', 'H', 'J', 'B']
+    __rotor_viii_std = ['F', 'K', 'Q', 'H', 'T', 'L', 'X', 'O', 'C', 'B', 'J', 'S', 'P',
+                        'D', 'Z', 'R', 'A', 'M', 'E', 'W', 'N', 'I', 'U', 'Y', 'G', 'V']
+    __rotor_viii_rev = ['Q', 'J', 'I', 'N', 'S', 'A', 'Y', 'D', 'V', 'K', 'B', 'F', 'R',
+                        'U', 'H', 'M', 'C', 'P', 'L', 'E', 'W', 'Z', 'T', 'G', 'X', 'O']
     __rotor_i_turnover = 'R'
     __rotor_ii_turnover = 'F'
     __rotor_iii_turnover = 'W'
     __rotor_iv_turnover = 'K'
     __rotor_v_turnover = 'A'
+    __rotor_vi_turnover = ['A', 'N']
+    __rotor_vii_turnover = ['A', 'N']
+    __rotor_viii_turnover = ['A', 'N']
 
     def __init__(self, name, position=1):
-        if name.upper() not in ['I', 'II', 'III', 'IV', 'V']:
+        if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
             raise NameError
         if position < 1 or position > 26:
             raise ValueError
@@ -99,17 +114,26 @@ class Rotor:
             self.rotor = Rotor.__rotor_i_std.copy()
             self.turnover = Rotor.__rotor_i_turnover
         elif self.name.upper() == 'II':
-            self.rotor = Rotor.__rotor_ii.copy()
+            self.rotor = Rotor.__rotor_ii_std.copy()
             self.turnover = Rotor.__rotor_ii_turnover
         elif self.name.upper() == 'III':
-            self.rotor = Rotor.__rotor_iii.copy()
+            self.rotor = Rotor.__rotor_iii_std.copy()
             self.turnover = Rotor.__rotor_iii_turnover
         elif self.name.upper() == 'IV':
-            self.rotor = Rotor.__rotor_iv.copy()
+            self.rotor = Rotor.__rotor_iv_std.copy()
             self.turnover = Rotor.__rotor_iv_turnover
         elif self.name.upper() == 'V':
-            self.rotor = Rotor.__rotor_v.copy()
+            self.rotor = Rotor.__rotor_v_std.copy()
             self.turnover = Rotor.__rotor_v_turnover
+        elif self.name.upper() == 'VI':
+            self.rotor = Rotor.__rotor_vi_std.copy()
+            self.turnover = Rotor.__rotor_vi_turnover
+        elif self.name.upper() == 'VII':
+            self.rotor = Rotor.__rotor_vii_std.copy()
+            self.turnover = Rotor.__rotor_vii_turnover
+        elif self.name.upper() == 'VIII':
+            self.rotor = Rotor.__rotor_viii_std.copy()
+            self.turnover = Rotor.__rotor_viii_turnover
 
     def get_rev_encodings(self, std_encodings):
         import string
