@@ -1,7 +1,6 @@
 from keyboard import Keyboard
 from plugboard import *
 from rotors import *
-from reflector import *
 
 
 class Enigma:

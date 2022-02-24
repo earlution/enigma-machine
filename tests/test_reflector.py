@@ -10,14 +10,9 @@ class TestReflectorReversedRotorEncodings(unittest.TestCase):
 class TestReflectorEncodings(unittest.TestCase):
 
     def test_reflector_a_encode_a(self):
-        reflector = ReflectorA('A')
+        reflector = ReflectorA()
         result = reflector.encode('A')
         self.assertEqual('E', result)
-
-    def test_reflector_b_encode_l(self):
-        reflector = ReflectorB()
-        result = reflector.encode('N')
-        self.assertEqual('K', result)
 
 
 if __name__ == '__main__':
