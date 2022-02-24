@@ -72,9 +72,10 @@ class ReflectorA(Reflector):
 
     """
 
-    __encoding = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
-                  'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
+    __encodings = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
+                   'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
 
-    
-    def get_encoding(self):
-        return Reflector_A.__encoding
+    def __init__(self):
+        self._encodings = ReflectorA.__encodings
+
+
