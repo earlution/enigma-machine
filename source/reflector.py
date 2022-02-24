@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 # @TODO is this the correct name?
-class ReflectorsFactory:
+class Reflectors:
     """
 
     """
