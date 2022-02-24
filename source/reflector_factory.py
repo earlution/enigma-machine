@@ -15,7 +15,7 @@ class AbstractReflectorFactory(ABC):
     """
 
     @abstractmethod
-    def create_reflector(self) -> AbstractReflector:
+    def create_reflector_standard(self) -> AbstractReflectorStandard:
         pass
 
 
