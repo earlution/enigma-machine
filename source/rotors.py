@@ -298,7 +298,137 @@ class RotorI(Rotor):
         self.turnover = RotorI.__turnover
 
 
+class RotorII(Rotor):
+    """Specialised Rotor; rotor II.
 
+    """
+
+    __encodings = ['A', 'J', 'D', 'K', 'S', 'I', 'R', 'U', 'X', 'B', 'L', 'H', 'W',
+                   'T', 'M', 'C', 'Q', 'G', 'Z', 'N', 'P', 'Y', 'F', 'V', 'O', 'E']
+    __encodings_rev = ['A', 'J', 'P', 'C', 'Z', 'W', 'R', 'L', 'F', 'B', 'D', 'K', 'O',
+                       'T', 'Y', 'U', 'Q', 'G', 'E', 'N', 'H', 'X', 'M', 'I', 'V', 'S']
+    __turnover = ['F']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'II'
+        self._encodings = RotorII.__encodings.copy()
+        self._encodings_rev = RotorII.__encodings_rev.copy()
+        self.turnover = RotorII.__turnover
+
+
+class RotorIII(Rotor):
+    """Specialised Rotor; rotor III.
+
+    """
+
+    __encodings = ['B', 'D', 'F', 'H', 'J', 'L', 'C', 'P', 'R', 'T', 'X', 'V', 'Z',
+                   'N', 'Y', 'E', 'I', 'W', 'G', 'A', 'K', 'M', 'U', 'S', 'Q', 'O']
+    __encodings_rev = ['T', 'A', 'G', 'B', 'P', 'C', 'S', 'D', 'Q', 'E', 'U', 'F', 'V',
+                       'N', 'Z', 'H', 'Y', 'I', 'X', 'J', 'W', 'L', 'R', 'K', 'O', 'M']
+    __turnover = ['W']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'III'
+        self._encodings = RotorIII.__encodings.copy()
+        self._encodings_rev = RotorIII.__encodings_rev.copy()
+        self.turnover = RotorIII.__turnover
+
+
+class RotorIV(Rotor):
+    """Specialised Rotor; rotor IV.
+
+    """
+
+    __encodings = ['E', 'S', 'O', 'V', 'P', 'Z', 'J', 'A', 'Y', 'Q', 'U', 'I', 'R',
+                   'H', 'X', 'L', 'N', 'F', 'T', 'G', 'K', 'D', 'C', 'M', 'W', 'B']
+    __encodings_rev = ['H', 'Z', 'W', 'V', 'A', 'R', 'T', 'N', 'L', 'G', 'U', 'P', 'X',
+                       'Q', 'C', 'E', 'J', 'M', 'B', 'S', 'K', 'D', 'Y', 'O', 'I', 'F']
+    __turnover = ['K']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'IV'
+        self._encodings = RotorIV.__encodings.copy()
+        self._encodings_rev = RotorIV.__encodings_rev.copy()
+        self.turnover = RotorIV.__turnover
+
+
+class RotorV(Rotor):
+    """Specialised Rotor; rotor V.
+
+    """
+
+    __encodings = ['V', 'Z', 'B', 'R', 'G', 'I', 'T', 'Y', 'U', 'P', 'S', 'D', 'N',
+                   'H', 'L', 'X', 'A', 'W', 'M', 'J', 'Q', 'O', 'F', 'E', 'C', 'K']
+    __encodings_rev = ['Q', 'C', 'Y', 'L', 'X', 'W', 'E', 'N', 'F', 'T', 'Z', 'O', 'S',
+                       'M', 'V', 'J', 'U', 'D', 'K', 'G', 'I', 'A', 'R', 'P', 'H', 'B']
+    __turnover = ['A']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'I'
+        self._encodings = RotorV.__encodings.copy()
+        self._encodings_rev = RotorV.__encodings_rev.copy()
+        self.turnover = RotorV.__turnover
+
+
+class RotorVI(Rotor):
+    """Specialised Rotor; rotor VI.
+
+    """
+
+    __encodings = ['J', 'P', 'G', 'V', 'O', 'U', 'M', 'F', 'Y', 'Q', 'B', 'E', 'N',
+                   'H', 'Z', 'R', 'D', 'K', 'A', 'S', 'X', 'L', 'I', 'C', 'T', 'W']
+    __encodings_rev = ['S', 'K', 'X', 'Q', 'L', 'H', 'C', 'N', 'W', 'A', 'R', 'V', 'G',
+                       'M', 'E', 'B', 'J', 'P', 'T', 'Y', 'F', 'D', 'Z', 'U', 'I', 'O']
+    __turnover = ['A', 'N']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'VI'
+        self._encodings = RotorVI.__encodings.copy()
+        self._encodings_rev = RotorVI.__encodings_rev.copy()
+        self.turnover = RotorVI.__turnover
+
+
+class RotorVII(Rotor):
+    """Specialised Rotor; rotor VII.
+
+    """
+
+    __encodings = ['N', 'Z', 'J', 'H', 'G', 'R', 'C', 'X', 'M', 'Y', 'S', 'W', 'B',
+                   'O', 'U', 'F', 'A', 'I', 'V', 'L', 'P', 'E', 'K', 'Q', 'D', 'T']
+    __encodings_rev = ['Q', 'M', 'G', 'Y', 'V', 'P', 'E', 'D', 'R', 'C', 'W', 'T', 'I',
+                       'A', 'N', 'U', 'X', 'F', 'K', 'Z', 'O', 'S', 'L', 'H', 'J', 'B']
+    __rotor_vii_turnover = ['A', 'N']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'VII'
+        self._encodings = RotorVII.__encodings.copy()
+        self._encodings_rev = RotorVII.__encodings_rev.copy()
+        self.turnover = RotorVII.__turnover
+
+
+class RotorVIII(Rotor):
+    """Specialised Rotor; rotor VIII.
+
+    """
+
+    __encodings = ['F', 'K', 'Q', 'H', 'T', 'L', 'X', 'O', 'C', 'B', 'J', 'S', 'P',
+                   'D', 'Z', 'R', 'A', 'M', 'E', 'W', 'N', 'I', 'U', 'Y', 'G', 'V']
+    __encodings_rev = ['Q', 'J', 'I', 'N', 'S', 'A', 'Y', 'D', 'V', 'K', 'B', 'F', 'R',
+                       'U', 'H', 'M', 'C', 'P', 'L', 'E', 'W', 'Z', 'T', 'G', 'X', 'O']
+    __rotor_viii_turnover = ['A', 'N']
+
+    def __init__(self):
+        super.__init__()
+        self._name = 'VIII'
+        self._encodings = RotorVIII.__encodings.copy()
+        self._encodings_rev = RotorVIII.__encodings_rev.copy()
+        self.turnover = RotorVIII.__turnover
 
 
 if __name__ == "__main__":
