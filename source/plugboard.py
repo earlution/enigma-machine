@@ -28,7 +28,16 @@ class Plugboard:
         self.__max_num_of_plugleads = 10
         self.__num_of_plugleads = 0
 
-    def add(self, pluglead):
+    def add(self, pluglead: PlugLead):
+        """Add one of ten available PlugLeads to the Plugboard.
+
+        Patches two letters specified in the name parameter of the PlugLead.  E.g. the PlugLead argument 'AB' would
+        patch the letters 'A' abd 'B', so that 'A' would be encoded to 'B' and 'B' would be encoded to 'A'.
+
+        :param pluglead: A PlugLead object specifying the two letters for a bidirectional patch.
+        :type pluglead: PlugLead
+        """
+
         if len(self.plugleads) == self.__max_num_of_plugleads:
             pass
             # @TODO imp. better error handling here
