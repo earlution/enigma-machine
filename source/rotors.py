@@ -4,9 +4,9 @@ class Rotors:
     """
 
     def __init__(self, ):
-        self.rotor_1: Rotor
-        self.rotor_2: Rotor
-        self.rotor_3: Rotor
+        self.rotor_1 = None
+        self.rotor_2 = None
+        self.rotor_3 = None
 
     # @TODO imp. with *varargs
     def setup(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
