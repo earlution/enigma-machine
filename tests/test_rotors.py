@@ -19,7 +19,7 @@ class TestEnigma(unittest.TestCase):
     def test_vanilla_press_big_a(self):
         letter = 'A'
         enigma = Enigma()
-        result = enigma.press_key(letter)
+        result = enigma.encode(letter)
         self.assertEqual('A', result)
 
 
@@ -369,7 +369,17 @@ class TestRotorRotate(unittest.TestCase):
         test_rotor = Rotor('I', 1)
         result = test_rotor.encode('A')
         self.assertEqual('K', result)
-        self.assertEqual(2, test_rotor.position)
+        self.assertEqual(2, test_rotor.ring_position)
+
+
+class TestRotorRing(unittest.TestCase):
+    def test_rotor_i_set_ring_position_2(self):
+        test_rotor = Rotor('I')
+        test_rotor.set_ring_position(2)
+        ring_pos_result = test_rotor.get_ring_setting()
+        encode_result = test_rotor.encode('A')
+        self.assertEqual(2, ring_pos_result)
+        self.assertEqual('M', encode_result)
 
 
 if __name__ == '__main__':
