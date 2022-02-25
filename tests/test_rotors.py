@@ -237,6 +237,133 @@ class TestRotorEncode(unittest.TestCase):
         result = test_rotor.encode('z')
         self.assertEqual('V', result)
 
+# @FIXME this class is a C&P of TestRotorEncode, expected values to reflect rev enc.
+class TestRotorRevEncode(unittest.TestCase):
+    def test_rotor_i_encode_a_big(self):
+        test_rotor = Rotor('I')
+        result = test_rotor.encode('A', True)
+        self.assertEqual('U', result)
+
+    def test_rotor_i_encode_a_little(self):
+        test_rotor = Rotor('I')
+        result = test_rotor.encode('a', True)
+        self.assertEqual('U', result)
+
+    def test_rotor_i_encode_n_big(self):
+        test_rotor = Rotor('I')
+        result = test_rotor.encode('N', True)
+        self.assertEqual('K', result)
+
+    def test_rotor_i_encode_n_little(self):
+        test_rotor = Rotor('I')
+        result = test_rotor.encode('n', True)
+        self.assertEqual('K', result)
+
+    def test_rotor_i_encode_z_big(self):
+        test_rotor = Rotor('I')
+        result = test_rotor.encode('Z', True)
+        self.assertEqual('J', result)
+
+    def test_rotor_i_encode_z_little(self):
+        test_rotor = Rotor('I')
+        result = test_rotor.encode('z', True)
+        self.assertEqual('J', result)
+
+    def test_rotor_ii_encode_a_big(self):
+        test_rotor = Rotor('II')
+        result = test_rotor.encode('A', True)
+        self.assertEqual('A', result)
+
+    def test_rotor_ii_encode_a_little(self):
+        test_rotor = Rotor('II')
+        result = test_rotor.encode('a', True)
+        self.assertEqual('A', result)
+
+    def test_rotor_ii_encode_n_big(self):
+        test_rotor = Rotor('II')
+        result = test_rotor.encode('N', True)
+        self.assertEqual('T', result)
+
+    def test_rotor_ii_encode_n_little(self):
+        test_rotor = Rotor('II')
+        result = test_rotor.encode('n', True)
+        self.assertEqual('T', result)
+
+    def test_rotor_ii_encode_z_big(self):
+        test_rotor = Rotor('II')
+        result = test_rotor.encode('Z', True)
+        self.assertEqual('S', result)
+
+    def test_rotor_ii_encode_z_little(self):
+        test_rotor = Rotor('II')
+        result = test_rotor.encode('z', True)
+        self.assertEqual('S', result)
+
+    def test_rotor_iii_encode_a_big(self):
+        test_rotor = Rotor('III')
+        result = test_rotor.encode('A', True)
+        self.assertEqual('T', result)
+
+    def test_rotor_iii_encode_a_little(self):
+        test_rotor = Rotor('III')
+        result = test_rotor.encode('a', True)
+        self.assertEqual('T', result)
+
+    def test_rotor_iii_encode_n(self):
+        test_rotor = Rotor('III')
+        result = test_rotor.encode('N', True)
+        self.assertEqual('N', result)
+
+    def test_rotor_iii_encode_z(self):
+        test_rotor = Rotor('III')
+        result = test_rotor.encode('Z', True)
+        self.assertEqual('M', result)
+
+    def test_rotor_iv_encode_a_big(self):
+        test_rotor = Rotor('IV')
+        result = test_rotor.encode('A', True)
+        self.assertEqual('H', result)
+
+    def test_rotor_iv_encode_n(self):
+        test_rotor = Rotor('IV')
+        result = test_rotor.encode('N', True)
+        self.assertEqual('Q', result)
+
+    def test_rotor_iv_encode_z(self):
+        test_rotor = Rotor('IV')
+        result = test_rotor.encode('Z', True)
+        self.assertEqual('F', result)
+
+    def test_rotor_v_encode_a_big(self):
+        test_rotor = Rotor('V')
+        result = test_rotor.encode('A', True)
+        self.assertEqual('Q', result)
+
+    def test_rotor_v_encode_a_little(self):
+        test_rotor = Rotor('V')
+        result = test_rotor.encode('a', True)
+        self.assertEqual('Q', result)
+
+    def test_rotor_v_encode_n_big(self):
+        test_rotor = Rotor('V')
+        result = test_rotor.encode('N', True)
+        self.assertEqual('M', result)
+
+    def test_rotor_v_encode_n_little(self):
+        test_rotor = Rotor('V')
+        result = test_rotor.encode('n', True)
+        self.assertEqual('M', result)
+
+    def test_rotor_v_encode_z_big(self):
+        test_rotor = Rotor('V')
+        result = test_rotor.encode('Z', True)
+        self.assertEqual('B', result)
+
+    def test_rotor_v_encode_z_little(self):
+        test_rotor = Rotor('V')
+        result = test_rotor.encode('z', True)
+        self.assertEqual('B', result)
+
 
 class TestRotorRotate(unittest.TestCase):
     def test_rotor_i_a_from_pos_a(self):
