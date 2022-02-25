@@ -33,8 +33,9 @@ class Reflectors:
         enc = self.reflector_model.encode(letter)
         return enc
 
+    ''' part of an experiment to implement factory method design pattern
     def show_reflector(self):
-        """ creates and shoes reflectors using the abstract factory
+        """ creates and shows reflectors using the abstract factory
 
         """
 
@@ -43,6 +44,7 @@ class Reflectors:
         print(f'We have a reflector{reflector}')
         print('it has the following encodings pattern: ')
         print(f'{reflector.encodings}')
+    '''
 
 
 class Reflector(ABC):
