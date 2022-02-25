@@ -16,7 +16,7 @@ class Enigma:
         print(f'Rotor 2 is {self.rotors[2]}')
         print(f'Rotor 2 is {self.rotors[3]}')
 
-    def press_key(self, letter):
+    def encode(self, letter):
         if letter.isalpha and (ord(letter.upper()) >= 65 and ord(letter.upper()) <= 90):
             letter = letter.upper()
             letter_pb = self.plugboard.encode(letter)
