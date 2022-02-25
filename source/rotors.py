@@ -2,8 +2,11 @@ class Rotors:
     """
 
     """
+    def __init__(self,):
+        pass
+
     # @TODO imp. with *varargs
-    def __init__(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
+    def setup(self,  rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
         if type(rotor_1_name) == str and type(rotor_2_name) == str and type(rotor_3_name) == str:
             self.rotor_1 = Rotor(rotor_1_name)
             self.rotor_1_name = rotor_1_name
@@ -14,11 +17,11 @@ class Rotors:
             # @ bad design, what if we want a 4 or 5 rotor Enigma?
         else:
             # @TODO this is temporary
-            self.rotor_1_name = input('Which rotor do you want in position 1 (I, II, III, IV, or V): ')
+            self.rotor_1_name = input('Which rotor do you want in ring_position 1 (I, II, III, IV, or V): ')
             self.rotor_1 = Rotor(self.rotor_1_name)
-            self.rotor_2_name = input('Which rotor do you want in position 2 (I, II, III, IV, or V): ')
+            self.rotor_2_name = input('Which rotor do you want in ring_position 2 (I, II, III, IV, or V): ')
             self.rotor_2 = Rotor(self.rotor_2_name)
-            self.rotor_3_name = input('Which rotor do you want in position 3 (I, II, III, IV, or V): ')
+            self.rotor_3_name = input('Which rotor do you want in ring_position 3 (I, II, III, IV, or V): ')
             self.rotor_2 = Rotor(self.rotor_2_name)
 
     def encode(self, letter):
@@ -107,15 +110,15 @@ class Rotor:
     __rotor_viii_turnover = ['A', 'N']
 
 
-    def __init__(self, name, position=1):
+    def __init__(self, name, ring_position=1):
         # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
             name = 'I'
         # if invalid, default to 1
-        if (position < 1 or position > 26) or (not isinstance(position, int)):
-            position = 1
+        if (ring_position < 1 or ring_position > 26) or (not isinstance(ring_position, int)):
+            ring_position = 1
         self.name = name
-        self.position = position
+        self.ring_position = ring_position
         self.rotor = list()
         self.rotor_rev = list()
 
@@ -167,30 +170,27 @@ class Rotor:
         return rev_encodings
 
 
-    def __set_rotation(self, position):
-        """Sets the rotation for this rotor.
+    def __rotate(self, positions=1):
+        """Rotates the rotor by param positions places.
 
-        :param position: The intended position for this rotor relative to 'A' MOD 26.
+        :param positions: The number of positions to rotate the rotor by - default is 1.
         """
 
-        raise NotImplementedError
-
-
-    def __rotate(self):
-        """Rotates the rotor by one place.
-
-        """
+        if not isinstance(positions, int):
+            positions = 1
+        elif positions < 1 or positions > 26:
+            positions = 1
 
         self.__advance_position()
         ''' pretty sure this imp. goes the wong way - i.e. backwards
         self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
         '''
-        self.rotor = self.rotor[1:] + self.rotor[0:1]
+        self.rotor = self.rotor[positions:] + self.rotor[0:positions]
 
 
     def __advance_position(self):
-        """Increments the position value of this rotor by 1, until position is 26.  After which the value cycles back
-        round to 1.
+        """Increments the ring_position value of this rotor by 1, until ring_position is 26.  After which the value
+        cycles back round to 1.
 
         """
 
@@ -209,9 +209,9 @@ class Rotor:
 
 
     def get_position(self):
-        """Gets the current position value of this rotor.
+        """Gets the current ring_position value of this rotor.
 
-        :return: The position of this rotor.
+        :return: The ring_position of this rotor.
         :rtype: str
         """
 
@@ -219,16 +219,33 @@ class Rotor:
 
 
     def set_position(self, position):
-        """Sets the position value for this rotor.
+        """Sets the ring_position value for this rotor.
 
-        :param position: The intended position.
-        :raises ValueError: If param position is less than 1 or is greater than 26.
+        :param position: The intended ring_position.
+        :raises ValueError: If param ring_position is less than 1 or is greater than 26.
         """
 
         if position < 1 or position > 26:
             raise ValueError
         else:
             self.position = position
+
+    def get_ring_setting(self):
+        """Gets the current ring position.
+
+        :return: The current ring position.
+        """
+
+        return self.ring_position
+
+
+    def set_ring_position(self, ring_position):
+        """Sets the ring position.
+
+        :param ring_position: The intended ring_position for this rotor relative to 'A' MOD 26.
+        """
+
+        self.__rotate(ring_position)
 
 
     def encode(self, letter, reverse=False):
