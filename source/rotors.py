@@ -250,13 +250,13 @@ class Rotor:
 
         return self.ring_position
 
-    def set_ring_position(self, ring_position):
+    def set_ring_position(self, ring_setting):
         """Sets the ring position.
 
         :param ring_setting: The intended ring setting for this rotor relative to 'A' MOD 26.
         """
 
-        self.rotate(ring_position)
+        self.rotate(ring_setting)
 
     def encode(self, letter, reverse=False):
         letter = letter.upper()
