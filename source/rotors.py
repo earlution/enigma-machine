@@ -240,6 +240,7 @@ class Rotor:
             pass
         else:
             self.position = position
+            self.rotor = self.rotor[position-1:] + self.rotor[0:position-1]
 
     def get_ring_setting(self):
         """Gets the current ring position.
