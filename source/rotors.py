@@ -174,8 +174,7 @@ class Rotor:
         reverse_encodings = list(dict_values)
         return reverse_encodings
 
-
-    def __rotate(self, positions=1):
+    def rotate(self, positions=1):
         """Rotates the rotor by param positions places.
 
         :param positions: The number of positions to rotate the rotor by - default is 1.
