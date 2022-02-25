@@ -4,7 +4,9 @@ class Rotors:
     """
 
     def __init__(self, ):
-        pass
+        self.rotor_1: Rotor
+        self.rotor_2: Rotor
+        self.rotor_3: Rotor
 
     # @TODO imp. with *varargs
     def setup(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
