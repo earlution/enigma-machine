@@ -280,7 +280,7 @@ class Rotor:
 
 
 class RotorI(Rotor):
-    """
+    """Specialised Rotor; rotor I.
 
     """
 
@@ -288,11 +288,17 @@ class RotorI(Rotor):
                    'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
     __encodings_rev = ['U', 'W', 'Y', 'G', 'A', 'D', 'F', 'P', 'V', 'Z', 'B', 'E', 'C',
                        'K', 'M', 'T', 'H', 'X', 'S', 'L', 'R', 'I', 'N', 'Q', 'O', 'J']
+    __turnover = ['R']
 
     def __init__(self):
-        self.name = 'I'
-        self.encodings = RotorI.__encodings.copy()
-        self.rotor_rev = RotorI.__encodings_rev.copy()
+        super.__init__()
+        self._name = 'I'
+        self._encodings = RotorI.__encodings.copy()
+        self._encodings_rev = RotorI.__encodings_rev.copy()
+        self.turnover = RotorI.__turnover
+
+
+
 
 
 if __name__ == "__main__":
