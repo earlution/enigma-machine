@@ -3,45 +3,29 @@ class Rotors:
 
     """
 
-    # @TODO bad design, what if we want a 4 or 5 rotor Enigma?
     def __init__(self, ):
-        self.rotor_1 = None
-        self.rotor_1_name = None
-        self.rotor_2 = None
-        self.rotor_2_name = None
-        self.rotor_3 = None
-        self.rotor_3_name = None
+        self.rotors = list()
 
-    # @TODO bad design, what if we want a 4 or 5 rotor Enigma?
-    # @TODO imp. with *varargs
-    def setup(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
-        rotor_names = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']
-        if (type(rotor_1_name) != str and rotor_1_name not in rotor_names) and \
-                (type(rotor_2_name) != str and rotor_2_name not in rotor_names) and \
-                (type(rotor_3_name) != str and rotor_3_name not in rotor_names):
-            self.rotor_1_name = 'I'
-            self.rotor_1 = Rotor(self.rotor_1_name)
-            self.rotor_1_name = 'II'
-            self.rotor_2 = Rotor(self.rotor_2_name)
-            self.rotor_1_name = 'III'
-            self.rotor_3 = Rotor(self.rotor_3_name)
-        else:
-            self.rotor_1_name = rotor_1_name
-            self.rotor_1 = Rotor(rotor_1_name)
-            self.rotor_2_name = rotor_2_name
-            self.rotor_2 = Rotor(rotor_2_name)
-            self.rotor_3_name = rotor_3_name
-            self.rotor_3 = Rotor(rotor_3_name)
+    def setup(self, *varargs):
+
+        for rotor_class in varargs:
+            if type(rotor_class) != Rotor:
+                # @TODO what to do here if arg is invalid...
+                pass
+            else:
+                raf = RotorAbstractFactory(rotor_class)
+                #self.rotors.append(raf.create_rotor())
+                return raf.create_rotor()
 
     def get_rotor_name(self, rotor_number):
-        # @TODO get name of rotor from intended list of Rotors, via param rotor_number
+        # @TODO get name of _encodings from intended list of Rotors, via param rotor_number
         pass
 
     def encode(self, letter, reverse=False):
         """Encodes an inputted letter.
 
-        - Uses the specific Enigma rotor map to encode a letter.
-        - Checks if turnover position has been reached, if so triggers rotation of next rotor.
+        - Uses the specific Enigma _encodings map to encode a letter.
+        - Checks if turnover position has been reached, if so triggers rotation of next _encodings.
 
         :param letter: The letter to encode.
         :param reverse: True for standard encoding (default), False for reverse encoding.
@@ -70,19 +54,17 @@ class Rotors:
 
 
 class Rotor:
-    """Implementation of the rotors used in the Enigma Machine.
+    """Superclass implementation of the rotors used in the Enigma Machine.
 
     Technical specifications of the Enigma rotors from:
 
     Sale, T.E., 2000. Technical specification of the Enigma [Online]. The Late Tony Sale's Codes and Ciphers Website
      (https://www.codesandciphers.org.uk/index.htm). Available from:
      https://www.codesandciphers.org.uk/enigma/rotorspec.htm [06 February 2022].
-
-    :param name:
-    Name of the intended Enigma rotor, must be in ['I', 'II', 'III', 'IV', 'V'].
     """
 
-    # @TODO write tests for reversed rotor encodings
+    ''' hopefully we won't need this AWFUL mess!
+    # @TODO write tests for reversed _encodings encodings
     __rotor_i = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
                  'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
     __rotor_i_rev = ['U', 'W', 'Y', 'G', 'A', 'D', 'F', 'P', 'V', 'Z', 'B', 'E', 'C',
@@ -123,8 +105,15 @@ class Rotor:
     __rotor_vi_turnover = ['A', 'N']
     __rotor_vii_turnover = ['A', 'N']
     __rotor_viii_turnover = ['A', 'N']
+    '''
 
-    def __init__(self, name, ring_setting=1, position=1):
+    def __init__(self, ring_setting=1, position=1):
+        """Rotor superclass constructor.
+
+        :param ring_setting: The intended ring setting.
+        :param position: The initial rotor position.
+        """
+        '''
         # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
             name = 'I'
@@ -132,50 +121,55 @@ class Rotor:
         if (ring_setting < 1 or ring_setting > 26) or (not isinstance(ring_setting, int)):
             ring_position = 1
         self.name = name
+        '''
+        # will be overridden in subclasses
+        self.name = None
         self.ring_setting = ring_setting
         self.position = position
-        self.rotor = list()
-        self.rotor_rev = list()
+        self._encodings = list()
+        self._encodings_rev = list()
 
+        ''' if this works then w00t!!!
         # @TODO this is HORRIFIC! need to create indiv. Rotor subclasses polymorphiclly
         if self.name.upper() == 'I':
-            self.rotor = Rotor.__rotor_i.copy()
-            self.rotor_rev = Rotor.__rotor_i_rev.copy()
+            self._encodings = Rotor.__rotor_i.copy()
+            self._encodings_rev = Rotor.__rotor_i_rev.copy()
             self.turnover = Rotor.__rotor_i_turnover.copy()
         elif self.name.upper() == 'II':
-            self.rotor = Rotor.__rotor_ii.copy()
-            self.rotor_rev = Rotor.__rotor_ii_rev.copy()
+            self._encodings = Rotor.__rotor_ii.copy()
+            self._encodings_rev = Rotor.__rotor_ii_rev.copy()
             self.turnover = Rotor.__rotor_ii_turnover.copy()
         elif self.name.upper() == 'III':
-            self.rotor = Rotor.__rotor_iii.copy()
-            self.rotor_rev = Rotor.__rotor_iii_rev.copy()
+            self._encodings = Rotor.__rotor_iii.copy()
+            self._encodings_rev = Rotor.__rotor_iii_rev.copy()
             self.turnover = Rotor.__rotor_iii_turnover.copy()
         elif self.name.upper() == 'IV':
-            self.rotor = Rotor.__rotor_iv.copy()
-            self.rotor_rev = Rotor.__rotor_iv_rev.copy()
+            self._encodings = Rotor.__rotor_iv.copy()
+            self._encodings_rev = Rotor.__rotor_iv_rev.copy()
             self.turnover = Rotor.__rotor_iv_turnover.copy()
         elif self.name.upper() == 'V':
-            self.rotor = Rotor.__rotor_v.copy()
-            self.rotor_rev = Rotor.__rotor_v_rev.copy()
+            self._encodings = Rotor.__rotor_v.copy()
+            self._encodings_rev = Rotor.__rotor_v_rev.copy()
             self.turnover = Rotor.__rotor_v_turnover.copy()
         elif self.name.upper() == 'VI':
-            self.rotor = Rotor.__rotor_vi.copy()
-            self.rotor_rev = Rotor.__rotor_vi_rev.copy()
+            self._encodings = Rotor.__rotor_vi.copy()
+            self._encodings_rev = Rotor.__rotor_vi_rev.copy()
             self.turnover = Rotor.__rotor_vi_turnover.copy()
         elif self.name.upper() == 'VII':
-            self.rotor = Rotor.__rotor_vii.copy()
-            self.rotor_rev = Rotor.__rotor_vii_rev.copy()
+            self._encodings = Rotor.__rotor_vii.copy()
+            self._encodings_rev = Rotor.__rotor_vii_rev.copy()
             self.turnover = Rotor.__rotor_vii_turnover.copy()
         elif self.name.upper() == 'VIII':
-            self.rotor = Rotor.__rotor_viii.copy()
-            self.rotor_rev = Rotor.__rotor_viii_rev.copy()
+            self._encodings = Rotor.__rotor_viii.copy()
+            self._encodings_rev = Rotor.__rotor_viii_rev.copy()
             self.turnover = Rotor.__rotor_viii_turnover.copy()
+        '''
 
     @staticmethod
     def get_reverse_encodings(encodings):
-        """Helper function to generate the reverse rotor encodings, as experienced by signal post-reflector.
+        """Helper function to generate the reverse _encodings encodings, as experienced by signal post-reflector.
 
-        :param encodings: The standard rotor encodes from which to get the reverse encodings.
+        :param encodings: The standard _encodings encodes from which to get the reverse encodings.
         :return: The reverse encodings.
         """
 
@@ -200,9 +194,9 @@ class Rotor:
         self.position = self.position % 26
 
     def rotate(self, positions=1):
-        """Rotates the rotor by param positions places.
+        """Rotates the _encodings by param positions places.
 
-        :param positions: The number of positions to rotate the rotor by - default is 1.
+        :param positions: The number of positions to rotate the _encodings by - default is 1.
         """
 
         if not isinstance(positions, int):
@@ -212,30 +206,31 @@ class Rotor:
 
         self.__advance_position()
         ''' this imp. goes the wong way - i.e. backwards
-        self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
+        self._encodings = (self._encodings[len(self._encodings) - 1:len(self._encodings)] 
+                           + self._encodings[0:len(self._encodings) - 1])
         '''
-        self.rotor = self.rotor[positions:] + self.rotor[0:positions]
+        self._encodings = self._encodings[positions:] + self._encodings[0:positions]
 
     def get_name(self):
-        """Gets the name of this rotor.
+        """Gets the name of this _encodings.
 
-        :return: The name of this rotor.
+        :return: The name of this _encodings.
         :rtype: str
         """
 
         return self.name
 
     def get_position(self):
-        """Gets the current position value of this rotor.
+        """Gets the current position value of this _encodings.
 
-        :return: The current position of this rotor.
+        :return: The current position of this _encodings.
         :rtype: str
         """
 
         return self.position
 
     def set_position(self, position):
-        """Sets the position for this rotor.
+        """Sets the position for this _encodings.
 
         :param position: The intended position.
         """
@@ -244,7 +239,7 @@ class Rotor:
             pass
         else:
             self.position = position
-            self.rotor = self.rotor[position-1:] + self.rotor[0:position-1]
+            self._encodings = self._encodings[position - 1:] + self._encodings[0:position - 1]
 
     def get_ring_setting(self):
         """Gets the current ring position.
@@ -252,12 +247,12 @@ class Rotor:
         :return: The current ring position.
         """
 
-        return self.ring_position
+        return self.ring_setting
 
     def set_ring_position(self, ring_setting):
         """Sets the ring position.
 
-        :param ring_setting: The intended ring setting for this rotor relative to 'A' MOD 26.
+        :param ring_setting: The intended ring setting for this _encodings relative to 'A' MOD 26.
         """
 
         self.rotate(ring_setting)
@@ -272,15 +267,15 @@ class Rotor:
                 self.__advance_position()
                 relative_letter_value = ord(letter) - ord('A')
 
-                return self.rotor[relative_letter_value]
+                return self._encodings[relative_letter_value]
             else:
                 relative_letter_value = ord(letter) - ord('A')
 
-                return self.rotor_rev[relative_letter_value]
+                return self._encodings_rev[relative_letter_value]
 
 
 class RotorI(Rotor):
-    """Specialised Rotor; rotor I.
+    """Specialised Rotor; _encodings I.
 
     """
 
@@ -291,15 +286,18 @@ class RotorI(Rotor):
     __turnover = ['R']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'I'
         self._encodings = RotorI.__encodings.copy()
         self._encodings_rev = RotorI.__encodings_rev.copy()
         self.turnover = RotorI.__turnover
 
+    def __str__(self):
+        return "I"
+
 
 class RotorII(Rotor):
-    """Specialised Rotor; rotor II.
+    """Specialised Rotor; _encodings II.
 
     """
 
@@ -310,7 +308,7 @@ class RotorII(Rotor):
     __turnover = ['F']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'II'
         self._encodings = RotorII.__encodings.copy()
         self._encodings_rev = RotorII.__encodings_rev.copy()
@@ -318,7 +316,7 @@ class RotorII(Rotor):
 
 
 class RotorIII(Rotor):
-    """Specialised Rotor; rotor III.
+    """Specialised Rotor; _encodings III.
 
     """
 
@@ -329,7 +327,7 @@ class RotorIII(Rotor):
     __turnover = ['W']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'III'
         self._encodings = RotorIII.__encodings.copy()
         self._encodings_rev = RotorIII.__encodings_rev.copy()
@@ -337,7 +335,7 @@ class RotorIII(Rotor):
 
 
 class RotorIV(Rotor):
-    """Specialised Rotor; rotor IV.
+    """Specialised Rotor; _encodings IV.
 
     """
 
@@ -348,7 +346,7 @@ class RotorIV(Rotor):
     __turnover = ['K']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'IV'
         self._encodings = RotorIV.__encodings.copy()
         self._encodings_rev = RotorIV.__encodings_rev.copy()
@@ -356,7 +354,7 @@ class RotorIV(Rotor):
 
 
 class RotorV(Rotor):
-    """Specialised Rotor; rotor V.
+    """Specialised Rotor; _encodings V.
 
     """
 
@@ -367,7 +365,7 @@ class RotorV(Rotor):
     __turnover = ['A']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'I'
         self._encodings = RotorV.__encodings.copy()
         self._encodings_rev = RotorV.__encodings_rev.copy()
@@ -375,7 +373,7 @@ class RotorV(Rotor):
 
 
 class RotorVI(Rotor):
-    """Specialised Rotor; rotor VI.
+    """Specialised Rotor; _encodings VI.
 
     """
 
@@ -386,7 +384,7 @@ class RotorVI(Rotor):
     __turnover = ['A', 'N']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'VI'
         self._encodings = RotorVI.__encodings.copy()
         self._encodings_rev = RotorVI.__encodings_rev.copy()
@@ -394,7 +392,7 @@ class RotorVI(Rotor):
 
 
 class RotorVII(Rotor):
-    """Specialised Rotor; rotor VII.
+    """Specialised Rotor; _encodings VII.
 
     """
 
@@ -402,10 +400,10 @@ class RotorVII(Rotor):
                    'O', 'U', 'F', 'A', 'I', 'V', 'L', 'P', 'E', 'K', 'Q', 'D', 'T']
     __encodings_rev = ['Q', 'M', 'G', 'Y', 'V', 'P', 'E', 'D', 'R', 'C', 'W', 'T', 'I',
                        'A', 'N', 'U', 'X', 'F', 'K', 'Z', 'O', 'S', 'L', 'H', 'J', 'B']
-    __rotor_vii_turnover = ['A', 'N']
+    __turnover = ['A', 'N']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'VII'
         self._encodings = RotorVII.__encodings.copy()
         self._encodings_rev = RotorVII.__encodings_rev.copy()
@@ -413,7 +411,7 @@ class RotorVII(Rotor):
 
 
 class RotorVIII(Rotor):
-    """Specialised Rotor; rotor VIII.
+    """Specialised Rotor; _encodings VIII.
 
     """
 
@@ -421,15 +419,62 @@ class RotorVIII(Rotor):
                    'D', 'Z', 'R', 'A', 'M', 'E', 'W', 'N', 'I', 'U', 'Y', 'G', 'V']
     __encodings_rev = ['Q', 'J', 'I', 'N', 'S', 'A', 'Y', 'D', 'V', 'K', 'B', 'F', 'R',
                        'U', 'H', 'M', 'C', 'P', 'L', 'E', 'W', 'Z', 'T', 'G', 'X', 'O']
-    __rotor_viii_turnover = ['A', 'N']
+    __turnover = ['A', 'N']
 
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self._name = 'VIII'
         self._encodings = RotorVIII.__encodings.copy()
         self._encodings_rev = RotorVIII.__encodings_rev.copy()
         self.turnover = RotorVIII.__turnover
 
 
+class RotorAbstractFactory:
+    """Rotor abstract factory - an implementation of the abstract factory design pattern.
+
+    To enable dynamic creation of whatever flavor of Rotor, so that we can have Enigma machines with however many
+    rotors.
+
+    Abstract factory pattern implementation from:
+
+    Chaudhary, M. 2021. Abstract Factory Method – Python Design Patterns [Online]. Uttar Pradesh: GeeksforGeeks.
+     Available from: https://www.geeksforgeeks.org/abstract-factory-method-python-design-patterns/
+     [Accessed Wed 23 Feb 2022].
+    """
+
+    def __init__(self, rotors_factory=None):
+        """"rotors_factory is the abstract factory
+
+        :param rotors_factory:
+        """
+
+        self.rotor_factory = rotors_factory
+
+    def show_rotor(self):
+        """Creates and shows rotors using the abstract factory.
+
+        :return:
+        """
+
+        rotor = self.rotor_factory()
+
+        print(f'We have a _encodings named {rotor}')
+        print(f'its name is {rotor.name()}')
+
+
+    def create_rotor(self) -> Rotor:
+        """
+
+        :param name:
+        :return: The specified type of _encodings.
+        :rtype: Rotor
+        """
+
+        rotor = self.rotor_factory()
+        return rotor
+
+
 if __name__ == "__main__":
-    pass
+    rotors = Rotors()
+    rotor = rotors.setup(RotorII)
+    print(type(rotor))
