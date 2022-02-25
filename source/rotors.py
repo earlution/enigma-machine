@@ -120,7 +120,7 @@ class Rotor:
     __rotor_vii_turnover = ['A', 'N']
     __rotor_viii_turnover = ['A', 'N']
 
-    def __init__(self, name, ring_position=1):
+    def __init__(self, name, ring_position=1, position=1):
         # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
             name = 'I'
@@ -129,6 +129,7 @@ class Rotor:
             ring_position = 1
         self.name = name
         self.ring_position = ring_position
+        self.position = position
         self.rotor = list()
         self.rotor_rev = list()
 
