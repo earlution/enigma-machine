@@ -1,5 +1,6 @@
-from abc import ABC, abstractmethod
-from typing import List, Any
+from abc import ABC
+from typing import Any
+
 
 # @TODO is this the correct name?
 class Reflectors:
@@ -91,6 +92,7 @@ class ReflectorA(Reflector):
     def __init__(self):
         # @TODO trying to be polymorphic, figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+        super().__init__()
         self._encodings = ReflectorA.__encodings.copy()
 
 
@@ -106,6 +108,7 @@ class ReflectorB(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+        super().__init__()
         self._encodings = ReflectorB.__encodings.copy()
 
 
@@ -121,6 +124,7 @@ class ReflectorC(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+        super().__init__()
         self._encodings = ReflectorC.__encodings.copy()
 
 
@@ -138,6 +142,7 @@ class ReflectorBThin(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+        super().__init__()
         self._encodings = ReflectorBThin.__encodings.copy()
 
 
@@ -155,6 +160,7 @@ class ReflectorCThin(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+        super().__init__()
         self._encodings = ReflectorCThin.__encodings.copy()
 
 
@@ -172,6 +178,7 @@ class ReflectorETW(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+        super().__init__()
         self._encodings = ReflectorETW.__encodings.copy()
 
 
