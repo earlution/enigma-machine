@@ -186,6 +186,15 @@ class Rotor:
         reverse_encodings = list(dict_values)
         return reverse_encodings
 
+    def __advance_position(self):
+        """Increments the position value of this rotor by 1, until position is 26.  After which the value cycles back
+        round to 1.
+
+        """
+
+        self.position += 1
+        self.position = self.position % 26
+
     def rotate(self, positions=1):
         """Rotates the rotor by param positions places.
 
