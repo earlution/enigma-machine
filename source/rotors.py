@@ -156,18 +156,23 @@ class Rotor:
             self.rotor_rev = Rotor.__rotor_viii_rev.copy()
             self.turnover = Rotor.__rotor_viii_turnover.copy()
 
+    def get_reverse_encodings(self, encodings):
+        """Helper function to generate the reverse rotor encodings, as experienced by signal post-reflector.
 
-    def get_rev_encodings(self, std_encodings):
+        :param encodings: The standard rotor encodes from which to get the reverse encodings.
+        :return: The reverse encodings.
+        """
+
         import string
         import operator
         uc = list(string.ascii_uppercase)
-        dict_to_swap = dict(zip(uc, std_encodings))
+        dict_to_swap = dict(zip(uc, encodings))
         rev_key_value = {value: key for (key, value) in dict_to_swap.items()}
         sorted_dict = dict(sorted(rev_key_value.items(), key=operator.itemgetter(0)))
         # get list of values
         dict_values = sorted_dict.values()
-        rev_encodings = list(dict_values)
-        return rev_encodings
+        reverse_encodings = list(dict_values)
+        return reverse_encodings
 
 
     def __rotate(self, positions=1):
