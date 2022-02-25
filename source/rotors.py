@@ -242,6 +242,7 @@ class Rotor:
             return self.rotor[relative_letter_value]
 
     def encode_reverse(self, letter):
+        letter = letter.upper()
         if ord(letter) < 65 or ord(letter) > 90:
             return ''
         else:
