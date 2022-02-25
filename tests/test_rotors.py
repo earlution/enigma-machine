@@ -115,94 +115,92 @@ class TestRotorEncode(unittest.TestCase):
     def test_rotor_i_encode_a_big(self):
         test_rotor = Rotor('I')
         result = test_rotor.encode('A')
-        self.assertEqual('E', result)
+        self.assertEqual('K', result)
 
     def test_rotor_i_encode_a_little(self):
         test_rotor = Rotor('I')
         result = test_rotor.encode('a')
-        self.assertEqual('E', result)
+        self.assertEqual('K', result)
 
     def test_rotor_i_encode_n_big(self):
         test_rotor = Rotor('I')
         result = test_rotor.encode('N')
-        self.assertEqual('W', result)
+        self.assertEqual('Y', result)
 
     def test_rotor_i_encode_n_little(self):
         test_rotor = Rotor('I')
         result = test_rotor.encode('n')
-        self.assertEqual('W', result)
+        self.assertEqual('Y', result)
 
     def test_rotor_i_encode_z_big(self):
         test_rotor = Rotor('I')
         result = test_rotor.encode('Z')
-        self.assertEqual('J', result)
+        self.assertEqual('E', result)
 
     def test_rotor_i_encode_z_little(self):
         test_rotor = Rotor('I')
         result = test_rotor.encode('z')
-        self.assertEqual('J', result)
+        self.assertEqual('E', result)
 
     def test_rotor_ii_encode_a_big(self):
         test_rotor = Rotor('II')
         result = test_rotor.encode('A')
-        self.assertEqual('A', result)
+        self.assertEqual('J', result)
 
     def test_rotor_ii_encode_a_little(self):
         test_rotor = Rotor('II')
         result = test_rotor.encode('a')
-        self.assertEqual('A', result)
+        self.assertEqual('J', result)
 
     def test_rotor_ii_encode_n_big(self):
         test_rotor = Rotor('II')
         result = test_rotor.encode('N')
-        self.assertEqual('T', result)
+        self.assertEqual('M', result)
 
     def test_rotor_ii_encode_n_little(self):
         test_rotor = Rotor('II')
         result = test_rotor.encode('n')
-        self.assertEqual('T', result)
+        self.assertEqual('M', result)
 
     def test_rotor_ii_encode_z_big(self):
         test_rotor = Rotor('II')
         result = test_rotor.encode('Z')
-        self.assertEqual('E', result)
+        self.assertEqual('A', result)
 
     def test_rotor_ii_encode_z_little(self):
         test_rotor = Rotor('II')
         result = test_rotor.encode('z')
         self.assertEqual('E', result)
 
-    # @TODO add test for rotors III and IV
-
     def test_rotor_v_encode_a_big(self):
         test_rotor = Rotor('V')
         result = test_rotor.encode('A')
-        self.assertEqual('V', result)
+        self.assertEqual('Z', result)
 
     def test_rotor_v_encode_a_little(self):
         test_rotor = Rotor('V')
         result = test_rotor.encode('a')
-        self.assertEqual('V', result)
+        self.assertEqual('Z', result)
 
     def test_rotor_v_encode_n_big(self):
         test_rotor = Rotor('V')
         result = test_rotor.encode('N')
-        self.assertEqual('H', result)
+        self.assertEqual('L', result)
 
     def test_rotor_v_encode_n_little(self):
         test_rotor = Rotor('V')
         result = test_rotor.encode('n')
-        self.assertEqual('H', result)
+        self.assertEqual('L', result)
 
     def test_rotor_v_encode_z_big(self):
         test_rotor = Rotor('V')
         result = test_rotor.encode('Z')
-        self.assertEqual('K', result)
+        self.assertEqual('V', result)
 
     def test_rotor_v_encode_z_little(self):
         test_rotor = Rotor('V')
         result = test_rotor.encode('z')
-        self.assertEqual('K', result)
+        self.assertEqual('V', result)
 
 
 class TestRotorRotate(unittest.TestCase):
