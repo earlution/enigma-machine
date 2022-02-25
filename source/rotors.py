@@ -45,7 +45,7 @@ class Rotors:
         """
 
         letter = letter.upper()
-        if not reverse:
+        if reverse:
             letter = self.rotor_1.encode(letter, True)
             letter = self.rotor_2.encode(letter, True)
             letter = self.rotor_3.encode(letter, True)
