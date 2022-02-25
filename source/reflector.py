@@ -28,6 +28,10 @@ class Reflectors:
                 self.reflector_name = 'B'
                 self.reflector_model = ReflectorB()
 
+    def encode(self, letter):
+        enc = self.reflector_model.encode(letter)
+        return enc
+
     def show_reflector(self):
         """ creates and shoes reflectors using the abstract factory
 
