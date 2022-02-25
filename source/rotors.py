@@ -30,7 +30,7 @@ class Rotors:
             self.rotor_3_name = input('Which rotor do you want in ring_position 3 (I, II, III, IV, or V): ')
             self.rotor_2 = Rotor(self.rotor_2_name)
 
-    def encode(self, letter):
+    def encode(self, letter, reverse=False):
         """Encodes an inputted letter.
 
         - Uses the specific Enigma rotor map to encode a letter.
