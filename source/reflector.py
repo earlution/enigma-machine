@@ -161,6 +161,11 @@ class ReflectorETW(Reflector):
 def reflector_factory(name='A'):
     """Factory method to create a reflector of desired type.
 
+    Attempt to implement factory method pattern.
+
+    Intention is to enable creation of whichever reflector, from another object without having to directly create
+    instance from class.
+
     :param name: The name of the intended reflector
     :return: The specified reflector
     """
