@@ -108,15 +108,18 @@ class Rotor:
 
 
     def __init__(self, name, position=1):
+        # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
-            raise NameError
+            name = 'I'
+        # if invalid, default to 1
         if position < 1 or position > 26:
-            raise ValueError
+            position = 1
         self.name = name
         self.position = position
         self.rotor = list()
         self.rotor_rev = list()
 
+        # @TODO this is HORRIFIC! need to create indiv. Rotor subclasses polymorphiclly
         if self.name.upper() == 'I':
             self.rotor = Rotor.__rotor_i.copy()
             self.rotor = Rotor.__rotor_i_rev.copy()
