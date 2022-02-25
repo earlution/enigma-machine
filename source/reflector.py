@@ -7,12 +7,17 @@ class Reflectors:
 
     """
 
-    def __init__(self, reflectors_factory=None):
+    # def __init__(self, reflectors_factory=None): # can't get factory pattern working... yet
+    def __init__(self, reflector_name='A'):
         """reflector_factory is the abstract factory
 
         """
 
+        ''' @FIXME can't get this working. for now use the [urgh] pattern adopted in Rotors
         self.reflector_factory = reflectors_factory
+        '''
+        self.reflector_name = None
+        self.reflector_model = None
 
 
     def show_reflector(self):
