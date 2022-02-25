@@ -2,11 +2,12 @@ class Rotors:
     """
 
     """
-    def __init__(self,):
+
+    def __init__(self, ):
         pass
 
     # @TODO imp. with *varargs
-    def setup(self,  rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
+    def setup(self, rotor_1_name='I', rotor_2_name="II", rotor_3_name="III"):
         if type(rotor_1_name) == str and type(rotor_2_name) == str and type(rotor_3_name) == str:
             self.rotor_1 = Rotor(rotor_1_name)
             self.rotor_1_name = rotor_1_name
@@ -109,7 +110,6 @@ class Rotor:
     __rotor_vii_turnover = ['A', 'N']
     __rotor_viii_turnover = ['A', 'N']
 
-
     def __init__(self, name, ring_position=1):
         # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
@@ -192,7 +192,6 @@ class Rotor:
         '''
         self.rotor = self.rotor[positions:] + self.rotor[0:positions]
 
-
     def __advance_position(self):
         """Increments the ring_position value of this rotor by 1, until ring_position is 26.  After which the value
         cycles back round to 1.
@@ -201,7 +200,6 @@ class Rotor:
 
         self.position += 1
         self.position = self.position % 26
-
 
     def get_name(self):
         """Gets the name of this rotor.
@@ -212,7 +210,6 @@ class Rotor:
 
         return self.name
 
-
     def get_position(self):
         """Gets the current ring_position value of this rotor.
 
@@ -221,7 +218,6 @@ class Rotor:
         """
 
         return self.position
-
 
     def set_position(self, position):
         """Sets the ring_position value for this rotor.
@@ -242,7 +238,6 @@ class Rotor:
         """
 
         return self.ring_position
-
 
     def set_ring_position(self, ring_position):
         """Sets the ring position.
