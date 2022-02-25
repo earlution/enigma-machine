@@ -112,7 +112,7 @@ class Rotor:
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
             name = 'I'
         # if invalid, default to 1
-        if position < 1 or position > 26:
+        if (position < 1 or position > 26) or (not isinstance(position, int)):
             position = 1
         self.name = name
         self.position = position
