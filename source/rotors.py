@@ -263,7 +263,4 @@ class Rotor:
 
 
 if __name__ == "__main__":
-    rotor = Rotor('VIII')
-    std_encodings = rotor.rotor
-    rev_encodings = rotor.get_rev_encodings(std_encodings)
-    print(rev_encodings)
+    pass
