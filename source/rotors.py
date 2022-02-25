@@ -275,5 +275,21 @@ class Rotor:
                 return self.rotor_rev[relative_letter_value]
 
 
+class RotorI(Rotor):
+    """
+
+    """
+
+    __encodings = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
+                   'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
+    __encodings_rev = ['U', 'W', 'Y', 'G', 'A', 'D', 'F', 'P', 'V', 'Z', 'B', 'E', 'C',
+                       'K', 'M', 'T', 'H', 'X', 'S', 'L', 'R', 'I', 'N', 'Q', 'O', 'J']
+
+    def __init__(self):
+        self.name = 'I'
+        self.encodings = RotorI.__encodings.copy()
+        self.rotor_rev = RotorI.__encodings_rev.copy()
+
+
 if __name__ == "__main__":
     pass
