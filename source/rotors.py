@@ -222,19 +222,18 @@ class Rotor:
         return self.name
 
     def get_position(self):
-        """Gets the current ring_position value of this rotor.
+        """Gets the current position value of this rotor.
 
-        :return: The ring_position of this rotor.
+        :return: The current position of this rotor.
         :rtype: str
         """
 
         return self.position
 
     def set_position(self, position):
-        """Sets the ring_position value for this rotor.
+        """Sets the position for this rotor.
 
-        :param position: The intended ring_position.
-        :raises ValueError: If param ring_position is less than 1 or is greater than 26.
+        :param position: The intended position.
         """
 
         if position < 1 or position > 26:
@@ -253,7 +252,7 @@ class Rotor:
     def set_ring_position(self, ring_position):
         """Sets the ring position.
 
-        :param ring_position: The intended ring_position for this rotor relative to 'A' MOD 26.
+        :param ring_setting: The intended ring setting for this rotor relative to 'A' MOD 26.
         """
 
         self.rotate(ring_position)
