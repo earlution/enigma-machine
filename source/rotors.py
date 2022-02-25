@@ -244,8 +244,7 @@ class Rotor:
         :param ring_position: The intended ring_position for this rotor relative to 'A' MOD 26.
         """
 
-        self.__rotate(ring_position)
-
+        self.rotate(ring_position)
 
     def encode(self, letter, reverse=False):
         letter = letter.upper()
@@ -253,7 +252,7 @@ class Rotor:
             return ''
         else:
             if not reverse:
-                self.__rotate()
+                self.rotate()
                 relative_letter_value = ord(letter) - ord('A')
 
                 return self.rotor[relative_letter_value]
