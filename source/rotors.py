@@ -3,6 +3,7 @@ class Rotors:
 
     """
 
+    # @TODO bad design, what if we want a 4 or 5 rotor Enigma?
     def __init__(self, ):
         self.rotor_1 = None
         self.rotor_1_name = None
