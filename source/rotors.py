@@ -33,6 +33,10 @@ class Rotors:
             self.rotor_3_name = rotor_3_name
             self.rotor_3 = Rotor(rotor_3_name)
 
+    def get_rotor_name(self, rotor_number):
+        # @TODO get name of rotor from intended list of Rotors, via param rotor_number
+        pass
+
     def encode(self, letter, reverse=False):
         """Encodes an inputted letter.
 
