@@ -247,19 +247,6 @@ class Rotor:
                 return self.rotor_rev[relative_letter_value]
 
 
-    def rotate(self):
-        pass
-
-
-class RotorI(Rotor):
-    """
-
-    """
-
-    __rotor_i = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
-                 'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J']
-
-
 if __name__ == "__main__":
     rotor = Rotor('VIII')
     std_encodings = rotor.rotor
