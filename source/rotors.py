@@ -231,15 +231,21 @@ class Rotor:
             self.position = position
 
 
-    def encode(self, letter):
+    def encode(self, letter, reverse=False):
         letter = letter.upper()
         if ord(letter) < 65 or ord(letter) > 90:
             return ''
         else:
-            self.__rotate()
-            relative_letter_value = ord(letter) - ord('A')
+            if not reverse:
+                self.__rotate()
+                relative_letter_value = ord(letter) - ord('A')
 
-            return self.rotor[relative_letter_value]
+                return self.rotor[relative_letter_value]
+            else:
+                relative_letter_value = ord(letter) - ord('A')
+
+                return self.rotor_rev[relative_letter_value]
+
 
     def encode_reverse(self, letter):
         letter = letter.upper()
