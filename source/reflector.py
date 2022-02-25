@@ -91,7 +91,7 @@ class ReflectorA(Reflector):
     def __init__(self):
         # @TODO trying to be polymorphic, figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
-        self._encodings = ReflectorA.__encodings
+        self._encodings = ReflectorA.__encodings.copy()
 
 
 class ReflectorB(Reflector):
@@ -106,7 +106,7 @@ class ReflectorB(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
-        self._encodings = ReflectorB.__encodings
+        self._encodings = ReflectorB.__encodings.copy()
 
 
 class ReflectorC(Reflector):
@@ -121,7 +121,7 @@ class ReflectorC(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
-        self._encodings = ReflectorC.__encodings
+        self._encodings = ReflectorC.__encodings.copy()
 
 
 class ReflectorBThin(Reflector):
@@ -138,7 +138,7 @@ class ReflectorBThin(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
-        self._encodings = ReflectorBThin.__encodings
+        self._encodings = ReflectorBThin.__encodings.copy()
 
 
 class ReflectorCThin(Reflector):
@@ -155,7 +155,7 @@ class ReflectorCThin(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
-        self._encodings = ReflectorCThin.__encodings
+        self._encodings = ReflectorCThin.__encodings.copy()
 
 
 class ReflectorETW(Reflector):
@@ -172,7 +172,7 @@ class ReflectorETW(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
-        self._encodings = ReflectorETW.__encodings
+        self._encodings = ReflectorETW.__encodings.copy()
 
 
 def reflector_factory(name='A'):
