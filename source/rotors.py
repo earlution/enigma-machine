@@ -122,35 +122,35 @@ class Rotor:
         # @TODO this is HORRIFIC! need to create indiv. Rotor subclasses polymorphiclly
         if self.name.upper() == 'I':
             self.rotor = Rotor.__rotor_i.copy()
-            self.rotor = Rotor.__rotor_i_rev.copy()
+            self.rotor_rev = Rotor.__rotor_i_rev.copy()
             self.turnover = Rotor.__rotor_i_turnover
         elif self.name.upper() == 'II':
             self.rotor = Rotor.__rotor_ii.copy()
-            self.rotor = Rotor.__rotor_ii_rev.copy()
+            self.rotor_rev = Rotor.__rotor_ii_rev.copy()
             self.turnover = Rotor.__rotor_ii_turnover
         elif self.name.upper() == 'III':
             self.rotor = Rotor.__rotor_iii.copy()
-            self.rotor = Rotor.__rotor_iii_rev.copy()
+            self.rotor_rev = Rotor.__rotor_iii_rev.copy()
             self.turnover = Rotor.__rotor_iii_turnover
         elif self.name.upper() == 'IV':
             self.rotor = Rotor.__rotor_iv.copy()
-            self.rotor = Rotor.__rotor_iv_rev.copy()
+            self.rotor_rev = Rotor.__rotor_iv_rev.copy()
             self.turnover = Rotor.__rotor_iv_turnover
         elif self.name.upper() == 'V':
             self.rotor = Rotor.__rotor_v.copy()
-            self.rotor = Rotor.__rotor_v_rev.copy()
+            self.rotor_rev = Rotor.__rotor_v_rev.copy()
             self.turnover = Rotor.__rotor_v_turnover
         elif self.name.upper() == 'VI':
             self.rotor = Rotor.__rotor_vi.copy()
-            self.rotor = Rotor.__rotor_vi_rev.copy()
+            self.rotor_rev = Rotor.__rotor_vi_rev.copy()
             self.turnover = Rotor.__rotor_vi_turnover
         elif self.name.upper() == 'VII':
             self.rotor = Rotor.__rotor_vii.copy()
-            self.rotor = Rotor.__rotor_vii_rev.copy()
+            self.rotor_rev = Rotor.__rotor_vii_rev.copy()
             self.turnover = Rotor.__rotor_vii_turnover
         elif self.name.upper() == 'VIII':
             self.rotor = Rotor.__rotor_viii.copy()
-            self.rotor = Rotor.__rotor_viii_rev.copy()
+            self.rotor_rev = Rotor.__rotor_viii_rev.copy()
             self.turnover = Rotor.__rotor_viii_turnover
 
 
