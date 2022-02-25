@@ -71,7 +71,9 @@ class ReflectorA(Reflector):
                    'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
 
     def __init__(self, name):
-        #super.__init__(name)
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        self.name = name
+        # super.__init__(name)
         self._encodings = ReflectorA.__encodings
 
 
@@ -83,7 +85,10 @@ class ReflectorB(Reflector):
     __encodings = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O',
                    'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
 
-    def __init__(self):
+    def __init__(self, name):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        self.name = name
+        # super.__init__(name)
         self._encodings = ReflectorB.__encodings
 
 
@@ -95,7 +100,10 @@ class ReflectorC(Reflector):
     __encodings = ['F', 'V', 'P', 'J', 'I', 'A', 'O', 'Y', 'E', 'D', 'R', 'Z', 'X',
                    'W', 'G', 'C', 'T', 'K', 'U', 'Q', 'S', 'B', 'N', 'M', 'H', 'L']
 
-    def __init__(self):
+    def __init__(self, name):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        self.name = name
+        # super.__init__(name)
         self._encodings = ReflectorC.__encodings
 
 
@@ -109,7 +117,10 @@ class ReflectorBThin(Reflector):
     __encodings = ['E', 'N', 'K', 'Q', 'A', 'U', 'Y', 'W', 'J', 'I', 'C', 'O', 'P',
                    'B', 'L', 'M', 'D', 'X', 'Z', 'V', 'F', 'T', 'H', 'R', 'G', 'S']
 
-    def __init__(self):
+    def __init__(self, name):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        self.name = name
+        # super.__init__(name)
         self._encodings = ReflectorBThin.__encodings
 
 
@@ -123,7 +134,10 @@ class ReflectorCThin(Reflector):
     __encodings = ['R', 'D', 'O', 'B', 'J', 'N', 'T', 'K', 'V', 'E', 'H', 'M', 'L',
                    'F', 'C', 'W', 'Z', 'A', 'X', 'G', 'Y', 'I', 'P', 'S', 'U', 'Q']
 
-    def __init__(self):
+    def __init__(self, name):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        self.name = name
+        # super.__init__(name)
         self._encodings = ReflectorCThin.__encodings
 
 
@@ -137,7 +151,10 @@ class ReflectorETW(Reflector):
     __encodings = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-    def __init__(self):
+    def __init__(self, name):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        self.name = name
+        # super.__init__(name)
         self._encodings = ReflectorETW.__encodings
 
 
