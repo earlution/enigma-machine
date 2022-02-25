@@ -55,7 +55,7 @@ class Plugboard:
     def encode(self, letter):
         """Encodes param letter
 
-        Ecoding of the letter depends on the current state of the plugboard. I.e. what - if any - patches have beem
+        Encoding of the letter depends on the current state of the plugboard. I.e. what - if any - patches have beem
         made.
 
         :param letter: the letter to be encoded
