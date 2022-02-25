@@ -97,11 +97,11 @@ class Rotor:
                     'D', 'Z', 'R', 'A', 'M', 'E', 'W', 'N', 'I', 'U', 'Y', 'G', 'V']
     __rotor_viii_rev = ['Q', 'J', 'I', 'N', 'S', 'A', 'Y', 'D', 'V', 'K', 'B', 'F', 'R',
                         'U', 'H', 'M', 'C', 'P', 'L', 'E', 'W', 'Z', 'T', 'G', 'X', 'O']
-    __rotor_i_turnover = 'R'
-    __rotor_ii_turnover = 'F'
-    __rotor_iii_turnover = 'W'
-    __rotor_iv_turnover = 'K'
-    __rotor_v_turnover = 'A'
+    __rotor_i_turnover = ['R']
+    __rotor_ii_turnover = ['F']
+    __rotor_iii_turnover = ['W']
+    __rotor_iv_turnover = ['K']
+    __rotor_v_turnover = ['A']
     __rotor_vi_turnover = ['A', 'N']
     __rotor_vii_turnover = ['A', 'N']
     __rotor_viii_turnover = ['A', 'N']
