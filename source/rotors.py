@@ -20,7 +20,7 @@ class Rotors:
             self.rotor_2_name = rotor_2_name
             self.rotor_3 = Rotor(rotor_3_name)
             self.rotor_3_name = rotor_3_name
-            # @ bad design, what if we want a 4 or 5 rotor Enigma?
+            # @TODO bad design, what if we want a 4 or 5 rotor Enigma?
         else:
             # @TODO this is temporary
             self.rotor_1_name = input('Which rotor do you want in ring_position 1 (I, II, III, IV, or V): ')
