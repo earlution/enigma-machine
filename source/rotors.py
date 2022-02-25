@@ -182,7 +182,10 @@ class Rotor:
         """
 
         self.__advance_position()
+        ''' pretty sure this imp. goes the wong way - i.e. backwards
         self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
+        '''
+        self.rotor = self.rotor[1:] + self.rotor[0:1]
 
 
     def __advance_position(self):
@@ -229,6 +232,7 @@ class Rotor:
 
 
     def encode(self, letter):
+        letter = letter.upper()
         if ord(letter) < 65 or ord(letter) > 90:
             return ''
         else:
