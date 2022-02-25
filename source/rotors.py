@@ -265,6 +265,7 @@ class Rotor:
         else:
             if not reverse:
                 self.rotate()
+                self.__advance_position()
                 relative_letter_value = ord(letter) - ord('A')
 
                 return self.rotor[relative_letter_value]
