@@ -19,6 +19,14 @@ class Reflectors:
         self.reflector_name = None
         self.reflector_model = None
 
+    def setup(self, reflector_name='A'):
+        if type(reflector_name) == str:
+            if reflector_name == 'A':
+                self.reflector_name = 'A'
+                self.reflector_model = ReflectorA()
+            elif reflector_name == 'B':
+                self.reflector_name = 'B'
+                self.reflector_model = ReflectorB()
 
     def show_reflector(self):
         """ creates and shoes reflectors using the abstract factory
