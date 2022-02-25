@@ -237,7 +237,6 @@ class TestRotorEncode(unittest.TestCase):
         result = test_rotor.encode('z')
         self.assertEqual('V', result)
 
-# @FIXME this class is a C&P of TestRotorEncode, expected values to reflect rev enc.
 class TestRotorRevEncode(unittest.TestCase):
     def test_rotor_i_encode_a_big(self):
         test_rotor = Rotor('I')
