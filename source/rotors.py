@@ -207,19 +207,10 @@ class Rotor:
             positions = 1
 
         self.__advance_position()
-        ''' pretty sure this imp. goes the wong way - i.e. backwards
+        ''' this imp. goes the wong way - i.e. backwards
         self.rotor = (self.rotor[len(self.rotor) - 1:len(self.rotor)] + self.rotor[0:len(self.rotor) - 1])
         '''
         self.rotor = self.rotor[positions:] + self.rotor[0:positions]
-
-    def __advance_position(self):
-        """Increments the ring_position value of this rotor by 1, until ring_position is 26.  After which the value
-        cycles back round to 1.
-
-        """
-
-        self.position += 1
-        self.position = self.position % 26
 
     def get_name(self):
         """Gets the name of this rotor.
