@@ -37,6 +37,7 @@ class Rotors:
         - Checks if turnover position has been reached, if so triggers rotation of next rotor.
 
         :param letter: The letter to encode.
+        :param reverse: True for standard encoding (default), False for reverse encoding.
         :return: The encoded letter
         """
 
