@@ -166,7 +166,8 @@ class Rotor:
             self.rotor_rev = Rotor.__rotor_viii_rev.copy()
             self.turnover = Rotor.__rotor_viii_turnover.copy()
 
-    def get_reverse_encodings(self, encodings):
+    @staticmethod
+    def get_reverse_encodings(encodings):
         """Helper function to generate the reverse rotor encodings, as experienced by signal post-reflector.
 
         :param encodings: The standard rotor encodes from which to get the reverse encodings.
