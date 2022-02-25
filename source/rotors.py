@@ -237,7 +237,7 @@ class Rotor:
         """
 
         if position < 1 or position > 26:
-            raise ValueError
+            pass
         else:
             self.position = position
 
