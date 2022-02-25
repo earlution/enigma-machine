@@ -23,7 +23,7 @@ class TestEnigma(unittest.TestCase):
         self.assertEqual('A', result)
 
 
-class TestRotorsInHashtable(unittest.TestCase):
+class TestRotorListValue(unittest.TestCase):
     def test_rotor_i_a(self):
         test_rotor = Rotor('I')
         self.assertEqual('E', test_rotor.rotor['A'])
