@@ -123,35 +123,35 @@ class Rotor:
         if self.name.upper() == 'I':
             self.rotor = Rotor.__rotor_i.copy()
             self.rotor_rev = Rotor.__rotor_i_rev.copy()
-            self.turnover = Rotor.__rotor_i_turnover
+            self.turnover = Rotor.__rotor_i_turnover.copy()
         elif self.name.upper() == 'II':
             self.rotor = Rotor.__rotor_ii.copy()
             self.rotor_rev = Rotor.__rotor_ii_rev.copy()
-            self.turnover = Rotor.__rotor_ii_turnover
+            self.turnover = Rotor.__rotor_ii_turnover.copy()
         elif self.name.upper() == 'III':
             self.rotor = Rotor.__rotor_iii.copy()
             self.rotor_rev = Rotor.__rotor_iii_rev.copy()
-            self.turnover = Rotor.__rotor_iii_turnover
+            self.turnover = Rotor.__rotor_iii_turnover.copy()
         elif self.name.upper() == 'IV':
             self.rotor = Rotor.__rotor_iv.copy()
             self.rotor_rev = Rotor.__rotor_iv_rev.copy()
-            self.turnover = Rotor.__rotor_iv_turnover
+            self.turnover = Rotor.__rotor_iv_turnover.copy()
         elif self.name.upper() == 'V':
             self.rotor = Rotor.__rotor_v.copy()
             self.rotor_rev = Rotor.__rotor_v_rev.copy()
-            self.turnover = Rotor.__rotor_v_turnover
+            self.turnover = Rotor.__rotor_v_turnover.copy()
         elif self.name.upper() == 'VI':
             self.rotor = Rotor.__rotor_vi.copy()
             self.rotor_rev = Rotor.__rotor_vi_rev.copy()
-            self.turnover = Rotor.__rotor_vi_turnover
+            self.turnover = Rotor.__rotor_vi_turnover.copy()
         elif self.name.upper() == 'VII':
             self.rotor = Rotor.__rotor_vii.copy()
             self.rotor_rev = Rotor.__rotor_vii_rev.copy()
-            self.turnover = Rotor.__rotor_vii_turnover
+            self.turnover = Rotor.__rotor_vii_turnover.copy()
         elif self.name.upper() == 'VIII':
             self.rotor = Rotor.__rotor_viii.copy()
             self.rotor_rev = Rotor.__rotor_viii_rev.copy()
-            self.turnover = Rotor.__rotor_viii_turnover
+            self.turnover = Rotor.__rotor_viii_turnover.copy()
 
 
     def get_rev_encodings(self, std_encodings):
