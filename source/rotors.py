@@ -41,14 +41,19 @@ class Rotors:
         """
 
         letter = letter.upper()
-        self.rotor_3.rotate()
-        if self.rotor_3.position == self.rotor_3.turnover:
-            self.rotor_2.rotate()
-            if self.rotor_2.position == self.rotor_2.turnover:
-                self.rotor_1.rotate()
-        letter = self.rotor_3.encode(letter)
-        letter = self.rotor_2.encode(letter)
-        letter = self.rotor_1.encode(letter)
+        if not reverse:
+            letter = self.rotor_1.encode(letter, True)
+            letter = self.rotor_2.encode(letter, True)
+            letter = self.rotor_3.encode(letter, True)
+        else:
+            self.rotor_3.rotate()
+            if self.rotor_3.position == self.rotor_3.turnover:
+                self.rotor_2.rotate()
+                if self.rotor_2.position == self.rotor_2.turnover:
+                    self.rotor_1.rotate()
+            letter = self.rotor_3.encode(letter)
+            letter = self.rotor_2.encode(letter)
+            letter = self.rotor_1.encode(letter)
 
         return letter
 
