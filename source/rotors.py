@@ -128,6 +128,9 @@ class Rotor:
         self.position = position
         self._encodings = list()
         self._encodings_rev = list()
+        # would be logically easier to implement as int not str, but more abstract from Enigma construction.
+        # A solution to this problem, is to enumerate self.turnover when required.'''
+        self.turnover = str
 
         ''' if this works then w00t!!!
         # @TODO this is HORRIFIC! need to create indiv. Rotor subclasses polymorphiclly
