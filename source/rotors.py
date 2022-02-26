@@ -5,6 +5,7 @@ class Rotors:
 
     def __init__(self, ):
         self.rotors = list()
+        self.num_of_rotors = 0
 
     def setup(self, *varargs):
 
