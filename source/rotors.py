@@ -501,15 +501,16 @@ class RotorAbstractFactory:
 
 
     def create_rotor(self) -> Rotor:
-        """
+        """Creates a rotor using abstract factory.
 
-        :param name:
-        :return: The specified type of _encodings.
+        Flavour of Rotor is dependent on the current factory configuration.
+
+        :return: The created Rotor.
         :rtype: Rotor
         """
 
-        rotor = self.rotor_factory()
-        return rotor
+        created_rotor = self.rotor_factory()
+        return created_rotor
 
 
 if __name__ == "__main__":
