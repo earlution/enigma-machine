@@ -18,6 +18,14 @@ class Rotors:
                 #self.rotors.append(raf.create_rotor())
                 return raf.create_rotor()
 
+    # @TODO this is a temp helper method to get my head round the abstract factory process...
+    def add_rotor_to_rotors(self, new_rotor):
+        self.rotors.append(new_rotor)
+        self.num_of_rotors += 1
+
+    def get_num_of_rotors(self):
+        return self.num_of_rotors
+
     def get_rotor_name(self, rotor_number):
         # @TODO get name of _encodings from intended list of Rotors, via param rotor_number
         pass
