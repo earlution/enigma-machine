@@ -1,3 +1,48 @@
+class RotorAbstractFactory:
+    """Rotor abstract factory - an implementation of the abstract factory design pattern.
+
+    To enable dynamic creation of whatever flavor of Rotor, so that we can have Enigma machines with however many
+    rotors.
+
+    Abstract factory pattern implementation from:
+
+    Chaudhary, M. 2021. Abstract Factory Method – Python Design Patterns [Online]. Uttar Pradesh: GeeksforGeeks.
+     Available from: https://www.geeksforgeeks.org/abstract-factory-method-python-design-patterns/
+     [Accessed Wed 23 Feb 2022].
+    """
+
+    def __init__(self, rotors_factory=None):
+        """"rotors_factory is the abstract factory
+
+        :param rotors_factory:
+        """
+
+        self.rotor_factory = rotors_factory
+
+    def show_rotor(self):
+        """Creates and shows rotors using the abstract factory.
+
+        :return:
+        """
+
+        rotor = self.rotor_factory()
+
+        print(f'We have a _encodings named {rotor}')
+        print(f'its name is {rotor.name()}')
+
+
+    def create_rotor(self) -> Rotor:
+        """
+
+        :param name:
+        :return: The specified type of _encodings.
+        :rtype: Rotor
+        """
+
+        rotor = self.rotor_factory()
+        return rotor
+
+
 class Rotors:
     """
 
@@ -427,51 +472,6 @@ class RotorVIII(Rotor):
         self._encodings = RotorVIII.__encodings.copy()
         self._encodings_rev = RotorVIII.__encodings_rev.copy()
         self.turnover = RotorVIII.__turnover
-
-
-class RotorAbstractFactory:
-    """Rotor abstract factory - an implementation of the abstract factory design pattern.
-
-    To enable dynamic creation of whatever flavor of Rotor, so that we can have Enigma machines with however many
-    rotors.
-
-    Abstract factory pattern implementation from:
-
-    Chaudhary, M. 2021. Abstract Factory Method – Python Design Patterns [Online]. Uttar Pradesh: GeeksforGeeks.
-     Available from: https://www.geeksforgeeks.org/abstract-factory-method-python-design-patterns/
-     [Accessed Wed 23 Feb 2022].
-    """
-
-    def __init__(self, rotors_factory=None):
-        """"rotors_factory is the abstract factory
-
-        :param rotors_factory:
-        """
-
-        self.rotor_factory = rotors_factory
-
-    def show_rotor(self):
-        """Creates and shows rotors using the abstract factory.
-
-        :return:
-        """
-
-        rotor = self.rotor_factory()
-
-        print(f'We have a _encodings named {rotor}')
-        print(f'its name is {rotor.name()}')
-
-
-    def create_rotor(self) -> Rotor:
-        """
-
-        :param name:
-        :return: The specified type of _encodings.
-        :rtype: Rotor
-        """
-
-        rotor = self.rotor_factory()
-        return rotor
 
 
 if __name__ == "__main__":
