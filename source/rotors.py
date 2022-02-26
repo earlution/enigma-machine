@@ -321,12 +321,10 @@ class RotorI(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'I'
+        super().__str__()
         self._encodings = RotorI.__encodings.copy()
         self._encodings_rev = RotorI.__encodings_rev.copy()
         self.turnover = RotorI.__turnover
-
-    def __str__(self):
-        return "I"
 
 
 class RotorII(Rotor):
@@ -343,6 +341,7 @@ class RotorII(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'II'
+        super().__str__()
         self._encodings = RotorII.__encodings.copy()
         self._encodings_rev = RotorII.__encodings_rev.copy()
         self.turnover = RotorII.__turnover
@@ -362,6 +361,7 @@ class RotorIII(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'III'
+        super().__str__()
         self._encodings = RotorIII.__encodings.copy()
         self._encodings_rev = RotorIII.__encodings_rev.copy()
         self.turnover = RotorIII.__turnover
@@ -381,6 +381,7 @@ class RotorIV(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'IV'
+        super().__str__()
         self._encodings = RotorIV.__encodings.copy()
         self._encodings_rev = RotorIV.__encodings_rev.copy()
         self.turnover = RotorIV.__turnover
@@ -400,6 +401,7 @@ class RotorV(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'I'
+        super().__str__()
         self._encodings = RotorV.__encodings.copy()
         self._encodings_rev = RotorV.__encodings_rev.copy()
         self.turnover = RotorV.__turnover
@@ -419,6 +421,7 @@ class RotorVI(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'VI'
+        super().__str__()
         self._encodings = RotorVI.__encodings.copy()
         self._encodings_rev = RotorVI.__encodings_rev.copy()
         self.turnover = RotorVI.__turnover
@@ -438,6 +441,7 @@ class RotorVII(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'VII'
+        super().__str__()
         self._encodings = RotorVII.__encodings.copy()
         self._encodings_rev = RotorVII.__encodings_rev.copy()
         self.turnover = RotorVII.__turnover
@@ -457,6 +461,7 @@ class RotorVIII(Rotor):
     def __init__(self):
         super().__init__()
         self._name = 'VIII'
+        super().__str__()
         self._encodings = RotorVIII.__encodings.copy()
         self._encodings_rev = RotorVIII.__encodings_rev.copy()
         self.turnover = RotorVIII.__turnover
