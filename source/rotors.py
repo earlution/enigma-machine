@@ -15,7 +15,7 @@ class Rotors:
                 pass
             else:
                 raf = RotorAbstractFactory(rotor_class)
-                #self.rotors.append(raf.create_rotor())
+                # self.rotors.append(raf.create_rotor())
                 return raf.create_rotor()
 
     # @TODO this is a temp helper method to get my head round the abstract factory process...
