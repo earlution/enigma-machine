@@ -58,8 +58,12 @@ class Rotors:
             for rotor in reversed(self.rotors[:-1]):
                 # enumerating rotor.turnover str, so can be compared with rotor.position int
                 # @TODO test this bad-boy to ensure subsequent rotors rotate as expected
-                if rotor.position == [i for i, letter in enumerate(uc) if letter == rotor.turnover][0]:
-                    rotor.rotate()
+                # if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]: # temp replace with for loop for easier debugging...
+                for i, char in enumerate(uc, 1):
+                    if i == rotor.position and char == rotor.turnover:
+                        rotor.rotate()
+                    # rotor.rotate() # temp replace with for loop for easier debugging...
+            print()
             for rotor in reversed(self.rotors):
                 letter = rotor.encode(letter)
                 print(f'Rotor {rotor.__str__()} encoding: {letter}')  # for testing...
