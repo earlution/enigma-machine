@@ -139,6 +139,7 @@ class Rotor:
         :param ring_setting: The intended ring setting.
         :param position: The initial rotor position.
         """
+
         '''
         # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
@@ -149,7 +150,7 @@ class Rotor:
         self.name = name
         '''
         # will be overridden in subclasses
-        self.name = None
+        # self.name = None
         self.ring_setting = ring_setting
         self.position = position
         self._encodings = list()
