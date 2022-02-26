@@ -63,6 +63,8 @@ class Rotors:
             for rotor in reversed(self.rotors):
                 letter = rotor.encode(letter)
                 print(f'Rotor {rotor.__str__()} encoding: {letter}')  # for testing...
+
+            # @TODO delete this - when confident
             ''' old, nasty, pre-factory imp of rotors encoding
             self.rotor_3.rotate()
             if self.rotor_3.position == self.rotor_3.turnover:
@@ -90,6 +92,7 @@ class Rotor:
      https://www.codesandciphers.org.uk/enigma/rotorspec.htm [06 February 2022].
     """
 
+    # @TODO delete this - when confident
     ''' hopefully we won't need this AWFUL mess!
     # @TODO write tests for reversed _encodings encodings
     __rotor_i = ['E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O',
@@ -141,6 +144,7 @@ class Rotor:
         :param position: The initial rotor position.
         """
 
+        # @TODO delete this - when confident
         '''
         # if invalid, default to 'I'
         if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
@@ -161,6 +165,7 @@ class Rotor:
         # However, approach adds an order of time complexity, per rotor, to the Rotors.encode() algorithm.'''
         self.turnover = str
 
+        # @TODO delete this - when confident
         ''' if this works then w00t!!!
         # @TODO this is HORRIFIC! need to create indiv. Rotor subclasses polymorphiclly
         if self.name.upper() == 'I':
