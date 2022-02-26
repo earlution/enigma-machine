@@ -41,12 +41,25 @@ class Rotors:
         :return: The encoded letter
         """
 
+        uc = list(string.ascii_uppercase)
         letter = letter.upper()
+
         if reverse:
-            letter = self.rotor_1.encode(letter, True)
-            letter = self.rotor_2.encode(letter, True)
-            letter = self.rotor_3.encode(letter, True)
+            for rotor in self.rotors:
+                letter = rotor.encode(letter, True)
         else:
+            # rotate the right-most rotor
+            self.rotors[-1].rotate()
+            # check if other rotors need to rotate...
+            # ...right-to-left encoding equates to reverse iteration of list, but not the right-most rotor
+            for rotor in reversed(self.rotors[:-1]):
+                # enumerating rotor.turnover str, so can be compared with rotor.position int
+                if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]:
+                    rotor.rotate()
+            for rotor in reversed(self.rotors):
+                letter = rotor.encode(letter)
+                print(f'Rotor {rotor.__str__()} encoding: {letter}')  # for testing...
+            ''' old, nasty, pre-factory imp of rotors encoding
             self.rotor_3.rotate()
             if self.rotor_3.position == self.rotor_3.turnover:
                 self.rotor_2.rotate()
@@ -55,6 +68,7 @@ class Rotors:
             letter = self.rotor_3.encode(letter)
             letter = self.rotor_2.encode(letter)
             letter = self.rotor_1.encode(letter)
+            '''
 
         return letter
 
