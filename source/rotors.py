@@ -57,7 +57,8 @@ class Rotors:
             # ...right-to-left encoding equates to reverse iteration of list, but not the right-most rotor
             for rotor in reversed(self.rotors[:-1]):
                 # enumerating rotor.turnover str, so can be compared with rotor.position int
-                if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]:
+                # @TODO test this bad-boy to ensure subsequent rotors rotate as expected
+                if rotor.position == [i for i, letter in enumerate(uc) if letter == rotor.turnover][0]:
                     rotor.rotate()
             for rotor in reversed(self.rotors):
                 letter = rotor.encode(letter)
@@ -156,7 +157,8 @@ class Rotor:
         self._encodings = list()
         self._encodings_rev = list()
         # would be logically easier to implement as int not str, but more abstract from Enigma construction.
-        # A solution to this problem, is to enumerate self.turnover when required.'''
+        # A solution to this problem, is to enumerate self.turnover when required.
+        # However, approach adds an order of time complexity, per rotor, to the Rotors.encode() algorithm.'''
         self.turnover = str
 
         ''' if this works then w00t!!!
