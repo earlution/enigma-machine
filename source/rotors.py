@@ -488,17 +488,15 @@ class RotorAbstractFactory:
 
         self.rotor_factory = rotors_factory
 
-    def show_rotor(self):
-        """Creates and shows rotors using the abstract factory.
+    def config_factory(self, rotors_factory: Rotor):
+        """To enable the factory to be configured to create various specialised Rotor
 
-        :return:
+         - MIRRORS __init__ behaviour - code smell?
+
+        :param rotors_factory: The Rotor type with which to configure the factory.
         """
 
-        rotor = self.rotor_factory()
-
-        print(f'We have a _encodings named {rotor}')
-        print(f'its name is {rotor.name()}')
-
+        self.rotor_factory = rotors_factory
 
     def create_rotor(self) -> Rotor:
         """Creates a rotor using abstract factory.
