@@ -251,7 +251,7 @@ class Rotor:
         :rtype: str
         """
 
-        return self.name
+        return self._name
 
     def get_position(self):
         """Gets the current position value of this _encodings.
