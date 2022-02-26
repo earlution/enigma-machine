@@ -177,6 +177,9 @@ class Rotor:
             self.turnover = Rotor.__rotor_viii_turnover.copy()
         '''
 
+    def __str__(self):
+        return self._name
+
     @staticmethod
     def get_reverse_encodings(encodings):
         """Helper function to generate the reverse _encodings encodings, as experienced by signal post-reflector.
