@@ -220,5 +220,49 @@ def reflector_factory(name='A'):
         return reflectors[name]()
 
 
+class ReflectorAbstractFactory:
+    """Reflector abstract factory - an implementation of the abstract factory design pattern.
+
+    To enable dynamic creation of whatever flavor of Reflector, so that we can have Enigma machines with however
+    many reflectors.
+
+    Abstract factory pattern implementation from:
+
+    Chaudhary, M. 2021. Abstract Factory Method – Python Design Patterns [Online]. Uttar Pradesh: GeeksforGeeks.
+     Available from: https://www.geeksforgeeks.org/abstract-factory-method-python-design-patterns/
+     [Accessed Wed 23 Feb 2022].
+    """
+
+    def __init__(self, reflectors_factory=None):
+        """reflectors_factory is the abstract factory
+
+        :param reflectors_factory: The Reflector type with which to configure the factory.
+        """
+
+        self.reflector_factory = reflectors_factory
+
+    def config_factory(self, reflectors_factory: Reflector):
+        """To enable the factory to be configured to create various specialised Rotor
+
+         - MIRRORS __init__ behaviour (but signature is different) - code smell?
+
+        :param reflectors_factory: The Reflector type with which to configure the factory.
+        """
+
+        self.reflector_factory = reflectors_factory
+
+    def create_rotor(self) -> Reflector:
+        """Creates a specialised reflector (of type Reflector) polymorphically using the abstract factory.
+
+        Flavour of Reflector is dependent on the current factory configuration.
+
+        :return: The created Reflector.
+        :rtype: Reflector
+        """
+
+        created_reflector = self.reflector_factory()
+        return created_reflector
+
+
 if __name__ == "__main__":
     pass
