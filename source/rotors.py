@@ -247,7 +247,7 @@ class Rotor:
         return self.position
 
     def set_position(self, position):
-        """Sets the position for this _encodings.
+        """Sets the rotational position for this rotor.
 
         :param position: The intended position.
         """
