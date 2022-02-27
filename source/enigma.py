@@ -34,6 +34,7 @@ class Enigma:
         :return: The enumerated position.
         """
         import string
+        letter = letter.upper()
         letters = list(string.ascii_uppercase)
         positions = list(range(1, 27))
         enumerations = dict(zip(letters, positions))
