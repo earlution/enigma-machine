@@ -96,7 +96,7 @@ class Rotors:
             print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoded: {letter}')  # for testing...
 
             # check if turnover position reached
-            if letter == self.rotors[rotor_indexes].turnover:
+            if letter in self.rotors[rotor_indexes].turnover:
                 turnover = True
 
             # adjust next input for rotation relative to initial setting
