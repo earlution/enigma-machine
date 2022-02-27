@@ -357,7 +357,7 @@ class Rotor:
 
         return self.ring_setting
 
-    def set_ring_position(self, ring_setting):
+    def set_ring_setting(self, ring_setting):
         """Sets the ring position.
 
         :param ring_setting: The intended ring setting for this _encodings relative to 'A' MOD 26.
