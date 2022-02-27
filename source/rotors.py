@@ -544,15 +544,4 @@ class RotorAbstractFactory:
 
 
 if __name__ == "__main__":
-    rotors = Rotors()
-    raf = RotorAbstractFactory()
-    raf.config_factory(RotorI)
-    r1 = raf.create_rotor()
-    raf.config_factory(RotorII)
-    r2 = raf.create_rotor()
-    raf.config_factory(RotorIII)
-    r3 = raf.create_rotor()
-    rotors.add_rotor_to_rotors(r1)
-    rotors.add_rotor_to_rotors(r2)
-    rotors.add_rotor_to_rotors(r3)
-    rotors.encode('A')
+    pass
