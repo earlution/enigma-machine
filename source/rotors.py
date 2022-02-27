@@ -485,6 +485,26 @@ class RotorVIII(Rotor):
         self.turnover = RotorVIII.__turnover
 
 
+class RotorBeta(Rotor):
+    """Specialised Rotor; model Beta.
+
+    """
+
+    __encodings = ['L', 'E', 'Y', 'J', 'V', 'C', 'N', 'I', 'X', 'W', 'P', 'B', 'Q',
+                   'M', 'D', 'R', 'T', 'A', 'K', 'Z', 'G', 'F', 'U', 'H', 'O', 'S']
+    __encodings_rev = ['R', 'L', 'F', 'O', 'B', 'V', 'U', 'X', 'H', 'D', 'S', 'A', 'N',
+                       'G', 'Y', 'K', 'M', 'P', 'Z', 'Q', 'W', 'E', 'J', 'I', 'C', 'T']
+    __turnover = []
+
+    def __init__(self):
+        super().__init__()
+        self._name = 'Beta'
+        super().__str__()
+        self.encodings = RotorBeta.__encodings.copy()
+        self.encodings_rev = RotorBeta.__encodings_rev.copy()
+        self.turnover = RotorBeta.__turnover
+
+
 class RotorAbstractFactory:
     """Rotor abstract factory - an implementation of the abstract factory design pattern.
 
