@@ -505,6 +505,27 @@ class RotorBeta(Rotor):
         self.turnover = RotorBeta.__turnover
 
 
+class RotorGamma(Rotor):
+    """Specialised Rotor; model Gamma.
+
+    """
+
+    __encodings = ['F', 'S', 'O', 'K', 'A', 'N', 'U', 'E', 'R', 'H', 'M', 'B', 'T',
+                   'I', 'Y', 'C', 'W', 'L', 'Q', 'P', 'Z', 'X', 'V', 'G', 'J', 'D']
+    __encodings_rev = ['E', 'L', 'P', 'Z', 'H', 'A', 'X', 'J', 'N', 'Y', 'D', 'R', 'K',
+                       'F', 'C', 'T', 'S', 'I', 'B', 'M', 'G', 'W', 'Q', 'V', 'O', 'U']
+    __turnover = []
+
+
+    def __init__(self):
+        super().__init__()
+        self._name = 'Gamma'
+        super().__str__()
+        self.encodings = RotorGamma.__encodings.copy()
+        self.encodings_rev = RotorGamma.__encodings_rev.copy()
+        self.turnover = RotorGamma.__turnover
+
+
 class RotorAbstractFactory:
     """Rotor abstract factory - an implementation of the abstract factory design pattern.
 
