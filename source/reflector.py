@@ -251,7 +251,7 @@ class ReflectorAbstractFactory:
 
         self.reflector_factory = reflectors_factory
 
-    def create_rotor(self) -> Reflector:
+    def create_reflector(self) -> Reflector:
         """Creates a specialised reflector (of type Reflector) polymorphically using the abstract factory.
 
         Flavour of Reflector is dependent on the current factory configuration.
