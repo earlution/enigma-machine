@@ -258,7 +258,7 @@ class Rotor:
         if not isinstance(position, int):
             pass
         # edge case: invalid value, do nothing
-        if position < 1 or position > 26:
+        elif position < 1 or position > 26:
             pass
         else:
             self.position = position
