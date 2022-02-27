@@ -105,7 +105,7 @@ class Rotors:
             # adjust next input for rotation relative to initial setting
             if self.rotations[curr_rotor_index] > 0:
                 letter = self.rotate_letter(letter, - self.rotations[curr_rotor_index])
-                print(f'Rotor {self.rotors[-1].rotor_number} rotations, so input to next is: {letter}')  # for testing...
+                print(f'Rotor {self.rotors[-1].rotor_number} rotated, so input to next is: {letter}')  # for testing...
 
             curr_rotor_index -= 1
 
