@@ -57,6 +57,7 @@ class Rotors:
         self.rotations = rotations
         turnover = False
 
+        # post-reflector path
         if reverse:
             curr_rotor_index = 0
             for rotor in self.rotors:
@@ -71,6 +72,7 @@ class Rotors:
 
                 # bookkeeping for this rotor
                 curr_rotor_index += 1
+        # pre-reflector path
         else:
             curr_rotor_index = rotor_indexes
 
