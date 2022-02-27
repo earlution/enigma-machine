@@ -34,9 +34,9 @@ class Enigma:
         :return: The enumerated position.
         """
         import string
-        uc = list(string.ascii_uppercase)
-        positions = list(range(1, 26))
-        enumerations = list(zip(uc, positions))
+        letters = list(string.ascii_uppercase)
+        positions = list(range(1, 27))
+        enumerations = dict(zip(letters, positions))
         return enumerations[letter]
 
     def encode(self, letter):
