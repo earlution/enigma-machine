@@ -47,6 +47,10 @@ class Rotors:
 
         uc = list(string.ascii_uppercase)
         letter = letter.upper()
+        rotor_indexes = self.num_of_rotors - 1
+        curr_rotor_index = rotor_indexes
+        self.rotations = rotations
+        turnover = False
 
         if reverse:
             for rotor in self.rotors:
