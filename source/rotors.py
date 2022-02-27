@@ -13,6 +13,8 @@ class Rotors:
         '''
         self.rotations = list()
 
+    # @TODO monitor if this is needed...
+    '''don't think we need this anymore...
     def setup(self, *varargs):
         for rotor_class in varargs:
             if type(rotor_class) != Rotor:
@@ -22,6 +24,7 @@ class Rotors:
                 raf = RotorAbstractFactory(rotor_class)
                 # self.rotors.append(rot_af.create_rotor())
                 return raf.create_rotor()
+    '''
 
     def add_rotor_to_rotors(self, new_rotor):
         self.rotors.append(new_rotor)
