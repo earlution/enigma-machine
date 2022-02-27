@@ -211,9 +211,9 @@ class Rotor:
         self.rotor_number = rotor_num
 
     def rotate(self, positions=1):
-        """Rotates the _encodings by param positions places.
+        """Rotates the position of this rotor by param positions places.
 
-        :param positions: The number of positions to rotate the _encodings by - default is 1.
+        :param positions: The number of positions to rotate the position by - default is 1.
         """
 
         if not isinstance(positions, int):
