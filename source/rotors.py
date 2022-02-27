@@ -9,7 +9,7 @@ class Rotors:
     def __init__(self, ):
         self.rotors = list()
         self.num_of_rotors = 0
-        # @TODO need to figure out a goo place for .rotations ...
+        # @TODO need to figure out a good place for .rotations ...
         '''
         # values to track if a rotor has rotated, so that input value to next rotor can be adjusted accordingly
         self.rotations = [0 for _ in range(self.num_of_rotors)]
