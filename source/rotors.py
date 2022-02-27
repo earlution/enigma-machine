@@ -126,7 +126,8 @@ class Rotors:
         print(f'Output is: {letter}')  # for testing...
         return letter  #, rotations
 
-    def rotate_letter(self, letter, rotation):
+    @staticmethod
+    def rotate_letter(letter, rotation):
         """Rotates [uppercase] characters around the alphabet.  Works in both directions.
 
         :param letter: The letter to be rotations.
