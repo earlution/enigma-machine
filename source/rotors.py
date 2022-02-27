@@ -1,6 +1,3 @@
-import string
-
-
 class Rotors:
     """
 
@@ -26,7 +23,6 @@ class Rotors:
                 # self.rotors.append(rot_af.create_rotor())
                 return raf.create_rotor()
 
-    # @TODO this is a temp helper method to get my head round the abstract factory process...
     def add_rotor_to_rotors(self, new_rotor):
         self.rotors.append(new_rotor)
         self.num_of_rotors += 1
@@ -51,7 +47,6 @@ class Rotors:
         :return: The encoded letter
         """
 
-        uc = list(string.ascii_uppercase)
         letter = letter.upper()
         rotor_indexes = self.num_of_rotors - 1
 
@@ -82,7 +77,6 @@ class Rotors:
                     print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
 
                 # letter = self.rotate_letter(letter, - self.rotations[curr_rotor_index])
-
 
                 # bookkeeping for this rotor
                 curr_rotor_index += 1
@@ -173,7 +167,7 @@ class Rotor:
 
         # will be overridden in subclasses
         # self.name = None
-        # @TODO this is not working, the indiv rotors do not have correct name
+        # @TODO this is not working, the individual rotors do not have correct name
         self.rotor_number = int()
         self.ring_setting = ring_setting
         self.position = position
@@ -191,7 +185,7 @@ class Rotor:
 
     @staticmethod
     def get_reverse_encodings(encodings):
-        """Helper function to generate the reverse encodings encodings, as experienced by signal post-reflector.
+        """Helper function to generate the reverse encodings, as experienced by signal post-reflector.
 
         :param encodings: The standard encodings encodes from which to get the reverse encodings.
         :return: The reverse encodings.

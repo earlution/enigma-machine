@@ -67,7 +67,6 @@ class Enigma:
 
 
 if __name__ == "__main__":
-    # You can use this section to write tests and demonstrations of your enigma code.
     enigma = Enigma()
 
     # create the desired rotors
@@ -93,14 +92,10 @@ if __name__ == "__main__":
     enigma.rotors.add_rotor_to_rotors(r2)
     enigma.rotors.add_rotor_to_rotors(r3)
 
-    # make reflector
-    enigma.reflector = ReflectorB()
+    # make and add the reflector
+    enigma.ref_af.config_factory(ReflectorB)
+    reflector = enigma.ref_af.create_reflector()
+    enigma.add_reflector(reflector)
 
-    # @TODO code smell - SOMETHING needs to take responsibility for this...
-    # to keep track of rotations
-    # rotations = [0 for _ in range(enigma.rotors.num_of_rotors)]
-
+    # perform encryption
     enigma.encode('A')
-
-
-
