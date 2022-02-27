@@ -41,6 +41,14 @@ class Enigma:
         enumerations = dict(zip(letters, positions))
         return enumerations[letter]
 
+    def add_reflector(self, reflector_to_add: Reflector):
+        """Adds a reflector to this Enigma machine.
+
+        :param reflector_to_add: The reflector to use.
+        :type reflector_to_add: Reflector
+        """
+        self.reflector = reflector_to_add
+
     def encode(self, letter):
         """The main encode letter use case, synonymous with pressing a key on the Enigma keyboard.
 
