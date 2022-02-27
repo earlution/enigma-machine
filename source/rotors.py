@@ -229,9 +229,9 @@ class Rotor:
         self._encodings = self._encodings[positions:] + self._encodings[0:positions]
 
     def get_name(self):
-        """Gets the name of this _encodings.
+        """Gets the name of this rotor.
 
-        :return: The name of this _encodings.
+        :return: The name of this rotor.
         :rtype: str
         """
 
