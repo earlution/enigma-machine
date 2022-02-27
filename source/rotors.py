@@ -169,43 +169,6 @@ class Rotor:
         # However, approach adds an order of time complexity, per rotor, to the Rotors.encode() algorithm.'''
         self.turnover = str
 
-        # @TODO delete this - when confident
-        ''' if this works then w00t!!!
-        # @TODO this is HORRIFIC! need to create indiv. Rotor subclasses polymorphiclly
-        if self.name.upper() == 'I':
-            self._encodings = Rotor.__rotor_i.copy()
-            self._encodings_rev = Rotor.__rotor_i_rev.copy()
-            self.turnover = Rotor.__rotor_i_turnover.copy()
-        elif self.name.upper() == 'II':
-            self._encodings = Rotor.__rotor_ii.copy()
-            self._encodings_rev = Rotor.__rotor_ii_rev.copy()
-            self.turnover = Rotor.__rotor_ii_turnover.copy()
-        elif self.name.upper() == 'III':
-            self._encodings = Rotor.__rotor_iii.copy()
-            self._encodings_rev = Rotor.__rotor_iii_rev.copy()
-            self.turnover = Rotor.__rotor_iii_turnover.copy()
-        elif self.name.upper() == 'IV':
-            self._encodings = Rotor.__rotor_iv.copy()
-            self._encodings_rev = Rotor.__rotor_iv_rev.copy()
-            self.turnover = Rotor.__rotor_iv_turnover.copy()
-        elif self.name.upper() == 'V':
-            self._encodings = Rotor.__rotor_v.copy()
-            self._encodings_rev = Rotor.__rotor_v_rev.copy()
-            self.turnover = Rotor.__rotor_v_turnover.copy()
-        elif self.name.upper() == 'VI':
-            self._encodings = Rotor.__rotor_vi.copy()
-            self._encodings_rev = Rotor.__rotor_vi_rev.copy()
-            self.turnover = Rotor.__rotor_vi_turnover.copy()
-        elif self.name.upper() == 'VII':
-            self._encodings = Rotor.__rotor_vii.copy()
-            self._encodings_rev = Rotor.__rotor_vii_rev.copy()
-            self.turnover = Rotor.__rotor_vii_turnover.copy()
-        elif self.name.upper() == 'VIII':
-            self._encodings = Rotor.__rotor_viii.copy()
-            self._encodings_rev = Rotor.__rotor_viii_rev.copy()
-            self.turnover = Rotor.__rotor_viii_turnover.copy()
-        '''
-
     def __str__(self):
         return self._name
 
