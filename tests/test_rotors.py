@@ -375,7 +375,7 @@ class TestRotorRotate(unittest.TestCase):
 class TestRotorRing(unittest.TestCase):
     def test_rotor_i_set_ring_position_2(self):
         test_rotor = Rotor('I')
-        test_rotor.set_ring_position(2)
+        test_rotor.set_ring_setting(2)
         ring_pos_result = test_rotor.get_ring_setting()
         encode_result = test_rotor.encode('A')
         self.assertEqual(2, ring_pos_result)
