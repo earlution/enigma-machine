@@ -34,7 +34,7 @@ class Rotors:
         # @TODO get name of _encodings from intended list of Rotors, via param rotor_number
         pass
 
-    def encode(self, letter, reverse=False):
+    def encode(self, letter, rotations, reverse=False):
         """Encodes an inputted letter.
 
         - Uses the specific Enigma _encodings map to encode a letter.
@@ -83,10 +83,29 @@ class Rotors:
             letter = self.rotor_1.encode(letter)
             '''
 
-        return letter
+    def rotate_letter(self, letter, rotation):
+        """Rotates [uppercase] characters around the alphabet.  Works in both directions.
 
-    def turnover(self):
-        raise NotImplementedError
+        :param letter: The letter to be rotations.
+        :param rotation: The number of positions to rotate.
+        :return: The rotations letter.
+        """
+
+        # invalid input
+        if len(letter) != 1:
+            return -1
+        # letter is not in alphabet
+        elif letter.isalpha() == False:
+            return letter
+        else:
+            letter = letter.upper()
+            new = ord(letter) + rotation
+            # makes sure the value does not overflow.
+            if new > ord('Z'):
+                new = new - ord('Z') + ord('A') - 1
+            elif new < ord('A'):
+                new = new + ord('Z') - ord('A') + 1
+            return chr(new)
 
 
 class Rotor:
