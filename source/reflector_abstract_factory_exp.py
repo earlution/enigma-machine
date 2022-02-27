@@ -133,7 +133,7 @@ class ConcreteReflectorStandard(AbstractReflectorStandard):
 
     @property
     def encodings(self):
-        return self._encodings
+        return self.encodings
 
     def encode(self, letter):
         """Encodes a letter using the specific reflector schema in the subclass.
@@ -146,7 +146,7 @@ class ConcreteReflectorStandard(AbstractReflectorStandard):
             raise ValueError
         index_value = ord(letter) - ord('A')
 
-        return self._encodings[index_value]
+        return self.encodings[index_value]
 '''
 '''
 class ConcreteReflectorThin(AbstractReflectorThin):
@@ -165,7 +165,7 @@ class ConcreteReflectorThin(AbstractReflectorThin):
 
     @property
     def encodings(self):
-        return self._encodings
+        return self.encodings
 
     def encode(self, letter):
         """Encodes a letter using the specific reflector schema in the subclass.
@@ -178,7 +178,7 @@ class ConcreteReflectorThin(AbstractReflectorThin):
             raise ValueError
         index_value = ord(letter) - ord('A')
 
-        return self._encodings[index_value]
+        return self.encodings[index_value]
 '''
 
 

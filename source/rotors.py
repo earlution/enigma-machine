@@ -37,14 +37,14 @@ class Rotors:
         return self.num_of_rotors
 
     def get_rotor_name(self, rotor_number):
-        # @TODO get name of _encodings from intended list of Rotors, via param rotor_number
+        # @TODO get name of encodings from intended list of Rotors, via param rotor_number
         pass
 
     def encode(self, letter, rotations, reverse=False):
         """Encodes an inputted letter.
 
-        - Uses the specific Enigma _encodings map to encode a letter.
-        - Checks if turnover position has been reached, if so triggers rotation of next _encodings.
+        - Uses the specific Enigma encodings map to encode a letter.
+        - Checks if turnover position has been reached, if so triggers rotation of next encodings.
 
         :param letter: The letter to encode.
         :param reverse: True for standard encoding (default), False for reverse encoding.
@@ -64,7 +64,7 @@ class Rotors:
             for rotor in self.rotors:
                 # adjust next input if rotation just occurred
                 if self.rotations[curr_rotor_index] > 0:
-                    # @TODO need to figure put how to adjust _encodings.rev - due to previous rotations
+                    # @TODO need to figure put how to adjust encodings.rev - due to previous rotations
                     letter = self.rotate_letter(letter, self.rotations[curr_rotor_index])
                     print(f'Rotor {rotor.rotor_number} has rotated, so input to next is: {letter}')  # for testing...
 
@@ -179,8 +179,8 @@ class Rotor:
         self.position = position
         # @TODO do we need this anymore - Rotors.rotations has this responsibility
         # self.rotation = 0
-        self._encodings = list()
-        self._encodings_rev = list()
+        self.encodings = list()
+        self.encodings_rev = list()
         # would be logically easier to implement as int not str, but more abstract from Enigma construction.
         # A solution to this problem, is to enumerate self.turnover when required.
         # However, approach adds an order of time complexity, per rotor, to the Rotors.encode() algorithm.'''
@@ -191,9 +191,9 @@ class Rotor:
 
     @staticmethod
     def get_reverse_encodings(encodings):
-        """Helper function to generate the reverse _encodings encodings, as experienced by signal post-reflector.
+        """Helper function to generate the reverse encodings encodings, as experienced by signal post-reflector.
 
-        :param encodings: The standard _encodings encodes from which to get the reverse encodings.
+        :param encodings: The standard encodings encodes from which to get the reverse encodings.
         :return: The reverse encodings.
         """
 
@@ -244,8 +244,8 @@ class Rotor:
             pass
         else:
             # @TODO rotation affects _encoding_rev too...
-            self._encodings = self._encodings[self.position:] + self._encodings[0:self.position]
-            self._encodings_rev = self._encodings[self.position:] + self._encodings[0:self.position]
+            self.encodings = self.encodings[self.position:] + self.encodings[0:self.position]
+            self.encodings_rev = self.encodings_rev[self.position:] + self.encodings_rev[0:self.position]
             self.position = self.position + (positions % 26)
 
     def get_name(self):
@@ -283,8 +283,8 @@ class Rotor:
             self.position = position
         else:
             self.position = position
-            self._encodings = self._encodings[position - 1:] + self._encodings[0:position - 1]
-            self._encodings_rev = self._encodings[position - 1:] + self._encodings[0:position - 1]
+            self.encodings = self.encodings[position - 1:] + self.encodings[0:position - 1]
+            self.encodings_rev = self.encodings_rev[position - 1:] + self.encodings_rev[0:position - 1]
 
     def get_ring_setting(self):
         """Gets the current ring position.
@@ -297,7 +297,7 @@ class Rotor:
     def set_ring_setting(self, ring_setting):
         """Sets the ring position.
 
-        :param ring_setting: The intended ring setting for this _encodings relative to 'A' MOD 26.
+        :param ring_setting: The intended ring setting for this encodings relative to 'A' MOD 26.
         """
 
         self.ring_setting = ring_setting
@@ -318,15 +318,15 @@ class Rotor:
                 # self.__advance_position()
                 relative_letter_value = ord(letter) - ord('A')
 
-                return self._encodings[relative_letter_value]
+                return self.encodings[relative_letter_value]
             else:
                 relative_letter_value = ord(letter) - ord('A')
 
-                return self._encodings_rev[relative_letter_value]
+                return self.encodings_rev[relative_letter_value]
 
 
 class RotorI(Rotor):
-    """Specialised Rotor; _encodings I.
+    """Specialised Rotor; encodings I.
 
     """
 
@@ -340,13 +340,13 @@ class RotorI(Rotor):
         super().__init__()
         self._name = 'I'
         super().__str__()
-        self._encodings = RotorI.__encodings.copy()
-        self._encodings_rev = RotorI.__encodings_rev.copy()
+        self.encodings = RotorI.__encodings.copy()
+        self.encodings_rev = RotorI.__encodings_rev.copy()
         self.turnover = RotorI.__turnover
 
 
 class RotorII(Rotor):
-    """Specialised Rotor; _encodings II.
+    """Specialised Rotor; encodings II.
 
     """
 
@@ -360,13 +360,13 @@ class RotorII(Rotor):
         super().__init__()
         self._name = 'II'
         super().__str__()
-        self._encodings = RotorII.__encodings.copy()
-        self._encodings_rev = RotorII.__encodings_rev.copy()
+        self.encodings = RotorII.__encodings.copy()
+        self.encodings_rev = RotorII.__encodings_rev.copy()
         self.turnover = RotorII.__turnover
 
 
 class RotorIII(Rotor):
-    """Specialised Rotor; _encodings III.
+    """Specialised Rotor; encodings III.
 
     """
 
@@ -380,13 +380,13 @@ class RotorIII(Rotor):
         super().__init__()
         self._name = 'III'
         super().__str__()
-        self._encodings = RotorIII.__encodings.copy()
-        self._encodings_rev = RotorIII.__encodings_rev.copy()
+        self.encodings = RotorIII.__encodings.copy()
+        self.encodings_rev = RotorIII.__encodings_rev.copy()
         self.turnover = RotorIII.__turnover
 
 
 class RotorIV(Rotor):
-    """Specialised Rotor; _encodings IV.
+    """Specialised Rotor; encodings IV.
 
     """
 
@@ -400,13 +400,13 @@ class RotorIV(Rotor):
         super().__init__()
         self._name = 'IV'
         super().__str__()
-        self._encodings = RotorIV.__encodings.copy()
-        self._encodings_rev = RotorIV.__encodings_rev.copy()
+        self.encodings = RotorIV.__encodings.copy()
+        self.encodings_rev = RotorIV.__encodings_rev.copy()
         self.turnover = RotorIV.__turnover
 
 
 class RotorV(Rotor):
-    """Specialised Rotor; _encodings V.
+    """Specialised Rotor; encodings V.
 
     """
 
@@ -420,13 +420,13 @@ class RotorV(Rotor):
         super().__init__()
         self._name = 'I'
         super().__str__()
-        self._encodings = RotorV.__encodings.copy()
-        self._encodings_rev = RotorV.__encodings_rev.copy()
+        self.encodings = RotorV.__encodings.copy()
+        self.encodings_rev = RotorV.__encodings_rev.copy()
         self.turnover = RotorV.__turnover
 
 
 class RotorVI(Rotor):
-    """Specialised Rotor; _encodings VI.
+    """Specialised Rotor; encodings VI.
 
     """
 
@@ -440,13 +440,13 @@ class RotorVI(Rotor):
         super().__init__()
         self._name = 'VI'
         super().__str__()
-        self._encodings = RotorVI.__encodings.copy()
-        self._encodings_rev = RotorVI.__encodings_rev.copy()
+        self.encodings = RotorVI.__encodings.copy()
+        self.encodings_rev = RotorVI.__encodings_rev.copy()
         self.turnover = RotorVI.__turnover
 
 
 class RotorVII(Rotor):
-    """Specialised Rotor; _encodings VII.
+    """Specialised Rotor; encodings VII.
 
     """
 
@@ -460,13 +460,13 @@ class RotorVII(Rotor):
         super().__init__()
         self._name = 'VII'
         super().__str__()
-        self._encodings = RotorVII.__encodings.copy()
-        self._encodings_rev = RotorVII.__encodings_rev.copy()
+        self.encodings = RotorVII.__encodings.copy()
+        self.encodings_rev = RotorVII.__encodings_rev.copy()
         self.turnover = RotorVII.__turnover
 
 
 class RotorVIII(Rotor):
-    """Specialised Rotor; _encodings VIII.
+    """Specialised Rotor; encodings VIII.
 
     """
 
@@ -480,8 +480,8 @@ class RotorVIII(Rotor):
         super().__init__()
         self._name = 'VIII'
         super().__str__()
-        self._encodings = RotorVIII.__encodings.copy()
-        self._encodings_rev = RotorVIII.__encodings_rev.copy()
+        self.encodings = RotorVIII.__encodings.copy()
+        self.encodings_rev = RotorVIII.__encodings_rev.copy()
         self.turnover = RotorVIII.__turnover
 
 
