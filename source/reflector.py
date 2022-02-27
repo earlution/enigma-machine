@@ -110,7 +110,10 @@ class ReflectorB(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+
         super().__init__()
+        self._name = 'B'
+        super().__str__()
         self._encodings = ReflectorB.__encodings.copy()
 
 
@@ -126,7 +129,10 @@ class ReflectorC(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+
         super().__init__()
+        self._name = 'C'
+        super().__str__()
         self._encodings = ReflectorC.__encodings.copy()
 
 
@@ -144,7 +150,10 @@ class ReflectorBThin(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+
         super().__init__()
+        self._name = 'B Thin'
+        super().__str__()
         self._encodings = ReflectorBThin.__encodings.copy()
 
 
@@ -162,7 +171,10 @@ class ReflectorCThin(Reflector):
     def __init__(self):
         # @TODO figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+
         super().__init__()
+        self._name = 'C Thin'
+        super().__str__()
         self._encodings = ReflectorCThin.__encodings.copy()
 
 
