@@ -139,7 +139,7 @@ class Rotors:
         if len(letter) != 1:
             return -1
         # letter is not in alphabet
-        elif letter.isalpha() == False:
+        elif not letter.isalpha():
             return letter
         else:
             letter = letter.upper()
