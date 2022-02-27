@@ -31,6 +31,7 @@ class Reflectors:
 
     def encode(self, letter):
         enc = self.reflector_model.encode(letter)
+        print(f'Reflector {self.rotors[-1].__str__()} encoding: {letter}')  # for testing...
         return enc
 
     ''' part of an experiment to implement factory method design pattern
