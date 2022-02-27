@@ -102,17 +102,7 @@ class Rotors:
                     letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
                     print(f'Rotor {rotor.rotor_number} rotations so input to next should be: {letter}')  # for testing...
 
-            # @TODO delete this - when confident
-            ''' old, nasty, pre-factory imp of rotors encoding
-            self.rotor_3.rotate()
-            if self.rotor_3.position == self.rotor_3.turnover:
-                self.rotor_2.rotate()
-                if self.rotor_2.position == self.rotor_2.turnover:
-                    self.rotor_1.rotate()
-            letter = self.rotor_3.encode(letter)
-            letter = self.rotor_2.encode(letter)
-            letter = self.rotor_1.encode(letter)
-            '''
+        return letter, rotations
 
     def rotate_letter(self, letter, rotation):
         """Rotates [uppercase] characters around the alphabet.  Works in both directions.
