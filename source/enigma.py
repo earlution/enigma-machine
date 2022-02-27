@@ -21,9 +21,9 @@ class Enigma:
         :return: The enalpharated position.
         """
         import string
-        positions = list(range(1, 26))
-        uc = list(string.ascii_uppercase)
-        enalpharations = list(zip(positions, uc))
+        positions = list(range(1, 27))
+        letters = list(string.ascii_uppercase)
+        enalpharations = dict(zip(positions, letters))
         return enalpharations[position]
 
     @staticmethod
