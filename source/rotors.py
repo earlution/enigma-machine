@@ -68,7 +68,7 @@ class Rotors:
                     print(f'Rotor {rotor.rotor_number} has rotated, so input to next is: {letter}')  # for testing...
 
                 letter = rotor.encode(letter, True)
-                print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoding: {letter}')  # for testing...
+                print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
 
                 # bookkeeping for this rotor
                 curr_rotor_index += 1
@@ -82,7 +82,7 @@ class Rotors:
 
             # encode letter by right-most rotor
             letter = self.rotors[curr_rotor_index].encode(letter)
-            print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoding: {letter}')  # for testing...
+            print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoded: {letter}')  # for testing...
 
             # check if turnover position reached
             if letter == self.rotors[rotor_indexes].turnover:
@@ -105,7 +105,7 @@ class Rotors:
                 if turnover:
                     self.rotors[curr_rotor_index].rotate
                 letter = rotor.encode(letter)
-                print(f'Rotor {rotor.rotor_number} ({rotor.__str__()}) encoding: {letter}')  # for testing...
+                print(f'Rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
 
                 # adjust next input by any rotation occurred
                 if self.rotations[curr_rotor_index] > 0:
