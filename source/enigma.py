@@ -40,7 +40,7 @@ class Enigma:
         return enumerations[letter]
 
     def encode(self, letter):
-        # @TODO we need a better place for this
+        # @TODO we need a better place for this - __main__
         num_of_rotors = 0
 
         self.raf.config_factory(RotorI)
