@@ -283,6 +283,7 @@ class Rotor:
         else:
             self.position = position
             self._encodings = self._encodings[position - 1:] + self._encodings[0:position - 1]
+            self._encodings_rev = self._encodings[position - 1:] + self._encodings[0:position - 1]
 
     def get_ring_setting(self):
         """Gets the current ring position.
