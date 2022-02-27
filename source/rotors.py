@@ -55,6 +55,16 @@ class Rotors:
         if reverse:
             for rotor in self.rotors:
                 letter = rotor.encode(letter, True)
+                print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoding: {letter}')  # for testing...
+
+                # adjust next input if rotation just occurred
+                # @TODO figure out why self.rotations values are all 0
+                if self.rotations[curr_rotor_index] > 0:
+                    letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
+                    print(f'Rotor {rotor.rotor_number} rotations, so input to next is: {letter}')  # for testing...
+
+                # bookkeeping for this rotor
+                curr_rotor_index -= 1
         else:
             # flag to note if rotated, so that corresponding input adjustment to next rotor can be accounted for
             rotated = False
