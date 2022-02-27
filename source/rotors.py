@@ -291,7 +291,8 @@ class Rotor:
             return ''
         else:
             if not reverse:
-                self.__advance_position()
+                # @TODO pretty sure this is legacy, monitor...
+                # self.__advance_position()
                 relative_letter_value = ord(letter) - ord('A')
 
                 return self._encodings[relative_letter_value]
