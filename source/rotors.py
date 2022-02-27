@@ -157,6 +157,7 @@ class Rotor:
 
         # will be overridden in subclasses
         # self.name = None
+        # @TODO this is not working, the indiv rotors do not have correct name
         self.rotor_number = int()
         self.ring_setting = ring_setting
         self.position = position
