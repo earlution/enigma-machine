@@ -6,11 +6,6 @@ class PlugLead:
         patch = patch.upper()
         self.mappings = dict()
         self.mappings = {patch[0]: patch[1], patch[1]: patch[0]}
-        # @TODO evel. if there is a overlap of functionality here...
-        self.mapping1 = dict()
-        self.mapping1 = {patch[0]: patch[1]}
-        self.mapping2 = dict()
-        self.mapping2 = {patch[1]: patch[0]}
 
     def encode(self, letter):
         if letter.upper() in self.mappings:
