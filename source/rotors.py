@@ -53,24 +53,27 @@ class Rotors:
         uc = list(string.ascii_uppercase)
         letter = letter.upper()
         rotor_indexes = self.num_of_rotors - 1
-        curr_rotor_index = rotor_indexes
+
         self.rotations = rotations
         turnover = False
 
         if reverse:
+            curr_rotor_index = 0
             for rotor in self.rotors:
-                letter = rotor.encode(letter, True)
-                print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoding: {letter}')  # for testing...
-
                 # adjust next input if rotation just occurred
                 # @TODO figure out why self.rotations values are all 0
                 if self.rotations[curr_rotor_index] > 0:
-                    letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
-                    print(f'Rotor {rotor.rotor_number} rotations, so input to next is: {letter}')  # for testing...
+                    letter = self.rotate_letter(letter, - self.rotations[curr_rotor_index])
+                    print(f'Rotor {rotor.rotor_number} has rotated, so input to next is: {letter}')  # for testing...
+
+                letter = rotor.encode(letter, True)
+                print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoding: {letter}')  # for testing...
 
                 # bookkeeping for this rotor
-                curr_rotor_index -= 1
+                curr_rotor_index += 1
         else:
+            curr_rotor_index = rotor_indexes
+
             # rotate the right-most rotor
             self.rotors[rotor_indexes].rotate()
             self.rotations[curr_rotor_index] += 1
@@ -85,7 +88,7 @@ class Rotors:
 
             # adjust next input for rotation relative to initial setting
             if self.rotations[curr_rotor_index] > 0:
-                letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
+                letter = self.rotate_letter(letter, - self.rotations[curr_rotor_index])
                 print(f'Rotor {self.rotors[-1].rotor_number} rotations, so input to next is: {letter}')  # for testing...
 
             curr_rotor_index -= 1
@@ -107,6 +110,7 @@ class Rotors:
                     letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
                     print(f'Rotor {rotor.rotor_number} rotations so input to next should be: {letter}')  # for testing...
 
+        print(f'Output is: {letter}')  # for testing...
         return letter, rotations
 
     def rotate_letter(self, letter, rotation):

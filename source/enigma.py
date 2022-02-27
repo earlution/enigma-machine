@@ -37,7 +37,7 @@ class Enigma:
         plugboard_enc = self.plugboard.encode(letter)
         rotors_enc, rotations = self.rotors.encode(plugboard_enc, rotations)
         reflector_enc = self.reflector.encode(rotors_enc)
-        rotors_rev_enc = self.rotors.encode(reflector_enc, True)
+        rotors_rev_enc = self.rotors.encode(reflector_enc, rotations, True)
         letter_enc = rotors_rev_enc
 
         return letter_enc
