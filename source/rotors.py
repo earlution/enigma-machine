@@ -17,7 +17,6 @@ class Rotors:
         self.rotations = list()
 
     def setup(self, *varargs):
-
         for rotor_class in varargs:
             if type(rotor_class) != Rotor:
                 # @TODO what to do here if arg is invalid...
