@@ -61,14 +61,6 @@ class Reflector(ABC):
     def __str__(self):
         return self._name
 
-    def encodings(self):
-        return self._encodings
-
-    '''
-    @abstractmethod
-    def encode(self, letter):
-        pass
-    '''
     def encode(self, letter):
         """Encodes a letter using the specific reflector schema in the subclass.
 
