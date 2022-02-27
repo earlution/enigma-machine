@@ -502,7 +502,6 @@ class RotorGamma(Rotor):
                        'F', 'C', 'T', 'S', 'I', 'B', 'M', 'G', 'W', 'Q', 'V', 'O', 'U']
     __turnover = []
 
-
     def __init__(self):
         super().__init__()
         self._name = 'Gamma'
