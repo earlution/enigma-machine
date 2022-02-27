@@ -287,6 +287,16 @@ class Rotor:
         self.position += 1
         self.position = self.position % 26
 
+    def set_rotor_number(self, rotor_num):
+        """Sets the - from left to right - position in the rotor sub-system this rotor will occupy.
+
+        I.e. From left to right, which position in the rotor system this rotor occupies.
+
+        :param rotor_num: The position in the rotor sub-system.
+        """
+
+        self.rotor_number = rotor_num
+
     def rotate(self, positions=1):
         """Rotates the _encodings by param positions places.
 
