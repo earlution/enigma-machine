@@ -354,7 +354,13 @@ class Rotor:
         :param ring_setting: The intended ring setting for this _encodings relative to 'A' MOD 26.
         """
 
-        self.rotate(ring_setting)
+        self.ring_setting = ring_setting
+        # ring_setting of 1 means no adjustment...
+        if ring_setting == 1:
+            pass
+        else:
+            # ...therefore the actual adjustment needs to be reduced by 1
+            self.rotate(ring_setting - 1)
 
     def encode(self, letter, reverse=False):
         letter = letter.upper()
