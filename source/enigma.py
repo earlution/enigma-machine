@@ -41,6 +41,13 @@ class Enigma:
         return enumerations[letter]
 
     def encode(self, letter):
+        """The main encode letter use case, synonymous with pressing a key on the Enigma keyboard.
+
+        :param letter: The letter to encode
+        :return: The encoded letter.
+        """
+
+        ''' was working-ish, trying to re-imp in __main__
         # @TODO we need a better place for this - __main__
         num_of_rotors = 0
 
