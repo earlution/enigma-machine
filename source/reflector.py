@@ -54,8 +54,8 @@ class Reflector(ABC):
 
     __encodings: list[Any] = list()
 
-    def __init__(self, name='A'):
-        self._name = name
+    def __init__(self):
+        self._name = str
         self._encodings = None
 
     def __str__(self):
