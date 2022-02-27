@@ -49,8 +49,13 @@ class Plugboard:
             self.__num_of_plugleads += 1
 
     # @TODO imp. un_patch: delete from self.plugleads; reset self.mappings
-    def un_patch(self, letter):
-        raise NotImplementedError
+    def un_patch(self, pluglead: PlugLead):
+        if not isinstance(pluglead, PlugLead):
+            pass
+        elif pluglead not in self.plugleads:
+            pass
+        else:
+            self.plugleads.remove(pluglead)
 
     def encode(self, letter):
         """Encodes param letter
