@@ -98,6 +98,40 @@ class Enigma:
 if __name__ == "__main__":
     # You can use this section to write tests and demonstrations of your enigma code.
     enigma = Enigma()
+
+    # create the desired rotors
+    enigma.raf.config_factory(RotorI)
+    r1 = enigma.raf.create_rotor()
+    enigma.raf.config_factory(RotorII)
+    r2 = enigma.raf.create_rotor()
+    enigma.raf.config_factory(RotorIII)
+    r3 = enigma.raf.create_rotor()
+
+    # configure the ring settings
+    r1.set_ring_setting(1)
+    r2.set_ring_setting(1)
+    r3.set_ring_setting(1)
+
+    # configure the initial rotor positions
+    r1.set_position(Enigma.enumerate_letter('A'))
+    r2.set_position(Enigma.enumerate_letter('A'))
+    r3.set_position(Enigma.enumerate_letter('Z'))
+
+    # add configured rotors to rotors sub-system
+    enigma.rotors.add_rotor_to_rotors(r1)
+    enigma.rotors.add_rotor_to_rotors(r2)
+    enigma.rotors.add_rotor_to_rotors(r3)
+
+    # make reflector
+    enigma.reflector = ReflectorB()
+
+    # @TODO code smell - SOMETHING needs to take responsibility for this...
+    # to keep track of rotations
+    # rotations = [0 for _ in range(enigma.rotors.num_of_rotors)]
+
+
+
+
     enigma.encode('A')
 
 
