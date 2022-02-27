@@ -191,6 +191,8 @@ class Rotor:
         reverse_encodings = list(dict_values)
         return reverse_encodings
 
+    # @TODO do we still need this, doesn't Rotor.rotate() have this responsibility?
+    '''
     def __advance_position(self):
         """Increments the position value of this rotor by 1, until position is 26.  After which the value cycles back
         round to 1.
@@ -199,6 +201,7 @@ class Rotor:
 
         self.position += 1
         self.position = self.position % 26
+    '''
 
     def set_rotor_number(self, rotor_num):
         """Sets the - from left to right - position in the rotor sub-system this rotor will occupy.
@@ -216,17 +219,15 @@ class Rotor:
         :param positions: The number of positions to rotate the position by - default is 1.
         """
 
+        # edge case: invalid type, do not rotate
         if not isinstance(positions, int):
-            positions = 1
-        elif positions < 1 or positions > 26:
-            positions = 1
-
-        self.__advance_position()
-        ''' this imp. goes the wong way - i.e. backwards
-        self._encodings = (self._encodings[len(self._encodings) - 1:len(self._encodings)] 
-                           + self._encodings[0:len(self._encodings) - 1])
-        '''
-        self._encodings = self._encodings[positions:] + self._encodings[0:positions]
+            pass
+        # edge case: invalid value, do not rotate
+        elif positions < 1:
+            pass
+        else:
+            self.position = self.position + (positions % 26)
+            self._encodings = self._encodings[self.position:] + self._encodings[0:self.position]
 
     def get_name(self):
         """Gets the name of this rotor.
@@ -252,6 +253,10 @@ class Rotor:
         :param position: The intended position.
         """
 
+        # edge case: invalid type, do nothing
+        if not isinstance(position, int):
+            pass
+        # edge case: invalid value, do nothing
         if position < 1 or position > 26:
             pass
         else:
