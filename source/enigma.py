@@ -13,6 +13,31 @@ class Enigma:
 
         self.raf = RotorAbstractFactory()
 
+    @staticmethod
+    def enalpharate_position(position):
+        """Helper function to map position value to its equivalent letter in alphabet.
+
+        :param position: The position value to enalpharate.
+        :return: The enalpharated position.
+        """
+        import string
+        positions = list(range(1, 26))
+        uc = list(string.ascii_uppercase)
+        enalpharations = list(zip(positions, uc))
+        return enalpharations[position]
+
+    @staticmethod
+    def enumerate_letter(letter):
+        """Helper function to map letter to its equivalent position in alphabet.
+
+        :param letter: The position value to enumerate.
+        :return: The enumerated position.
+        """
+        import string
+        uc = list(string.ascii_uppercase)
+        positions = list(range(1, 26))
+        enumerations = list(zip(uc, positions))
+        return enumerations[letter]
 
     def encode(self, letter):
         # @TODO we need a better place for this
