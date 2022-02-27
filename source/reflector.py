@@ -58,7 +58,7 @@ class Reflector(ABC):
         self._name = name
         self._encodings = None
 
-    def name(self):
+    def __str__(self):
         return self._name
 
     def encodings(self):
