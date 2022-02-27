@@ -3,7 +3,7 @@ from typing import Any
 
 
 # @TODO is this the correct name?
-class Reflectors:
+class Reflector_system:
     """
 
     """

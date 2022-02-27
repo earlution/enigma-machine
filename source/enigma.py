@@ -9,7 +9,7 @@ class Enigma:
         self.keyboard = Keyboard()
         self.plugboard = Plugboard()
         self.rotors = Rotors()
-        self.reflector = Reflectors()
+        self.reflector = Reflector_system()
 
         self.raf = RotorAbstractFactory()
 
@@ -87,9 +87,9 @@ class Enigma:
 
         plugboard_enc = self.plugboard.encode(letter)
         # @TODO rotations related code smell
-        rotors_enc, self.rotors.rotations = self.rotors.encode(plugboard_enc, rotations)
+        rotors_enc = self.rotors.encode(plugboard_enc)
         reflector_enc = self.reflector.encode(rotors_enc)
-        rotors_rev_enc = self.rotors.encode(reflector_enc, rotations, True)
+        rotors_rev_enc = self.rotors.encode(reflector_enc, True)
         letter_enc = rotors_rev_enc
 
         return letter_enc
@@ -128,9 +128,6 @@ if __name__ == "__main__":
     # @TODO code smell - SOMETHING needs to take responsibility for this...
     # to keep track of rotations
     # rotations = [0 for _ in range(enigma.rotors.num_of_rotors)]
-
-
-
 
     enigma.encode('A')
 
