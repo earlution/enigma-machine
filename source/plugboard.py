@@ -70,4 +70,9 @@ class Plugboard:
 
 
 if __name__ == "__main__":
-    pass
+    pb = Plugboard
+    pl1 = PlugLead('AB')
+    pb.add(pl1)
+    pl2 = PlugLead('CD')
+    pb.add(pl2)
+
