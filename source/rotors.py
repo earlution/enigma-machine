@@ -66,8 +66,6 @@ class Rotors:
                 # bookkeeping for this rotor
                 curr_rotor_index -= 1
         else:
-            # flag to note if rotated, so that corresponding input adjustment to next rotor can be accounted for
-            rotated = False
             # rotate the right-most rotor
             self.rotors[-1].rotate()
             # check if other rotors need to rotate...
