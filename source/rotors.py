@@ -67,8 +67,21 @@ class Rotors:
                     letter = self.rotate_letter(letter, self.rotations[curr_rotor_index])
                     print(f'Rotor {rotor.rotor_number} has rotated, so input to next is: {letter}')  # for testing...
 
-                letter = rotor.encode(letter, True)
-                print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
+                    # perform encoding, if previous rotation HAS occurred
+                    letter = rotor.encode(self.rotate_letter(letter, 0 - self.rotations[curr_rotor_index]), True)
+                    print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
+
+                    # need to adjust output relative to rotation
+                    letter = self.rotate_letter(letter, 0 - self.rotations[curr_rotor_index])
+                    print(f' therefore adjusted output from rotor {rotor.rotor_number} ({rotor.__str__()}) is: {letter}')  # for testing...
+
+                else:
+                    # perform encoding, if NO previous rotation has occurred
+                    letter = rotor.encode(letter, True)
+                    print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
+
+                # letter = self.rotate_letter(letter, - self.rotations[curr_rotor_index])
+
 
                 # bookkeeping for this rotor
                 curr_rotor_index += 1
