@@ -91,7 +91,10 @@ class ReflectorA(Reflector):
     def __init__(self):
         # @TODO trying to be polymorphic, figure out why I cannot call 'self._name = name' from super const.
         # super.__init__(name)
+
         super().__init__()
+        self._name = 'A'
+        super().__str__()
         self._encodings = ReflectorA.__encodings.copy()
 
 
