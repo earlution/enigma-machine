@@ -11,18 +11,42 @@ class Enigma:
         self.rotors = Rotors()
         self.reflector = Reflectors()
 
+        self.raf = RotorAbstractFactory()
+
 
     def encode(self, letter):
-        if letter.isalpha and (ord(letter.upper()) >= 65 and ord(letter.upper()) <= 90):
-            letter = letter.upper()
-            letter_pb = self.plugboard.encode(letter)
-            letter_rotors = self.rotors.encode(letter_pb)
-            letter_reflector = self.reflector.encode(letter_rotors)
-            letter_rev_rotors = self.rotors.reverse_encode(letter_reflector)
+        # @TODO we need a better place for this
+        num_of_rotors = 0
 
-            return letter_rev_rotors
+        self.raf.config_factory(RotorI)
+        r1 = self.raf.create_rotor()
+        self.raf.config_factory(RotorII)
+        r2 = self.raf.create_rotor()
+        self.raf.config_factory(RotorIII)
+        r3 = self.raf.create_rotor()
+        self.rotors.add_rotor_to_rotors(r1)
+        num_of_rotors += 1
+        self.rotors.add_rotor_to_rotors(r2)
+        num_of_rotors += 1
+        self.rotors.add_rotor_to_rotors(r3)
+        num_of_rotors += 1
+        self.reflector = ReflectorB()
+
+        rotations = [0 for _ in range(num_of_rotors)]
+
+        plugboard_enc = self.plugboard.encode(letter)
+        rotors_enc, rotations = self.rotors.encode(plugboard_enc, rotations)
+        reflector_enc = self.reflector.encode(rotors_enc)
+        rotors_rev_enc = self.rotors.encode(reflector_enc, True)
+        letter_enc = rotors_rev_enc
+
+        return letter_enc
 
 
 if __name__ == "__main__":
     # You can use this section to write tests and demonstrations of your enigma code.
-    pass
+    enigma = Enigma()
+    enigma.encode('A')
+
+
+
