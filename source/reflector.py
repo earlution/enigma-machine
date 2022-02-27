@@ -73,7 +73,10 @@ class Reflector(ABC):
             raise ValueError
         index_value = ord(letter) - ord('A')
 
-        return self._encodings[index_value]
+        letter = self._encodings[index_value]
+        print(f'Reflector {self.__str__()} encoding: {letter}')  # for testing...
+
+        return letter
 
 
 class ReflectorA(Reflector):
