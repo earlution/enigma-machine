@@ -19,6 +19,7 @@ class Plugboard:
         uppercase_letters_string = string.ascii_uppercase
         uppercase_letters_list = list(uppercase_letters_string)
         self.mappings = {k: v for k, v in zip(uppercase_letters_list, uppercase_letters_list)}
+        self.patchings = dict()
         self.plugleads = list()
         self.__max_num_of_plugleads = 10
         self.__num_of_plugleads = 0
@@ -33,14 +34,18 @@ class Plugboard:
         :type pluglead: PlugLead
         """
 
+        # edge case: attempt to make a patch that utilises an already patched letter
+        for i in pluglead.mappings:
+            for j in self.patchings:
+                if i == j:
+                    raise ValueError
+        # edge case: attempt to add more than 10 PlugLeads
         if len(self.plugleads) == self.__max_num_of_plugleads:
-            pass
-            # @TODO imp. better error handling here
-            # print('No available plugleads')
-            # raise PermissionError  # don't have permission to add another lead
+            raise ValueError
         else:
             self.plugleads.append(pluglead)
             self.mappings.update(pluglead.mappings)
+            self.patchings.update(pluglead.mappings)
             self.__num_of_plugleads += 1
 
     # @TODO imp. un_patch: delete from self.plugleads; reset self.mappings
