@@ -326,7 +326,7 @@ class Rotor:
 
 
 class RotorI(Rotor):
-    """Specialised Rotor; encodings I.
+    """Specialised Rotor; model I.
 
     """
 
@@ -346,7 +346,7 @@ class RotorI(Rotor):
 
 
 class RotorII(Rotor):
-    """Specialised Rotor; encodings II.
+    """Specialised Rotor; model II.
 
     """
 
@@ -366,7 +366,7 @@ class RotorII(Rotor):
 
 
 class RotorIII(Rotor):
-    """Specialised Rotor; encodings III.
+    """Specialised Rotor; model III.
 
     """
 
@@ -386,7 +386,7 @@ class RotorIII(Rotor):
 
 
 class RotorIV(Rotor):
-    """Specialised Rotor; encodings IV.
+    """Specialised Rotor; model IV.
 
     """
 
@@ -406,7 +406,7 @@ class RotorIV(Rotor):
 
 
 class RotorV(Rotor):
-    """Specialised Rotor; encodings V.
+    """Specialised Rotor; model V.
 
     """
 
@@ -426,7 +426,7 @@ class RotorV(Rotor):
 
 
 class RotorVI(Rotor):
-    """Specialised Rotor; encodings VI.
+    """Specialised Rotor; model VI.
 
     """
 
@@ -446,7 +446,7 @@ class RotorVI(Rotor):
 
 
 class RotorVII(Rotor):
-    """Specialised Rotor; encodings VII.
+    """Specialised Rotor; model VII.
 
     """
 
@@ -466,7 +466,7 @@ class RotorVII(Rotor):
 
 
 class RotorVIII(Rotor):
-    """Specialised Rotor; encodings VIII.
+    """Specialised Rotor; model VIII.
 
     """
 
