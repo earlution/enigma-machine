@@ -9,7 +9,7 @@ class Enigma:
         self.keyboard = Keyboard()
         self.plugboard = Plugboard()
         self.rotors = Rotors()
-        self.reflector = ReflectorSystem()
+        self.reflector = None
         # @TODO should have one abstract factory that has responsibility to create 'families' of objects
         self.rot_af = RotorAbstractFactory()
         self.ref_af = ReflectorAbstractFactory()
