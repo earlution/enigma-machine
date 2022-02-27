@@ -88,16 +88,19 @@ class Rotors:
             ''' previous approach to turnover rotation, left to demonstrate enumeration knowledge
             for rotor in reversed(self.rotors[:-1]):
                 # enumerating rotor.turnover str, so can be compared with rotor.position int
-                # @TODO test this bad-boy to ensure subsequent rotors rotate as expected
-                # if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]: # temp replace with for loop for easier debugging...
-                for i, char in enumerate(uc, 1):
-                    if i == rotor.position and char == rotor.turnover:
-                        rotor.rotate()
-                    # rotor.rotate() # temp replace with for loop for easier debugging...
-            print()
-            for rotor in reversed(self.rotors):
+                if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]:
+                    rotor.rotate()
+            '''
+            for rotor in reversed(self.rotors[:curr_rotor_index + 1]):
+                if turnover:
+                    self.rotors[curr_rotor_index].rotate
                 letter = rotor.encode(letter)
-                print(f'Rotor {rotor.__str__()} encoding: {letter}')  # for testing...
+                print(f'Rotor {rotor.rotor_number} ({rotor.__str__()}) encoding: {letter}')  # for testing...
+
+                # adjust next input by any rotation occurred
+                if self.rotations[curr_rotor_index] > 0:
+                    letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
+                    print(f'Rotor {rotor.rotor_number} rotations so input to next should be: {letter}')  # for testing...
 
             # @TODO delete this - when confident
             ''' old, nasty, pre-factory imp of rotors encoding
