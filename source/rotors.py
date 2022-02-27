@@ -61,7 +61,6 @@ class Rotors:
             curr_rotor_index = 0
             for rotor in self.rotors:
                 # adjust next input if rotation just occurred
-                # @TODO figure out why self.rotations values are all 0
                 if self.rotations[curr_rotor_index] > 0:
                     # @TODO need to figure put how to adjust _encodings.rev - due to previous rotations
                     letter = self.rotate_letter(letter, self.rotations[curr_rotor_index])
