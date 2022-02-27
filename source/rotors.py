@@ -499,9 +499,9 @@ class RotorAbstractFactory:
     """
 
     def __init__(self, rotors_factory=None):
-        """"rotors_factory is the abstract factory
+        """rotors_factory is the abstract factory
 
-        :param rotors_factory:
+        :param rotors_factory: The Rotor type with which to configure the factory.
         """
 
         self.rotor_factory = rotors_factory
@@ -509,7 +509,7 @@ class RotorAbstractFactory:
     def config_factory(self, rotors_factory: Rotor):
         """To enable the factory to be configured to create various specialised Rotor
 
-         - MIRRORS __init__ behaviour - code smell?
+         - MIRRORS __init__ behaviour (but signature is different) - code smell?
 
         :param rotors_factory: The Rotor type with which to configure the factory.
         """
@@ -517,7 +517,7 @@ class RotorAbstractFactory:
         self.rotor_factory = rotors_factory
 
     def create_rotor(self) -> Rotor:
-        """Creates a rotor using abstract factory.
+        """Creates a specialised rotor (of type Rotor) polymorphically using the abstract factory.
 
         Flavour of Rotor is dependent on the current factory configuration.
 
