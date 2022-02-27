@@ -67,9 +67,25 @@ class Rotors:
                 curr_rotor_index -= 1
         else:
             # rotate the right-most rotor
-            self.rotors[-1].rotate()
-            # check if other rotors need to rotate...
-            # ...right-to-left encoding equates to reverse iteration of list, but not the right-most rotor
+            self.rotors[rotor_indexes].rotate()
+            self.rotations[curr_rotor_index] += 1
+
+            # encode letter by right-most rotor
+            letter = self.rotors[curr_rotor_index].encode(letter)
+            print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoding: {letter}')  # for testing...
+
+            # check if turnover position reached
+            if letter == self.rotors[rotor_indexes].turnover:
+                turnover = True
+
+            # adjust next input for rotation relative to initial setting
+            if self.rotations[curr_rotor_index] > 0:
+                letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
+                print(f'Rotor {self.rotors[-1].rotor_number} rotations, so input to next is: {letter}')  # for testing...
+
+            curr_rotor_index -= 1
+
+            ''' previous approach to turnover rotation, left to demonstrate enumeration knowledge
             for rotor in reversed(self.rotors[:-1]):
                 # enumerating rotor.turnover str, so can be compared with rotor.position int
                 # @TODO test this bad-boy to ensure subsequent rotors rotate as expected
