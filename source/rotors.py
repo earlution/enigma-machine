@@ -200,16 +200,6 @@ class Rotor:
         :param position: The initial rotor position.
         """
 
-        # @TODO delete this - when confident
-        '''
-        # if invalid, default to 'I'
-        if name.upper() not in ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII']:
-            name = 'I'
-        # if invalid, default to 1
-        if (ring_setting < 1 or ring_setting > 26) or (not isinstance(ring_setting, int)):
-            ring_position = 1
-        self.name = name
-        '''
         # will be overridden in subclasses
         # self.name = None
         self.rotor_number = int()
