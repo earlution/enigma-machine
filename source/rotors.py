@@ -260,6 +260,9 @@ class Rotor:
         # edge case: invalid value, do nothing
         elif position < 1 or position > 26:
             pass
+        # edge case: position == 1, no need to rotate
+        elif position == 1:
+            self.position = position
         else:
             self.position = position
             self._encodings = self._encodings[position - 1:] + self._encodings[0:position - 1]
