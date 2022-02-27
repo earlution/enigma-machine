@@ -237,7 +237,7 @@ class Rotor:
             # @TODO rotation affects _encoding_rev too...
             self.encodings = self.encodings[positions:] + self.encodings[0:positions]
             self.encodings_rev = self.encodings_rev[positions:] + self.encodings_rev[0:positions]
-            self.position = self.position + (positions % 26)
+            self.position = (self.position + positions) % 26
 
     def get_name(self):
         """Gets the name of this rotor.
