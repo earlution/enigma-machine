@@ -49,6 +49,15 @@ class Enigma:
         r2 = self.raf.create_rotor()
         self.raf.config_factory(RotorIII)
         r3 = self.raf.create_rotor()
+
+        r1.set_ring_setting(1)
+        r2.set_ring_setting(1)
+        r3.set_ring_setting(1)
+
+        r1.set_position(Enigma.enumerate_letter('A'))
+        r2.set_position(Enigma.enumerate_letter('A'))
+        r3.set_position(Enigma.enumerate_letter('A'))
+
         self.rotors.add_rotor_to_rotors(r1)
         num_of_rotors += 1
         self.rotors.add_rotor_to_rotors(r2)
