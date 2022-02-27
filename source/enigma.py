@@ -9,9 +9,10 @@ class Enigma:
         self.keyboard = Keyboard()
         self.plugboard = Plugboard()
         self.rotors = Rotors()
-        self.reflector = Reflector_system()
-
-        self.raf = RotorAbstractFactory()
+        self.reflector = ReflectorSystem()
+        # @TODO should have one abstract factory that has responsibility to create 'families' of objects
+        self.rot_af = RotorAbstractFactory()
+        self.ref_af = ReflectorAbstractFactory()
 
     @staticmethod
     def enalpharate_position(position):
@@ -51,12 +52,12 @@ class Enigma:
         # @TODO we need a better place for this - __main__
         num_of_rotors = 0
 
-        self.raf.config_factory(RotorI)
-        r1 = self.raf.create_rotor()
-        self.raf.config_factory(RotorII)
-        r2 = self.raf.create_rotor()
-        self.raf.config_factory(RotorIII)
-        r3 = self.raf.create_rotor()
+        self.rot_af.config_factory(RotorI)
+        r1 = self.rot_af.create_rotor()
+        self.rot_af.config_factory(RotorII)
+        r2 = self.rot_af.create_rotor()
+        self.rot_af.config_factory(RotorIII)
+        r3 = self.rot_af.create_rotor()
 
         r1.set_ring_setting(1)
         r2.set_ring_setting(1)
@@ -100,12 +101,12 @@ if __name__ == "__main__":
     enigma = Enigma()
 
     # create the desired rotors
-    enigma.raf.config_factory(RotorI)
-    r1 = enigma.raf.create_rotor()
-    enigma.raf.config_factory(RotorII)
-    r2 = enigma.raf.create_rotor()
-    enigma.raf.config_factory(RotorIII)
-    r3 = enigma.raf.create_rotor()
+    enigma.rot_af.config_factory(RotorI)
+    r1 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorII)
+    r2 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorIII)
+    r3 = enigma.rot_af.create_rotor()
 
     # configure the ring settings
     r1.set_ring_setting(1)
