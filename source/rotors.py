@@ -208,8 +208,10 @@ class Rotor:
         '''
         # will be overridden in subclasses
         # self.name = None
+        self.rotor_number = int()
         self.ring_setting = ring_setting
         self.position = position
+        self.rotation = 0
         self._encodings = list()
         self._encodings_rev = list()
         # would be logically easier to implement as int not str, but more abstract from Enigma construction.
