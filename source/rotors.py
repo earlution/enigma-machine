@@ -227,8 +227,10 @@ class Rotor:
         elif positions < 1:
             pass
         else:
-            self.position = self.position + (positions % 26)
+            # @TODO rotation affects _encoding_rev too...
             self._encodings = self._encodings[self.position:] + self._encodings[0:self.position]
+            self._encodings_rev = self._encodings[self.position:] + self._encodings[0:self.position]
+            self.position = self.position + (positions % 26)
 
     def get_name(self):
         """Gets the name of this rotor.
