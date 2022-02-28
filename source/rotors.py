@@ -48,9 +48,9 @@ class Rotors:
 
             # encode letter by left-most rotr
             letter = self.rotors[curr_rotor_index].encode(letter, True)
-            print(f'Reflected rotr {self.rotors[curr_rotor_index].rotor_number} ({self.rotors[curr_rotor_index].__str__()}) encoded: {letter}')  # for testing...
+            print(f'Reflected rotor {self.rotors[curr_rotor_index].rotor_number} ({self.rotors[curr_rotor_index].__str__()}) encoded: {letter}')  # for testing...
 
-            # bookkeeping for this rotr
+            # bookkeeping for this rotor
             curr_rotor_index += 1
 
             for rotr in self.rotors[1:]:
@@ -82,10 +82,10 @@ class Rotors:
         else:
             curr_rotor_index = rotor_indexes
 
-            # rotate the right-most rotr
+            # rotate the right-most rotor
             self.rotors[rotor_indexes].rotate()
 
-            # encode letter by right-most rotr
+            # encode letter by right-most rotor
             letter = self.rotors[curr_rotor_index].encode(letter)
             print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoded: {letter}')  # for testing...
 
