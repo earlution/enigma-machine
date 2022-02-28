@@ -1,3 +1,4 @@
+from enigma import *
 from enigma import Enigma
 
 
@@ -57,12 +58,16 @@ class Rotors:
                 # adjust next input if rotation HAS occurred, and encode
                 if rotor.position != 1:
 
+                    # adjust
+                    letter = self.rotate_letter(letter, self.rotors[curr_rotor_index].position - 1)
+                    print(f' therefore adjusted output to rotor {rotor.rotor_number} ({rotor.__str__()}) is: {letter}')  # for testing...
+
                     # encode
-                    letter = rotor.encode(self.rotate_letter(letter, 0 - self.rotations[curr_rotor_index]), True)
+                    letter = rotor.encode(letter)
                     print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
 
                     # adjust
-                    letter = self.rotate_letter(letter, self.rotors[curr_rotor_index].position - 1)
+                    letter = self.rotate_letter(letter, - self.rotors[curr_rotor_index].position + 1)
                     print(f' therefore adjusted output from rotor {rotor.rotor_number} ({rotor.__str__()}) is: {letter}')  # for testing...
 
                 # just perform encoding
@@ -91,7 +96,8 @@ class Rotors:
 
             # adjust next input by rotation, relative to initial setting
             if self.rotors[curr_rotor_index].position != 1:
-                letter = self.rotate_letter(letter, -1)
+                rotation = 26 - self.rotors[curr_rotor_index].position + 1
+                letter = self.rotate_letter(letter, rotation)
                 print(f'Rotor {self.rotors[-1].rotor_number} rotated, so input to next is: {letter}')  # for testing...
 
             curr_rotor_index -= 1
@@ -543,4 +549,12 @@ class RotorAbstractFactory:
 
 
 if __name__ == "__main__":
-    pass
+    # create the rotor abstract factory
+    r_af = RotorAbstractFactory()
+    # configure the abstract factory for specialised Rotor of type RotorI
+    r_af.config_factory(RotorI)
+    # create the desired Rotor subclass
+    rotor = r_af.create_rotor()
+
+    assert(rotor.encode('A') == 'E')
+    assert (rotor.encode('A', True) == 'U')

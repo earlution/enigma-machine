@@ -85,7 +85,7 @@ if __name__ == "__main__":
     # configure the initial rotor positions
     r1.set_position(Enigma.enumerate_letter('A'))
     r2.set_position(Enigma.enumerate_letter('A'))
-    r3.set_position(Enigma.enumerate_letter('A'))
+    r3.set_position(Enigma.enumerate_letter('Z'))
 
     # add configured rotors to rotors sub-system
     enigma.rotors.add_rotor_to_rotors(r1)
