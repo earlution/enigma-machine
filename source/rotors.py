@@ -217,7 +217,6 @@ class Rotor:
         elif positions < 1:
             pass
         else:
-            # @TODO rotation affects _encoding_rev too...
             self.encodings = self.encodings[positions:] + self.encodings[0:positions]
             self.encodings_rev = self.encodings_rev[positions:] + self.encodings_rev[0:positions]
             self.position = (self.position + positions) % 26
