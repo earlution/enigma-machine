@@ -6,25 +6,7 @@ class Rotors:
     def __init__(self, ):
         self.rotors = list()
         self.num_of_rotors = 0
-        # @TODO need to figure out a good place for .rotations ...
-        '''
-        # values to track if a rotor has rotated, so that input value to next rotor can be adjusted accordingly
-        self.rotations = [0 for _ in range(self.num_of_rotors)]
-        '''
         self.rotations = list()
-
-    # @TODO monitor if this is needed...
-    '''don't think we need this anymore...
-    def setup(self, *varargs):
-        for rotor_class in varargs:
-            if type(rotor_class) != Rotor:
-                # @TODO what to do here if arg is invalid...
-                pass
-            else:
-                raf = RotorAbstractFactory(rotor_class)
-                # self.rotors.append(rot_af.create_rotor())
-                return raf.create_rotor()
-    '''
 
     def add_rotor_to_rotors(self, new_rotor):
         self.rotors.append(new_rotor)
