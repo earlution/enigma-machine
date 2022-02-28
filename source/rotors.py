@@ -108,16 +108,16 @@ class Rotors:
                 if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]:
                     rotor.rotate()
             '''
-            for rotor in reversed(self.rotors[:curr_rotor_index + 1]):
+            for rotr in reversed(self.rotors[:curr_rotor_index + 1]):
                 if turnover:
                     self.rotors[curr_rotor_index].rotate
-                letter = rotor.encode(letter)
-                print(f'Rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
+                letter = rotr.encode(letter)
+                print(f'Rotor {rotr.rotor_number} ({rotr.__str__()}) encoded: {letter}')  # for testing...
 
                 # adjust next input by any rotation occurred
                 if self.rotations[curr_rotor_index] > 0:
                     letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
-                    print(f'Rotor {rotor.rotor_number} rotations so input to next should be: {letter}')  # for testing...
+                    print(f'Rotor {rotr.rotor_number} rotations so input to next should be: {letter}')  # for testing...
 
         print(f'Output is: {letter}')  # for testing...
         return letter
