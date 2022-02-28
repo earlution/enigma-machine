@@ -79,7 +79,6 @@ class Rotors:
 
             # rotate the right-most rotor
             self.rotors[rotor_indexes].rotate()
-            self.rotations[curr_rotor_index] += 1
 
             # encode letter by right-most rotor
             letter = self.rotors[curr_rotor_index].encode(letter)
