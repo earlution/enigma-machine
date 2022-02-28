@@ -85,7 +85,8 @@ class Rotors:
             print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoded: {letter}')  # for testing...
 
             # check if turnover position reached
-            if letter in self.rotors[rotor_indexes].turnover:
+            turn_pos = Enigma.enalpharate_position(self.rotors[curr_rotor_index].position)
+            if turn_pos in self.rotors[rotor_indexes].turnover:
                 turnover = True
 
             # adjust next input by rotation, relative to initial setting
