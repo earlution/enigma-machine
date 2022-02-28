@@ -1,5 +1,95 @@
-from enigma import *
-from enigma import Enigma
+from abc import ABC
+from typing import Any
+import string
+
+
+def rotate_letter(letter, rotation):
+    """Rotates [uppercase] characters around the alphabet.  Works in both directions.
+
+    :param letter: The letter to be rotations.
+    :param rotation: The number of positions to rotate.
+    :return: The rotations letter.
+    """
+
+    # invalid input
+    if len(letter) != 1:
+        return letter
+    # letter is not in alphabet
+    elif not letter.isalpha():
+        return letter
+    else:
+        letter = letter.upper()
+        ordv = ord(letter)
+        ans = ((ordv - 65 + rotation) % 26) + 65
+        return chr(ans)
+
+
+class PlugLead:
+    def __init__(self, patch):
+        patch = patch.upper()
+        self.mappings = dict()
+        self.mappings = {patch[0]: patch[1], patch[1]: patch[0]}
+
+    def encode(self, letter):
+        if letter.upper() in self.mappings:
+            return self.mappings[letter]
+        else:
+            return letter.upper()
+
+
+class Plugboard:
+    def __init__(self):
+        uppercase_letters_string = string.ascii_uppercase
+        uppercase_letters_list = list(uppercase_letters_string)
+        self.mappings = {k: v for k, v in zip(uppercase_letters_list, uppercase_letters_list)}
+        self.patchings = dict()
+        self.plugleads = list()
+        self.__max_num_of_plugleads = 10
+        self.__num_of_plugleads = 0
+
+    def add(self, pluglead: PlugLead):
+        """Add one of ten available PlugLeads to the Plugboard.
+
+        Patches two letters specified in the name parameter of the PlugLead.  E.g. the PlugLead argument 'AB' would
+        patch the letters 'A' abd 'B', so that 'A' would be encoded to 'B' and 'B' would be encoded to 'A'.
+
+        :param pluglead: A PlugLead object specifying the two letters for a bidirectional patch.
+        :type pluglead: PlugLead
+        """
+
+        # edge case: attempt to make a patch that utilises an already patched letter
+        for i in pluglead.mappings:
+            for j in self.patchings:
+                if i == j:
+                    raise ValueError
+        # edge case: attempt to add more than 10 PlugLeads
+        if len(self.plugleads) == self.__max_num_of_plugleads:
+            raise ValueError
+        else:
+            self.plugleads.append(pluglead)
+            self.mappings.update(pluglead.mappings)
+            self.patchings.update(pluglead.mappings)
+            self.__num_of_plugleads += 1
+
+    # @TODO imp. un_patch: delete from self.plugleads; reset self.mappings
+    def un_patch(self, pluglead: PlugLead):
+        if not isinstance(pluglead, PlugLead):
+            pass
+        elif pluglead not in self.plugleads:
+            pass
+        else:
+            self.plugleads.remove(pluglead)
+
+    def encode(self, letter):
+        """Encodes param letter
+
+        Encoding of the letter depends on the current state of the plugboard. I.e. what - if any - patches have beem
+        made.
+
+        :param letter: the letter to be encoded
+        :return: the encoded letter
+        """
+        return self.mappings[letter]
 
 
 class Rotors:
@@ -79,8 +169,6 @@ class Rotors:
                 rotation = 27 - self.rotors[0].position
                 letter = rotate_letter(letter, rotation)
                 print(f'Rotor {self.rotors[0].rotor_number} rotated, so input to next is: {letter}')
-
-
         else:
             # encode letter by rotor 1
             letter = self.rotors[0].encode(letter, True)
@@ -209,8 +297,8 @@ class Rotor:
         if not isinstance(positions, int):
             pass
         # edge case: invalid value, do not rotate
-        # elif positions < 1:
-        #     pass
+        elif positions < 1:
+            pass
         else:
             self.encodings = self.encodings[positions:] + self.encodings[0:positions]
             self.encodings_rev = self.encodings_rev[positions:] + self.encodings_rev[0:positions]
@@ -541,13 +629,442 @@ class RotorAbstractFactory:
         return created_rotor
 
 
-if __name__ == "__main__":
-    # create the rotor abstract factory
-    r_af = RotorAbstractFactory()
-    # configure the abstract factory for specialised Rotor of type RotorI
-    r_af.config_factory(RotorI)
-    # create the desired Rotor subclass
-    rotor = r_af.create_rotor()
+class ReflectorSystem:
+    """
 
-    assert(rotor.encode('A') == 'E')
-    assert (rotor.encode('A', True) == 'U')
+    """
+
+    # def __init__(self, reflectors_factory=None): # can't get factory pattern working... yet
+    def __init__(self, reflector_name='A'):
+        """reflector_factory is the abstract factory
+
+        """
+
+        ''' @FIXME can't get this working. for now use the [urgh] pattern adopted in Rotors
+        self.reflector_factory = reflectors_factory
+        '''
+        self.reflector_name = None
+        self.reflector_model = None
+
+    def setup(self, reflector_name='A'):
+        if type(reflector_name) == str:
+            if reflector_name == 'A':
+                self.reflector_name = 'A'
+                self.reflector_model = ReflectorA()
+            elif reflector_name == 'B':
+                self.reflector_name = 'B'
+                self.reflector_model = ReflectorB()
+
+    def encode(self, letter):
+        enc = self.reflector_model.encode(letter)
+        print(f'Reflector {self.rotors[-1].__str__()} encoding: {letter}')  # for testing...
+        return enc
+
+    ''' part of an experiment to implement factory method design pattern
+    def show_reflector(self):
+        """ creates and shows reflectors using the abstract factory
+
+        """
+
+        reflector = self.reflector_factory()
+
+        print(f'We have a reflector{reflector}')
+        print('it has the following encodings pattern: ')
+        print(f'{reflector.encodings}')
+    '''
+
+
+class Reflector(ABC):
+    """
+
+    """
+
+    __encodings: list[Any] = list()
+
+    def __init__(self):
+        self._name = str
+        self._encodings = None
+
+    def __str__(self):
+        return self._name
+
+    def encode(self, letter):
+        """Encodes a letter using the specific reflector schema in the subclass.
+
+                :param letter: The letter to be encoded.
+                :return: The encoded letter.
+                """
+
+        if ord(letter) < 65 or ord(letter) > 90:
+            raise ValueError
+        index_value = ord(letter) - ord('A')
+
+        letter = self._encodings[index_value]
+        print(f'Reflector {self.__str__()} encoding: {letter}')  # for testing...
+
+        return letter
+
+
+class ReflectorA(Reflector):
+    """
+
+    """
+
+    __encodings = ['E', 'J', 'M', 'Z', 'A', 'L', 'Y', 'X', 'V', 'B', 'W', 'F', 'C',
+                   'R', 'Q', 'U', 'O', 'N', 'T', 'S', 'P', 'I', 'K', 'H', 'G', 'D']
+
+    # have removed param name as workaround to issue described below
+    def __init__(self):
+        # @TODO trying to be polymorphic, figure out why I cannot call 'self._name = name' from super const.
+        # super.__init__(name)
+
+        super().__init__()
+        self._name = 'A'
+        super().__str__()
+        self._encodings = ReflectorA.__encodings.copy()
+
+
+class ReflectorB(Reflector):
+    """
+
+    """
+
+    __encodings = ['Y', 'R', 'U', 'H', 'Q', 'S', 'L', 'D', 'P', 'X', 'N', 'G', 'O',
+                   'K', 'M', 'I', 'E', 'B', 'F', 'Z', 'C', 'W', 'V', 'J', 'A', 'T']
+
+    # have removed param name as workaround to issue described below
+    def __init__(self):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        # super.__init__(name)
+
+        super().__init__()
+        self._name = 'B'
+        super().__str__()
+        self._encodings = ReflectorB.__encodings.copy()
+
+
+class ReflectorC(Reflector):
+    """
+
+    """
+
+    __encodings = ['F', 'V', 'P', 'J', 'I', 'A', 'O', 'Y', 'E', 'D', 'R', 'Z', 'X',
+                   'W', 'G', 'C', 'T', 'K', 'U', 'Q', 'S', 'B', 'N', 'M', 'H', 'L']
+
+    # have removed param name as workaround to issue described below
+    def __init__(self):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        # super.__init__(name)
+
+        super().__init__()
+        self._name = 'C'
+        super().__str__()
+        self._encodings = ReflectorC.__encodings.copy()
+
+
+class ReflectorBThin(Reflector):
+    """An Enigma reflector.
+
+    Date introduced: 1940
+    Model name and number: M4 R1 (M3 + Thin)
+    """
+
+    __encodings = ['E', 'N', 'K', 'Q', 'A', 'U', 'Y', 'W', 'J', 'I', 'C', 'O', 'P',
+                   'B', 'L', 'M', 'D', 'X', 'Z', 'V', 'F', 'T', 'H', 'R', 'G', 'S']
+
+    # have removed param name as workaround to issue described below
+    def __init__(self):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        # super.__init__(name)
+
+        super().__init__()
+        self._name = 'B Thin'
+        super().__str__()
+        self._encodings = ReflectorBThin.__encodings.copy()
+
+
+class ReflectorCThin(Reflector):
+    """An Enigma reflector.
+
+    Date introduced: 1940
+    Model name and number: M4 R1 (M3 + Thin)
+    """
+
+    __encodings = ['R', 'D', 'O', 'B', 'J', 'N', 'T', 'K', 'V', 'E', 'H', 'M', 'L',
+                   'F', 'C', 'W', 'Z', 'A', 'X', 'G', 'Y', 'I', 'P', 'S', 'U', 'Q']
+
+    # have removed param name as workaround to issue described below
+    def __init__(self):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        # super.__init__(name)
+
+        super().__init__()
+        self._name = 'C Thin'
+        super().__str__()
+        self._encodings = ReflectorCThin.__encodings.copy()
+
+
+class ReflectorETW(Reflector):
+    """An Enigma reflector.
+
+    Date introduced:
+    Model name and number: Enigma I
+    """
+
+    __encodings = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+    # have removed param name as workaround to issue described below
+    def __init__(self):
+        # @TODO figure out why I cannot call 'self._name = name' from super const.
+        # super.__init__(name)
+        super().__init__()
+        self._encodings = ReflectorETW.__encodings.copy()
+
+
+def reflector_factory(name='A'):
+    """Factory method to create a reflector of desired type.
+
+    Attempt to implement factory method pattern.
+
+    Intention is to enable creation of whichever reflector, from another object without having to directly create
+    instance from class.
+
+    :param name: The name of the intended reflector
+    :return: The specified reflector
+    """
+
+    reflectors = {'A': ReflectorA,
+                  'B': ReflectorB,
+                  'C': ReflectorC,
+                  'B Thin': ReflectorBThin,
+                  'C Thin': ReflectorCThin}
+
+    if name not in reflectors:
+        return reflectors['A']()
+    else:
+        return reflectors[name]()
+
+
+class ReflectorAbstractFactory:
+    """Reflector abstract factory - an implementation of the abstract factory design pattern.
+
+    To enable dynamic creation of whatever flavor of Reflector, so that we can have Enigma machines with however
+    many reflectors.
+
+    Abstract factory pattern implementation from:
+
+    Chaudhary, M. 2021. Abstract Factory Method – Python Design Patterns [Online]. Uttar Pradesh: GeeksforGeeks.
+     Available from: https://www.geeksforgeeks.org/abstract-factory-method-python-design-patterns/
+     [Accessed Wed 23 Feb 2022].
+    """
+
+    def __init__(self, reflectors_factory=None):
+        """reflectors_factory is the abstract factory
+
+        :param reflectors_factory: The Reflector type with which to configure the factory.
+        """
+
+        self.reflector_factory = reflectors_factory
+
+    def config_factory(self, reflectors_factory: Reflector):
+        """To enable the factory to be configured to create various specialised Rotor
+
+         - MIRRORS __init__ behaviour (but signature is different) - code smell?
+
+        :param reflectors_factory: The Reflector type with which to configure the factory.
+        """
+
+        self.reflector_factory = reflectors_factory
+
+    def create_reflector(self) -> Reflector:
+        """Creates a specialised reflector (of type Reflector) polymorphically using the abstract factory.
+
+        Flavour of Reflector is dependent on the current factory configuration.
+
+        :return: The created Reflector.
+        :rtype: Reflector
+        """
+
+        created_reflector = self.reflector_factory()
+        return created_reflector
+
+
+class Keyboard:
+    def __init__(self):
+        pass
+
+    def press(self, letter=None):
+        if type(letter) != str or (ord(letter.upper()) < 65 or (ord(letter.upper()) > 90)):
+            letter = input('Type a letter: ').upper()[0]
+            if type(letter) != str or (ord(letter.upper()) < 65 or (ord(letter.upper()) > 90)):
+                return ''
+        else:
+            return letter.upper()
+
+
+class Enigma:
+    def __init__(self):
+        self.keyboard = Keyboard()
+        self.plugboard = Plugboard()
+        self.rotors = Rotors()
+        self.reflector = None
+        # @TODO should have one abstract factory that has responsibility to create 'families' of objects
+        self.rot_af = RotorAbstractFactory()
+        self.ref_af = ReflectorAbstractFactory()
+
+    @staticmethod
+    def enalpharate_position(position):
+        """Helper function to map position value to its equivalent letter in alphabet.
+
+        :param position: The position value to enalpharate.
+        :return: The enalpharated position.
+        """
+        import string
+        positions = list(range(1, 27))
+        letters = list(string.ascii_uppercase)
+        enalpharations = dict(zip(positions, letters))
+        return enalpharations[position]
+
+    @staticmethod
+    def enumerate_letter(letter):
+        """Helper function to map letter to its equivalent position in alphabet.
+
+        :param letter: The position value to enumerate.
+        :return: The enumerated position.
+        """
+        import string
+        letter = letter.upper()
+        letters = list(string.ascii_uppercase)
+        positions = list(range(1, 27))
+        enumerations = dict(zip(letters, positions))
+        return enumerations[letter]
+
+    def add_reflector(self, reflector_to_add: Reflector):
+        """Adds a reflector to this Enigma machine.
+
+        :param reflector_to_add: The reflector to use.
+        :type reflector_to_add: Reflector
+        """
+        self.reflector = reflector_to_add
+
+    def encode(self, letter):
+        """The main encode letter use case, synonymous with pressing a key on the Enigma keyboard.
+
+        :param letter: The letter to encode
+        :return: The encoded letter.
+        """
+
+        plugboard_enc = self.plugboard.encode(letter)
+        # @TODO rotations related code smell
+        rotors_enc = self.rotors.encode(plugboard_enc)
+        reflector_enc = self.reflector.encode(rotors_enc)
+        rotors_rev_enc = self.rotors.encode(reflector_enc, True)
+        letter_enc = rotors_rev_enc
+
+        return letter_enc
+
+
+if __name__ == "__main__":
+    # case 1
+    enigma = Enigma()
+
+    # create the desired rotors
+    enigma.rot_af.config_factory(RotorI)
+    r1 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorII)
+    r2 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorIII)
+    r3 = enigma.rot_af.create_rotor()
+
+    # configure the ring settings
+    r1.set_ring_setting(1)
+    r2.set_ring_setting(1)
+    r3.set_ring_setting(2)
+
+    # configure the initial rotor positions
+    r1.set_position(Enigma.enumerate_letter('A'))
+    r2.set_position(Enigma.enumerate_letter('A'))
+    r3.set_position(Enigma.enumerate_letter('Z'))
+
+    # add configured rotors to rotors sub-system
+    enigma.rotors.add_rotor_to_rotors(r1)
+    enigma.rotors.add_rotor_to_rotors(r2)
+    enigma.rotors.add_rotor_to_rotors(r3)
+
+    # make and add the reflector
+    enigma.ref_af.config_factory(ReflectorB)
+    reflector = enigma.ref_af.create_reflector()
+    enigma.add_reflector(reflector)
+
+    # perform encryption
+    case1 = enigma.encode('A')
+
+    # case 2
+    enigma = Enigma()
+
+    # create the desired rotors
+    enigma.rot_af.config_factory(RotorI)
+    r1 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorII)
+    r2 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorIII)
+    r3 = enigma.rot_af.create_rotor()
+
+    # configure the ring settings
+    r1.set_ring_setting(1)
+    r2.set_ring_setting(1)
+    r3.set_ring_setting(2)
+
+    # configure the initial rotor positions
+    r1.set_position(Enigma.enumerate_letter('A'))
+    r2.set_position(Enigma.enumerate_letter('A'))
+    r3.set_position(Enigma.enumerate_letter('A'))
+
+    # add configured rotors to rotors sub-system
+    enigma.rotors.add_rotor_to_rotors(r1)
+    enigma.rotors.add_rotor_to_rotors(r2)
+    enigma.rotors.add_rotor_to_rotors(r3)
+
+    # make and add the reflector
+    enigma.ref_af.config_factory(ReflectorB)
+    reflector = enigma.ref_af.create_reflector()
+    enigma.add_reflector(reflector)
+
+    # perform encryption
+    case2 = enigma.encode('A')
+
+    # case 3
+    enigma = Enigma()
+
+    # create the desired rotors
+    enigma.rot_af.config_factory(RotorI)
+    r1 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorII)
+    r2 = enigma.rot_af.create_rotor()
+    enigma.rot_af.config_factory(RotorIII)
+    r3 = enigma.rot_af.create_rotor()
+
+    # configure the ring settings
+    r1.set_ring_setting(1)
+    r2.set_ring_setting(1)
+    r3.set_ring_setting(2)
+
+    # configure the initial rotor positions
+    r1.set_position(Enigma.enumerate_letter('Q'))
+    r2.set_position(Enigma.enumerate_letter('E'))
+    r3.set_position(Enigma.enumerate_letter('V'))
+
+    # add configured rotors to rotors sub-system
+    enigma.rotors.add_rotor_to_rotors(r1)
+    enigma.rotors.add_rotor_to_rotors(r2)
+    enigma.rotors.add_rotor_to_rotors(r3)
+
+    # make and add the reflector
+    enigma.ref_af.config_factory(ReflectorB)
+    reflector = enigma.ref_af.create_reflector()
+    enigma.add_reflector(reflector)
+
+    # perform encryption
+    case3 = enigma.encode('A')
+

@@ -4,6 +4,27 @@ from rotors import *
 from reflector import *
 
 
+def rotate_letter(letter, rotation):
+    """Rotates [uppercase] characters around the alphabet.  Works in both directions.
+
+    :param letter: The letter to be rotations.
+    :param rotation: The number of positions to rotate.
+    :return: The rotations letter.
+    """
+
+    # invalid input
+    if len(letter) != 1:
+        return letter
+    # letter is not in alphabet
+    elif not letter.isalpha():
+        return letter
+    else:
+        letter = letter.upper()
+        ordv = ord(letter)
+        ans = ((ordv - 65 + rotation) % 26) + 65
+        return chr(ans)
+
+
 class Enigma:
     def __init__(self):
         self.keyboard = Keyboard()
@@ -67,25 +88,26 @@ class Enigma:
 
 
 if __name__ == "__main__":
+    # case 1
     enigma = Enigma()
 
     # create the desired rotors
-    enigma.rot_af.config_factory(RotorI)
+    enigma.rot_af.config_factory(RotorIV)
     r1 = enigma.rot_af.create_rotor()
-    enigma.rot_af.config_factory(RotorII)
+    enigma.rot_af.config_factory(RotorV)
     r2 = enigma.rot_af.create_rotor()
-    enigma.rot_af.config_factory(RotorIII)
+    enigma.rot_af.config_factory(RotorBeta)
     r3 = enigma.rot_af.create_rotor()
 
     # configure the ring settings
-    r1.set_ring_setting(1)
-    r2.set_ring_setting(1)
-    r3.set_ring_setting(1)
+    r1.set_ring_setting(14)
+    r2.set_ring_setting(9)
+    r3.set_ring_setting(24)
 
     # configure the initial rotor positions
     r1.set_position(Enigma.enumerate_letter('A'))
     r2.set_position(Enigma.enumerate_letter('A'))
-    r3.set_position(Enigma.enumerate_letter('Z'))
+    r3.set_position(Enigma.enumerate_letter('A'))
 
     # add configured rotors to rotors sub-system
     enigma.rotors.add_rotor_to_rotors(r1)
@@ -98,4 +120,10 @@ if __name__ == "__main__":
     enigma.add_reflector(reflector)
 
     # perform encryption
-    enigma.encode('A')
+    case1 = enigma.encode('H')
+
+
+
+
+
+
