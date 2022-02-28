@@ -101,21 +101,22 @@ class Rotors:
             curr_rotor_index -= 1
 
             ''' previous approach to turnover rotation, left to demonstrate enumeration knowledge
-            for rotr in reversed(self.rotors[:-1]):
-                # enumerating rotr.turnover str, so can be compared with rotr.position int
-                if rotr.position == [i for i, letter in enumerate(uc, 1) if letter == rotr.turnover][0]:
-                    rotr.rotate()
+            for rotor in reversed(self.rotors[:-1]):
+                # enumerating rotor.turnover str, so can be compared with rotor.position int
+                if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]:
+                    rotor.rotate()
             '''
             for rotr in reversed(self.rotors[:curr_rotor_index + 1]):
                 if turnover:
-                    self.rotors[curr_rotor_index].rotate
+                    self.rotors[curr_rotor_index].rotate()
                 letter = rotr.encode(letter)
                 print(f'Rotor {rotr.rotor_number} ({rotr.__str__()}) encoded: {letter}')  # for testing...
 
                 # adjust next input by any rotation occurred
-                if self.rotations[curr_rotor_index] > 0:
-                    letter = self.rotate_letter(letter, -self.rotations[curr_rotor_index])
-                    print(f'Rotor {rotr.rotor_number} rotations so input to next should be: {letter}')  # for testing...
+                if self.rotors[curr_rotor_index].position != 1:
+                    rotation = 26 - self.rotors[curr_rotor_index].position + 1
+                    letter = self.rotate_letter(letter, rotation)
+                    print(f'Rotor {rotr.rotor_number} rotated so input to next is: {letter}')  # for testing...
 
         print(f'Output is: {letter}')  # for testing...
         return letter
