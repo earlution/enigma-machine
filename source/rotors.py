@@ -114,7 +114,7 @@ class Rotors:
                     print(f'Rotor {rotor.rotor_number} rotations so input to next should be: {letter}')  # for testing...
 
         print(f'Output is: {letter}')  # for testing...
-        return letter  #, rotations
+        return letter
 
     @staticmethod
     def rotate_letter(letter, rotation):
