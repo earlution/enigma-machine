@@ -10,13 +10,11 @@ class Rotors:
     def __init__(self, ):
         self.rotors = list()
         self.num_of_rotors = 0
-        self.rotations = list()
 
     def add_rotor_to_rotors(self, new_rotor):
         self.rotors.append(new_rotor)
         self.num_of_rotors += 1
         self.rotors[self.num_of_rotors - 1].set_rotor_number(self.num_of_rotors)
-        self.rotations.append(0)
 
     def get_num_of_rotors(self):
         return self.num_of_rotors
