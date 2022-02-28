@@ -46,46 +46,46 @@ class Rotors:
         if reverse:
             curr_rotor_index = 0
 
-            # encode letter by left-most rotor
+            # encode letter by left-most rotr
             letter = self.rotors[curr_rotor_index].encode(letter, True)
-            print(f'Reflected rotor {self.rotors[curr_rotor_index].rotor_number} ({self.rotors[curr_rotor_index].__str__()}) encoded: {letter}')  # for testing...
+            print(f'Reflected rotr {self.rotors[curr_rotor_index].rotor_number} ({self.rotors[curr_rotor_index].__str__()}) encoded: {letter}')  # for testing...
 
-            # bookkeeping for this rotor
+            # bookkeeping for this rotr
             curr_rotor_index += 1
 
-            for rotor in self.rotors[1:]:
+            for rotr in self.rotors[1:]:
 
                 # adjust next input if rotation HAS occurred, and encode
-                if rotor.position != 1:
+                if rotr.position != 1:
 
                     # adjust
                     letter = self.rotate_letter(letter, self.rotors[curr_rotor_index].position - 1)
-                    print(f' therefore adjusted output to rotor {rotor.rotor_number} ({rotor.__str__()}) is: {letter}')  # for testing...
+                    print(f' therefore adjusted output to rotr {rotr.rotor_number} ({rotr.__str__()}) is: {letter}')  # for testing...
 
                     # encode
-                    letter = rotor.encode(letter)
-                    print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
+                    letter = rotr.encode(letter)
+                    print(f'Reflected rotr {rotr.rotor_number} ({rotr.__str__()}) encoded: {letter}')  # for testing...
 
                     # adjust
                     letter = self.rotate_letter(letter, - self.rotors[curr_rotor_index].position + 1)
-                    print(f' therefore adjusted output from rotor {rotor.rotor_number} ({rotor.__str__()}) is: {letter}')  # for testing...
+                    print(f' therefore adjusted output from rotr {rotr.rotor_number} ({rotr.__str__()}) is: {letter}')  # for testing...
 
                 # just perform encoding
                 else:
-                    letter = rotor.encode(letter, True)
-                    print(f'Reflected rotor {rotor.rotor_number} ({rotor.__str__()}) encoded: {letter}')  # for testing...
+                    letter = rotr.encode(letter, True)
+                    print(f'Reflected rotr {rotr.rotor_number} ({rotr.__str__()}) encoded: {letter}')  # for testing...
 
-                # bookkeeping for this rotor
+                # bookkeeping for this rotr
                 curr_rotor_index += 1
 
         # pre-reflector path
         else:
             curr_rotor_index = rotor_indexes
 
-            # rotate the right-most rotor
+            # rotate the right-most rotr
             self.rotors[rotor_indexes].rotate()
 
-            # encode letter by right-most rotor
+            # encode letter by right-most rotr
             letter = self.rotors[curr_rotor_index].encode(letter)
             print(f'Rotor {self.rotors[-1].rotor_number} ({self.rotors[-1].__str__()}) encoded: {letter}')  # for testing...
 
@@ -103,10 +103,10 @@ class Rotors:
             curr_rotor_index -= 1
 
             ''' previous approach to turnover rotation, left to demonstrate enumeration knowledge
-            for rotor in reversed(self.rotors[:-1]):
-                # enumerating rotor.turnover str, so can be compared with rotor.position int
-                if rotor.position == [i for i, letter in enumerate(uc, 1) if letter == rotor.turnover][0]:
-                    rotor.rotate()
+            for rotr in reversed(self.rotors[:-1]):
+                # enumerating rotr.turnover str, so can be compared with rotr.position int
+                if rotr.position == [i for i, letter in enumerate(uc, 1) if letter == rotr.turnover][0]:
+                    rotr.rotate()
             '''
             for rotr in reversed(self.rotors[:curr_rotor_index + 1]):
                 if turnover:
